@@ -28,10 +28,11 @@ export default function RootLayout({
         className={`${inter.className} ${singleDay_init.variable} single_day`}
       >
         <header className="flex justify-between items-center overflow-x-hidden">
-          <h1>All the Ghibli Things!</h1>
+          <h1 className="text-5xl">All the Ghibli Things!</h1>
           <Link href="/">
             {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
             <img
+              className="w-48"
               src="https://www.ghibli-museum.jp/en/img/mainimg.png"
               alt="link to home page"
             />
