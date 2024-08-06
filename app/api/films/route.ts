@@ -6,6 +6,6 @@ export const GET = async (req: Request) => {
 
     return new Response(JSON.stringify(films.rows), { status: 200 })
   } catch (error) {
-    return new Response('Failed to fetch projects', { status: 500 })
+    return new Response('Failed to fetch films', { status: 500 })
   }
 }
