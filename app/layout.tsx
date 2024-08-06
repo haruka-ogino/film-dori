@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import NavBar from '@/components/NavBar'
 import { Single_Day } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,7 +27,16 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${singleDay_init.variable} single_day`}
       >
-        <h1 className="single_day">All the Ghibli Things!</h1>
+        <header className="flex justify-between items-center overflow-x-hidden">
+          <h1>All the Ghibli Things!</h1>
+          <Link href="/">
+            {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
+            <img
+              src="https://www.ghibli-museum.jp/en/img/mainimg.png"
+              alt="link to home page"
+            />
+          </Link>
+        </header>
         <NavBar />
         {children}
       </body>
