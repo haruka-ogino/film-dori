@@ -29,5 +29,5 @@ export const findUserByEmail = async (email: string) => {
       image: user.image,
     }
   }
-  return result.rows.length > 0 ? result.rows[0] : null
+  return null
 }
