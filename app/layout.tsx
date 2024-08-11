@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Provider from '@/components/Provider'
 import { SessionProviderProps } from 'next-auth/react'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 const singleDay_init = Single_Day({
   // subsets:['latin'],
@@ -28,9 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} ${singleDay_init.variable} single_day`}
-      >
+      <body className={`${singleDay_init.variable} single_day`}>
         <Provider session={session}>
           <header className="flex justify-between items-center overflow-x-hidden">
             <h1 className="text-5xl">All the Ghibli Things!</h1>
