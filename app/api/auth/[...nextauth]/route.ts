@@ -37,8 +37,6 @@ const handler = NextAuth({
     },
     async signIn({ profile }) {
       try {
-        console.log(profile)
-
         if (!profile || !profile.email) {
           return false
         }
