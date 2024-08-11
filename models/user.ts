@@ -1,16 +1,25 @@
 import { turso } from '@/utils/database'
 
 export const createUser = async (userData: {
+  sub: string
   email: string
   username: string
   image: string
+  given_name: string
+  family_name: string
 }) => {
   const query = `
-    INSERT INTO users (email, username, image)
+    INSERT INTO users (sub, email, username, image, given_name, family_name)
     VALUES (?, ?, ?)
   `
-
-  const args = [userData.email, userData.username, userData.image]
+  const args = [
+    userData.sub,
+    userData.email,
+    userData.username,
+    userData.image,
+    userData.given_name,
+    userData.family_name,
+  ]
 
   await turso.execute({ sql: query, args })
 }

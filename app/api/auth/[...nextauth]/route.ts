@@ -11,6 +11,9 @@ declare module 'next-auth' {
 
   interface Profile {
     picture?: string | null
+    given_name: string
+    family_name: string
+    sub?: string | undefined
   }
 }
 
@@ -34,6 +37,8 @@ const handler = NextAuth({
     },
     async signIn({ profile }) {
       try {
+        console.log(profile)
+
         if (!profile || !profile.email) {
           return false
         }
@@ -44,11 +49,14 @@ const handler = NextAuth({
         // Create user if it does not exist
         if (!userExists) {
           await createUser({
+            given_name: profile.given_name,
+            family_name: profile.family_name,
             email: profile.email,
             username: profile.name
               ? profile.name.replace(' ', '').toLowerCase()
               : '',
             image: profile.picture ?? '',
+            sub: profile.sub as string,
           })
         }
         return true
