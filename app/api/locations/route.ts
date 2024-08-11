@@ -6,16 +6,12 @@ export const GET = async (req: Request) => {
 
     const locations = all_locations.rows
 
-    // console.log(locations)
-
     const locations_data = await Promise.all(
       locations.map(async (location) => {
         const res = await fetch(
           `https://maps.googleapis.com/maps/api/place/details/json?place_id=${location.id}&key=${process.env.GOOGLE_KEY}`
         )
         const data = await res.json()
-        console.log(`data: ${data}`)
-
         return {
           ...location,
           rating: data.result.rating,
