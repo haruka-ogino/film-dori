@@ -9,8 +9,8 @@ export const createUser = async (userData: {
   family_name: string
 }) => {
   const query = `
-    INSERT INTO users (sub, email, username, image, given_name, family_name)
-    VALUES (?, ?, ?)
+    INSERT INTO users (id, email, username, image, given_name, family_name)
+    VALUES (?, ?, ?, ?, ?, ?)
   `
   const args = [
     userData.sub,
