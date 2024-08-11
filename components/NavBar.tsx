@@ -42,23 +42,17 @@ const NavBar = () => {
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
-            <button
-              type="button"
-              onClick={() => signOut()}
-              className="outline_btn"
-            >
+            <button type="button" onClick={() => signOut()}>
               Sign Out
             </button>
 
-            <Link href="/profile">
-              <Image
-                src={session?.user.image ?? ''}
-                width={37}
-                height={37}
-                className="rounded-full"
-                alt="profile"
-              />
-            </Link>
+            <Image
+              src={session?.user.image ?? ''}
+              width={37}
+              height={37}
+              className="rounded-full"
+              alt="profile"
+            />
           </div>
         ) : (
           <>
@@ -70,7 +64,6 @@ const NavBar = () => {
                   onClick={() => {
                     signIn(provider.id)
                   }}
-                  className="black_btn"
                 >
                   Sign in
                 </button>
