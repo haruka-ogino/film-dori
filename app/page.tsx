@@ -1,3 +1,5 @@
+import GhibliLocations from '@/components/GhibliLocations'
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
@@ -14,6 +16,7 @@ export default function Home() {
         The place where you can share locations that inspired your favourite
         films and tv shows!
       </p>
+      <GhibliLocations />
     </main>
   )
 }
