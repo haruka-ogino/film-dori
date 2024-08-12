@@ -1,3 +1,4 @@
+import { getLocations } from '@/api/location'
 import { useQuery } from '@tanstack/react-query'
 
 export function useCollections() {
