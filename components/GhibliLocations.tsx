@@ -11,12 +11,18 @@ const GhibliLocations = () => {
 
   console.log(locations)
 
-  return (
-    <>
-      <h1>Locations</h1>
-      {}
-    </>
-  )
+  if (locations) {
+    return (
+      <>
+        <h1>Locations</h1>
+        {locations.map((location: { image: string | undefined }, i: number) => (
+          <section key={i}>
+            <img src={location.image} />
+          </section>
+        ))}
+      </>
+    )
+  }
 }
 
 export default GhibliLocations
