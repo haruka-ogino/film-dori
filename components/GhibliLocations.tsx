@@ -1,6 +1,7 @@
 'use client'
 
 import { useLocations } from '@/hooks/locations'
+import { Location } from '@/models/locations'
 
 const GhibliLocations = () => {
   const { data: locations, isLoading, isError } = useLocations()
@@ -13,7 +14,7 @@ const GhibliLocations = () => {
     return (
       <>
         <h1>Locations</h1>
-        {locations.map((location, i: number) => (
+        {locations.map((location: Location, i: number) => (
           <section key={i}>
             <h1>{location.name}</h1>
             <img src={location.image} />
