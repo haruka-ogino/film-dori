@@ -5,7 +5,6 @@ import { Single_Day } from 'next/font/google'
 import Link from 'next/link'
 import Provider from '@/components/Provider'
 import { SessionProviderProps } from 'next-auth/react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 
 const singleDay_init = Single_Day({
@@ -16,8 +15,6 @@ export const metadata: Metadata = {
   title: 'All the Ghibli Things!',
   description: 'A library for all Ghibli things',
 }
-
-const queryClient = new QueryClient()
 
 export default function RootLayout({
   children,

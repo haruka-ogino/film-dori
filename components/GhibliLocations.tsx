@@ -1,3 +1,5 @@
+'use client'
+
 import { useLocations } from '@/hooks/locations'
 
 const GhibliLocations = () => {
@@ -12,6 +14,7 @@ const GhibliLocations = () => {
   return (
     <>
       <h1>Locations</h1>
+      {}
     </>
   )
 }
