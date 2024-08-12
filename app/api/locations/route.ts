@@ -21,7 +21,6 @@ export const GET = async (req: Request) => {
         }
       })
     )
-    console.log(locations_data)
 
     return new Response(JSON.stringify(locations_data), { status: 200 })
   } catch (error) {

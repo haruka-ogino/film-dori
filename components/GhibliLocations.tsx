@@ -9,22 +9,20 @@ const GhibliLocations = () => {
 
   if (isError) return <h1>You are experiencing an error...</h1>
 
-  console.log(locations)
-
   if (locations) {
     return (
       <>
         <h1>Locations</h1>
-        {locations.map((location: { image: string | undefined }, i: number) => (
+        {locations.map((location, i: number) => (
           <section key={i}>
-            <p>{location.name}</p>
+            <h1>{location.name}</h1>
+            <img src={location.image} />
 
             <p>{location.description}</p>
             <p>{location.rating}</p>
             <p>
               <a href={location.url}>{location.address}</a>
             </p>
-            <img src={location.image} />
           </section>
         ))}
       </>

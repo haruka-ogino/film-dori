@@ -1,4 +1,6 @@
-export async function getLocations() {
+import { Location } from '@/models/locations'
+
+export async function getLocations(): Promise<Location[] | undefined> {
   try {
     const res = await fetch(`/api/locations`)
 
