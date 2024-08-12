@@ -17,6 +17,13 @@ const GhibliLocations = () => {
         <h1>Locations</h1>
         {locations.map((location: { image: string | undefined }, i: number) => (
           <section key={i}>
+            <p>{location.name}</p>
+
+            <p>{location.description}</p>
+            <p>{location.rating}</p>
+            <p>
+              <a href={location.url}>{location.address}</a>
+            </p>
             <img src={location.image} />
           </section>
         ))}
