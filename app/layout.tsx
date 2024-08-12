@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import NavBar from '@/components/NavBar'
 import { Single_Day } from 'next/font/google'
@@ -7,10 +6,7 @@ import Link from 'next/link'
 import Provider from '@/components/Provider'
 import { SessionProviderProps } from 'next-auth/react'
 
-// const inter = Inter({ subsets: ['latin'] })
-
 const singleDay_init = Single_Day({
-  // subsets:['latin'],
   weight: ['400'],
   variable: '--font-single_day',
 })
