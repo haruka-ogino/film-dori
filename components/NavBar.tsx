@@ -32,14 +32,17 @@ const NavBar = () => {
   }, [])
 
   return (
-    <nav className="flex justify-between items-center overflow-x-hidden mt-2">
+    <nav className="flex justify-between items-center overflow-x-hidden pb-2 my-2 border-b-2 border-blue-900">
       {/* <h2>item 1</h2>
       <h2>item 2</h2>
       <h2>item 3</h2>
       <h2>item 4</h2>
       <h2>item 5</h2> */}
       {/* Desktop Navigation */}
-      <div className="sm:flex hidden">
+      <div className="sm:flex justify-around hidden">
+        <Link href="/goals" className="mr-2">
+          Future goals for app
+        </Link>
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <button type="button" onClick={() => signOut()}>
@@ -70,9 +73,6 @@ const NavBar = () => {
               ))}
           </>
         )}
-        <Link href="/goals" className="ml-5">
-          Future goals for app
-        </Link>
       </div>
     </nav>
   )
