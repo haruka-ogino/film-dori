@@ -15,6 +15,9 @@ export default function FutureGoals() {
         </li>
         <li>Display locations inputted by users of the app.</li>
         <li>Implement filters to discover locations.</li>
+        <li>
+          Implement responsiveness for mobile - specifically for the navbar.
+        </li>
       </ul>
     </>
   )
