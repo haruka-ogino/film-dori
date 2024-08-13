@@ -2,8 +2,6 @@ export const revalidate = 0
 
 import { turso } from '@/utils/database'
 
-// export const revalidate = 0
-// export const dynamic = 'force-dynamic'
 export const GET = async (req: Request) => {
   try {
     const all_locations = await turso.execute(`SELECT * FROM locations`)
@@ -24,8 +22,13 @@ export const GET = async (req: Request) => {
             address: data.result.formatted_address,
             url: data.result.url,
           }
-          console.log(response)
-          return { response }
+          return {
+            ...location,
+            rating: data.result.rating,
+            name: data.result.name,
+            address: data.result.formatted_address,
+            url: data.result.url,
+          }
         } catch (apiError) {
           console.error(
             `Error fetching details for location ${location.id}:`,
@@ -38,23 +41,12 @@ export const GET = async (req: Request) => {
             address: 'Unknown',
             url: '',
           }
-          //   return {
-          //     ...location,
-          //     rating: data.result.rating,
-          //     name: data.result.name,
-          //     address: data.result.formatted_address,
-          //     url: data.result.url,
-          //   }
         }
       })
     )
 
     return new Response(JSON.stringify(locations_data), { status: 200 })
   } catch (error) {
-    return new Response(
-      // `Failed to fetch locations ${process.env.TURSO_AUTH_TOKEN}`,
-      'Failed to fetch locations',
-      { status: 500 }
-    )
+    return new Response('Failed to fetch locations', { status: 500 })
   }
 }
