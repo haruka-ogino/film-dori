@@ -55,7 +55,8 @@ ol ul {
   margin-left: 15px;
 }
 
-a:hover {
+a:hover,
+.log-btn:hover {
   text-decoration: underline;
 }
 
