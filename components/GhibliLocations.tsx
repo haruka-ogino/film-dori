@@ -15,10 +15,9 @@ const GhibliLocations = () => {
       <>
         <h1>Some Ghibli Locations</h1>
         {locations.map((location: Location, i: number) => (
-          <section key={i}>
-            <h2>{location.name}</h2>
-            <img src={location.image} />
-
+          <section key={i} className="mt-10 mp-10 flex flex-col">
+            <h2 className="text-4xl">{location.name}</h2>
+            <img src={location.image} className="self-center" />
             <p>{location.description}</p>
             <p>Google rating: {location.rating} ⭐️</p>
             <p>Address:</p>

@@ -28,6 +28,26 @@ body {
   width: 70%;
 }
 
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+img {
+  max-height: 600px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .single_day {
   font-family: var(--font-single_day);
 }

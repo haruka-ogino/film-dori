@@ -2,7 +2,7 @@ import GhibliLocations from '@/components/GhibliLocations'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex min-h-screen flex-col">
       <h1>Welcome!</h1>
       {/* <p>
         A place where you can see films, characters, dishes and more from the
