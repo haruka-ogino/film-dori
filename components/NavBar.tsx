@@ -39,15 +39,18 @@ const NavBar = () => {
       <h2>item 4</h2>
       <h2>item 5</h2> */}
       {/* Desktop Navigation */}
-      <div className="sm:flex justify-around hidden">
-        <Link href="/goals" className="mr-2">
+      <div className="sm:flex justify-center hidden items-center">
+        <Link href="/goals" className="mx-5">
           Future goals for app
         </Link>
-        <Link href="/post-location" className="mr-2">
+        <Link href="/post-location" className="mx-5">
           Add Location
         </Link>
+        <Link href="/my-locations" className="mx-5">
+          My Locations
+        </Link>
         {session?.user ? (
-          <div className="flex gap-3 md:gap-5">
+          <div className="flex gap-3 md:gap-5 mx-5">
             <button type="button" onClick={() => signOut()}>
               Sign Out
             </button>
