@@ -43,6 +43,9 @@ const NavBar = () => {
         <Link href="/goals" className="mr-2">
           Future goals for app
         </Link>
+        <Link href="/post-location" className="mr-2">
+          Add Location
+        </Link>
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <button type="button" onClick={() => signOut()}>
