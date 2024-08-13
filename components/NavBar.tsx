@@ -70,6 +70,9 @@ const NavBar = () => {
               ))}
           </>
         )}
+        <Link href="/goals" className="ml-5">
+          Future goals for app
+        </Link>
       </div>
     </nav>
   )
