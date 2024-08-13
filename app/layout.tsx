@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Provider from '@/components/Provider'
 import { SessionProviderProps } from 'next-auth/react'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
+import Footer from '@/components/Footer'
 
 const singleDay_init = Single_Day({
   weight: ['400'],
@@ -41,6 +42,7 @@ export default function RootLayout({
             </header>
             <NavBar />
             {children}
+            <Footer />
           </ReactQueryProvider>
         </Provider>
       </body>
