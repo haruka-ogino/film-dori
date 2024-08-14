@@ -1,5 +1,5 @@
-import { getLocations } from '@/api/location'
-import { useQuery } from '@tanstack/react-query'
+import { getLocations, searchGoogleLocation } from '@/api/location'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 export function useLocations() {
   const query = useQuery({
@@ -14,4 +14,11 @@ export function useLocations() {
   }
 }
 
-export function useSearchGoogle() {}
+export function useSearchGoogle() {
+  const qc = useQueryClient()
+
+  return useMutation({
+    mutationFn: searchGoogleLocation,
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['googleLocations'] }),
+  })
+}
