@@ -1,10 +1,31 @@
+'use client'
+import { useSearchGoogle } from '@/hooks/locations'
+import { useState } from 'react'
+
 export default function Post() {
+  const [inputState, setInputState] = useState('')
+
+  const search = useSearchGoogle()
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    // console.log(e.target.value)
+
+    const input = e.target.value
+    setInputState(input)
+  }
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    search.mutate({ searchInput: inputState })
+    setInputState('')
+  }
+
   return (
     <>
       <h1>Share a location!</h1>
       <p>~ This page is under construction ~</p>
       <p>~ Stay tuned for updates ~</p>
-      <p>
+      {/* <p>
         Lorem ipsum odor amet, consectetuer adipiscing elit. Curabitur sem cras,
         sed convallis commodo conubia ante aptent. Aliquet amet taciti maecenas
         imperdiet; curae himenaeos platea et. Cras orci leo senectus hac arcu
@@ -78,8 +99,18 @@ export default function Post() {
         fusce proin quisque eleifend pulvinar? Faucibus habitant non lacus; a
         porttitor leo nec. Orci fermentum volutpat tortor imperdiet vulputate
         lorem sed.
-      </p>
-      {/* <p>Login to share locations and save your favourite locations.</p> */}
+      </p> */}
+      <p>Login to share locations and save your favourite locations.</p>
+      <form onSubmit={handleSubmit}>
+        <input
+          name="googleLocation"
+          type="text"
+          value={inputState}
+          onChange={handleChange}
+          placeholder="search location"
+        />
+        <button type="submit">Save</button>
+      </form>
     </>
   )
 }

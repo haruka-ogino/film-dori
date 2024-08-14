@@ -24,12 +24,15 @@ export async function searchGoogleLocation({
   searchInput: string
 }) {
   try {
+    const search = JSON.stringify({ search: searchInput })
+
     const res = await fetch('/api/locations/search', {
       method: 'POST',
-      body: JSON.stringify(searchInput),
+      body: search,
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
       },
+      cache: 'no-store',
     })
 
     if (!res.ok) {
@@ -39,6 +42,8 @@ export async function searchGoogleLocation({
     }
 
     const locations = await res.json()
+    console.log(locations)
+
     return locations
   } catch (error) {
     console.error('Failed to fetch locations from google ', error)
