@@ -6,6 +6,7 @@ import { useState } from 'react'
 export default function Post() {
   const [inputState, setInputState] = useState('')
   const [locations, setLocations] = useState<GoogleSearchRes[]>([])
+  const [showRes, setShowRes] = useState<boolean>(false)
 
   const search = useSearchGoogle()
 
@@ -22,6 +23,7 @@ export default function Post() {
         onSuccess: (data) => {
           console.log(data)
           setLocations(data)
+          setShowRes(true)
         },
       }
     )
@@ -108,7 +110,7 @@ export default function Post() {
         porttitor leo nec. Orci fermentum volutpat tortor imperdiet vulputate
         lorem sed.
       </p> */}
-      <p>Login to share locations and save your favourite locations.</p>
+      {/* <p>Login to share locations and save your favourite locations.</p> */}
       <form onSubmit={handleSubmit}>
         <input
           name="googleLocation"
@@ -119,6 +121,17 @@ export default function Post() {
         />
         <button type="submit">Save</button>
       </form>
+      {showRes && (
+        <>
+          <h1>Search results:</h1>
+          {locations.map((location, i) => (
+            <div key={i}>
+              <h2>{location.displayName.text}</h2>
+              <p>{location.formattedAddress}</p>
+            </div>
+          ))}
+        </>
+      )}
     </>
   )
 }
