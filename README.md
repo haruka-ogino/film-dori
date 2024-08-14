@@ -1,4 +1,4 @@
-# My App (name under construction)
+# 🗺️ Film Michi
 
 Welcome to my app! A place to share locations that are inspired by or the inspiration to your favourite films and tv shows. Its aim is to encourage tourism in lesser known areas, putting less pressure on areas suffering from over-tourism.
 
