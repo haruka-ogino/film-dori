@@ -4,19 +4,26 @@ import { useState } from 'react'
 
 export default function Post() {
   const [inputState, setInputState] = useState('')
+  const [locations, setLocations] = useState<any[]>([])
 
   const search = useSearchGoogle()
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    // console.log(e.target.value)
-
     const input = e.target.value
     setInputState(input)
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    search.mutate({ searchInput: inputState })
+    search.mutate(
+      { searchInput: inputState },
+      {
+        onSuccess: (data) => {
+          console.log(data)
+          setLocations(data)
+        },
+      }
+    )
     setInputState('')
   }
 

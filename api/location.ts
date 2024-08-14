@@ -42,7 +42,7 @@ export async function searchGoogleLocation({
     }
 
     const locations = await res.json()
-    console.log(locations)
+    // console.log(locations)
 
     return locations
   } catch (error) {
