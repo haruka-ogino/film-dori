@@ -1,10 +1,11 @@
 'use client'
 import { useSearchGoogle } from '@/hooks/locations'
+import { GoogleSearchRes } from '@/models/locations'
 import { useState } from 'react'
 
 export default function Post() {
   const [inputState, setInputState] = useState('')
-  const [locations, setLocations] = useState<any[]>([])
+  const [locations, setLocations] = useState<GoogleSearchRes[]>([])
 
   const search = useSearchGoogle()
 

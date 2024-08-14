@@ -1,3 +1,5 @@
+import { GoogleSearchRes } from '@/models/locations'
+
 export const POST = async (req: Request) => {
   try {
     const apiKey = process.env.GOOGLE_KEY

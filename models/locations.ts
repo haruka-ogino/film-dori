@@ -8,3 +8,9 @@ export interface Location {
   address: string
   url: string
 }
+
+export interface GoogleSearchRes {
+  displayName: { text: string; languageCode: string }
+  formattedAddress: string
+  id: string
+}
