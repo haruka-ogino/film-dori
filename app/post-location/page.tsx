@@ -124,12 +124,14 @@ export default function Post() {
       {showRes && (
         <>
           <h1>Search results:</h1>
-          {locations.map((location, i) => (
-            <div key={i}>
-              <h2>{location.displayName.text}</h2>
-              <p>{location.formattedAddress}</p>
-            </div>
-          ))}
+          <ul className="flex flex-col items-center">
+            {locations.map((location, i) => (
+              <li key={i} className="li-style w-11/12">
+                <h2>{location.displayName.text}</h2>
+                <p>{location.formattedAddress}</p>
+              </li>
+            ))}
+          </ul>
         </>
       )}
     </>
