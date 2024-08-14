@@ -13,3 +13,5 @@ export function useLocations() {
     ...query,
   }
 }
+
+export function useSearchGoogle() {}
