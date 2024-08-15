@@ -1,14 +1,12 @@
-import { useGoogleInfo } from '@/hooks/google-locations'
+import { GoogleSearchRes } from '@/models/google-locations'
 
-export default function SaveLocation({ id }: { id: string }) {
-  const { data: googleInfo, isLoading, isError, error } = useGoogleInfo(id)
-
-  if (isLoading) return <h1>Loading...</h1>
-
-  if (isError) return <h1>You are experiencing an error...</h1>
-
-  if (googleInfo) {
-    const { rating, displayName, formattedAddress, url } = googleInfo
+export default function SaveLocation({
+  location,
+}: {
+  location: GoogleSearchRes | undefined
+}) {
+  if (location) {
+    const { rating, displayName, formattedAddress, url } = location
 
     return (
       <section className="search_result">

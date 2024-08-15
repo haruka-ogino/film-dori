@@ -51,20 +51,21 @@ export async function searchGoogleLocation({
   }
 }
 
-export async function getGoogleLocation(id: string) {
-  try {
-    const res = await fetch(`/api/locations/search/${id}`)
+// OBSOLETE
+// export async function getGoogleLocation(id: string) {
+//   try {
+//     const res = await fetch(`/api/locations/search/${id}`)
 
-    if (!res.ok) {
-      throw new Error(
-        `Failed to fetch location (${res.status}): ${res.statusText}`
-      )
-    }
+//     if (!res.ok) {
+//       throw new Error(
+//         `Failed to fetch location (${res.status}): ${res.statusText}`
+//       )
+//     }
 
-    const location = await res.json()
-    return location as SingleGoogleRes
-  } catch (error) {
-    console.error('Error fetching location:', error)
-    throw new Error('Failed to fetch location. Please try again.')
-  }
-}
+//     const location = await res.json()
+//     return location as SingleGoogleRes
+//   } catch (error) {
+//     console.error('Error fetching location:', error)
+//     throw new Error('Failed to fetch location. Please try again.')
+//   }
+// }

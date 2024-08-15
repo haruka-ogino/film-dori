@@ -11,7 +11,7 @@ export default function Post() {
   const [inputState, setInputState] = useState('')
   const [locations, setLocations] = useState<GoogleSearchRes[]>([])
   const [showRes, setShowRes] = useState<boolean>(false)
-  const [idProp, setIdProp] = useState('')
+  const [locationProp, setLocationProp] = useState<GoogleSearchRes>()
   const [saveLocation, setSaveLocation] = useState(false)
 
   const search = useSearchGoogle()
@@ -36,7 +36,7 @@ export default function Post() {
   }
 
   function handleClick(i: number) {
-    setIdProp(locations[i].id)
+    setLocationProp(locations[i])
     setSaveLocation(true)
   }
 
@@ -164,7 +164,7 @@ export default function Post() {
           </ul>
         </>
       )}
-      {saveLocation && <SaveLocation id={idProp} />}
+      {saveLocation && <SaveLocation location={locationProp} />}
     </>
   )
 }

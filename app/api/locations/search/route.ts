@@ -16,7 +16,7 @@ export const POST = async (req: Request) => {
           'Content-Type': 'application/json',
           'X-Goog-Api-Key': apiKey,
           'X-Goog-FieldMask':
-            'places.id,places.displayName,places.formattedAddress',
+            'places.id,places.displayName,places.formattedAddress,places.rating,places.googleMapsUri',
         },
         body: JSON.stringify({ textQuery: search }),
       }
@@ -29,7 +29,13 @@ export const POST = async (req: Request) => {
     const data = await res.json()
 
     const locations_data = data.places.map((location: any) => {
-      return { ...location, displayName: location.displayName.text }
+      return {
+        id: location.id,
+        formattedAddress: location.formattedAddress,
+        rating: location.rating,
+        displayName: location.displayName.text,
+        url: location.googleMapsUri,
+      }
     })
 
     return new Response(JSON.stringify(locations_data), { status: 200 })

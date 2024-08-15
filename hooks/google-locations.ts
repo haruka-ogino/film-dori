@@ -1,8 +1,4 @@
-import {
-  getGoogleLocation,
-  getLocations,
-  searchGoogleLocation,
-} from '@/api/google-location'
+import { getLocations, searchGoogleLocation } from '@/api/google-location'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 export function useLocations() {
@@ -27,13 +23,14 @@ export function useSearchGoogle() {
   })
 }
 
-export function useGoogleInfo(id: string) {
-  const query = useQuery({
-    queryKey: ['googleLocation'],
-    queryFn: async () => getGoogleLocation(id),
-  })
+// OBSOLETE
+// export function useGoogleInfo(id: string) {
+//   const query = useQuery({
+//     queryKey: ['googleLocation'],
+//     queryFn: async () => getGoogleLocation(id),
+//   })
 
-  return {
-    ...query,
-  }
-}
+//   return {
+//     ...query,
+//   }
+// }
