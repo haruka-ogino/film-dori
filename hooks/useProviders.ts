@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import {
   signIn,
   signOut,
@@ -15,6 +14,7 @@ import {
   BuiltInProviderType,
   RedirectableProviderType,
 } from 'next-auth/providers/index'
+import { useQuery } from '@tanstack/react-query'
 
 interface UseAuthResult {
   session: ReturnType<typeof useSession>['data']
@@ -36,24 +36,30 @@ interface UseAuthResult {
   signOut: <R extends boolean = true>(
     options?: SignOutParams<R> | undefined
   ) => Promise<R extends true ? undefined : SignOutResponse>
+  isLoading: boolean
+  isError: boolean
 }
 
 export const useAuth = (): UseAuthResult => {
   const { data: session } = useSession()
 
-  const [providers, setProviders] = useState<Record<
-    LiteralUnion<BuiltInProviderType, string>,
-    ClientSafeProvider
-  > | null>(null)
+  const {
+    data: providers,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['providers'],
+    queryFn: async () => {
+      return getProviders()
+    },
+  })
 
-  useEffect(() => {
-    const setUpProviders = async () => {
-      const res = await getProviders()
-      setProviders(res)
-    }
-
-    setUpProviders()
-  }, [])
-
-  return { session, providers, signIn, signOut }
+  return {
+    session,
+    providers: providers || null,
+    signIn,
+    signOut,
+    isLoading,
+    isError,
+  }
 }
