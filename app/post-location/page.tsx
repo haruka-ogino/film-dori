@@ -111,16 +111,21 @@ export default function Post() {
         lorem sed.
       </p> */}
       {/* <p>Login to share locations and save your favourite locations.</p> */}
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="flex items-center justify-around flex-wrap max-w-96 m-5"
+      >
         <input
           name="googleLocation"
           type="text"
           value={inputState}
           onChange={handleChange}
           placeholder="search location"
-          className="m-5"
+          className="m-3 pl-2 min-w-7/12  rounded-md"
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="button-submit">
+          Search
+        </button>
       </form>
       {showRes && (
         <>
