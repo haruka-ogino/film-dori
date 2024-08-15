@@ -1,6 +1,6 @@
 'use client'
 import SaveLocation from '@/components/SaveLocation'
-import { useSearchGoogle } from '@/hooks/locations'
+import { useSearchGoogle } from '@/hooks/google-locations'
 import { useAuth } from '@/hooks/useProviders'
 import { GoogleSearchRes } from '@/models/locations'
 import { useState } from 'react'
