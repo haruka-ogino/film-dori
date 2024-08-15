@@ -1,4 +1,5 @@
 'use client'
+import SaveLocation from '@/components/SaveLocation'
 import { useSearchGoogle } from '@/hooks/locations'
 import { useAuth } from '@/hooks/useProviders'
 import { GoogleSearchRes } from '@/models/locations'
@@ -10,6 +11,8 @@ export default function Post() {
   const [inputState, setInputState] = useState('')
   const [locations, setLocations] = useState<GoogleSearchRes[]>([])
   const [showRes, setShowRes] = useState<boolean>(false)
+  const [idProp, setIdProp] = useState('')
+  const [saveLocation, setSaveLocation] = useState(false)
 
   const search = useSearchGoogle()
 
@@ -31,6 +34,11 @@ export default function Post() {
       }
     )
     setInputState('')
+  }
+
+  function handleClick(i: number) {
+    setIdProp(locations[i].id)
+    setSaveLocation(true)
   }
 
   return (
@@ -142,7 +150,10 @@ export default function Post() {
                     <p>{location.formattedAddress}</p>
                   </div>
                   {session?.user ? (
-                    <button className="button-submit w-72">
+                    <button
+                      className="button-submit w-72"
+                      onClick={() => handleClick(i)}
+                    >
                       Save Location
                     </button>
                   ) : (
@@ -154,6 +165,7 @@ export default function Post() {
           </ul>
         </>
       )}
+      {saveLocation && <SaveLocation id={idProp} />}
     </>
   )
 }
