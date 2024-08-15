@@ -15,13 +15,7 @@ export const GET = async (req: Request) => {
             `https://maps.googleapis.com/maps/api/place/details/json?place_id=${location.id}&key=${process.env.GOOGLE_KEY}`
           )
           const data = await res.json()
-          const response = {
-            ...location,
-            rating: data.result.rating,
-            name: data.result.name,
-            address: data.result.formatted_address,
-            url: data.result.url,
-          }
+
           return {
             ...location,
             rating: data.result.rating,
@@ -47,6 +41,6 @@ export const GET = async (req: Request) => {
 
     return new Response(JSON.stringify(locations_data), { status: 200 })
   } catch (error) {
-    return new Response('Failed to fetch locations', { status: 500 })
+    return new Response(`Failed to fetch locations`, { status: 500 })
   }
 }

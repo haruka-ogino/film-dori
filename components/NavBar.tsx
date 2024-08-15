@@ -2,35 +2,16 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import {
-  signIn,
-  signOut,
-  useSession,
-  getProviders,
-  LiteralUnion,
-  ClientSafeProvider,
-} from 'next-auth/react'
-import { BuiltInProviderType } from 'next-auth/providers/index'
+import { useState } from 'react'
+import { useAuth } from '@/hooks/useProviders'
 
 const NavBar = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false)
 
-  const { data: session } = useSession()
+  const { session, providers, signIn, signOut, isLoading, isError } = useAuth()
 
-  const [providers, setProviders] = useState<Record<
-    LiteralUnion<BuiltInProviderType, string>,
-    ClientSafeProvider
-  > | null>(null)
-
-  useEffect(() => {
-    const setUpProviders = async () => {
-      const res = await getProviders()
-      setProviders(res)
-    }
-
-    setUpProviders()
-  }, [])
+  if (isLoading) return <div>Loading...</div>
+  if (isError) return <div>Error loading providers</div>
 
   return (
     <>
