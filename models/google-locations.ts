@@ -1,5 +1,5 @@
 export interface GoogleSearchRes {
-  displayName: { text: string; languageCode: string }
+  displayName: string
   formattedAddress: string
   id: string
 }

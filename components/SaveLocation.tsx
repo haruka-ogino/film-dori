@@ -12,9 +12,9 @@ export default function SaveLocation({ id }: { id: string }) {
 
     return (
       <section className="search_result">
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <h1>{displayName}</h1>
-          <p>{rating}</p>
+          <p>{rating} ⭐️</p>
         </div>
 
         <a href={url}>{formattedAddress}</a>

@@ -1,5 +1,3 @@
-import { GoogleSearchRes } from '@/models/locations'
-
 export const POST = async (req: Request) => {
   try {
     const apiKey = process.env.GOOGLE_KEY
@@ -29,7 +27,12 @@ export const POST = async (req: Request) => {
     }
 
     const data = await res.json()
-    return new Response(JSON.stringify(data.places), { status: 200 })
+
+    const locations_data = data.places.map((location: any) => {
+      return { ...location, displayName: location.displayName.text }
+    })
+
+    return new Response(JSON.stringify(locations_data), { status: 200 })
   } catch (error) {
     return new Response(`Failed to fetch search results ${error}`, {
       status: 500,

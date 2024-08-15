@@ -145,7 +145,7 @@ export default function Post() {
               <li key={i} className="li-style search_result">
                 <div className="flex justify-between items-center">
                   <div>
-                    <h2>{location.displayName.text}</h2>
+                    <h2>{location.displayName}</h2>
                     <p>{location.formattedAddress}</p>
                   </div>
                   {session?.user ? (
