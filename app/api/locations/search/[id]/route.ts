@@ -14,9 +14,13 @@ export const GET = async (
     )
     const data = await res.json()
     const location_data = {
+      // displayName: { text: string; languageCode: string }
+      // formattedAddress: string
+      // id: string
+      id,
       rating: data.result.rating,
-      name: data.result.name,
-      address: data.result.formatted_address,
+      displayName: data.result.name,
+      formattedAddress: data.result.formatted_address,
       url: data.result.url,
     }
     return new Response(JSON.stringify(location_data), { status: 200 })

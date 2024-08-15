@@ -1,4 +1,5 @@
-import { GoogleSearchRes, Location } from '@/models/locations'
+import { Location } from '@/models/locations'
+import { GoogleSearchRes } from '@/models/google-locations'
 
 export async function getLocations(): Promise<Location[] | undefined> {
   try {

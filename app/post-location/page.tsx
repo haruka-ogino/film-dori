@@ -2,7 +2,7 @@
 import SaveLocation from '@/components/SaveLocation'
 import { useSearchGoogle } from '@/hooks/google-locations'
 import { useAuth } from '@/hooks/useProviders'
-import { GoogleSearchRes } from '@/models/locations'
+import { GoogleSearchRes } from '@/models/google-locations'
 import { useState } from 'react'
 
 export default function Post() {
