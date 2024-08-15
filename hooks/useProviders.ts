@@ -6,12 +6,15 @@ import {
   getProviders,
   LiteralUnion,
   ClientSafeProvider,
+  SignInOptions,
+  SignInAuthorizationParams,
+  SignOutResponse,
+  SignOutParams,
 } from 'next-auth/react'
 import {
   BuiltInProviderType,
   RedirectableProviderType,
 } from 'next-auth/providers/index'
-import { useQuery } from '@tanstack/react-query'
 
 interface UseAuthResult {
   session: ReturnType<typeof useSession>['data']
@@ -19,38 +22,38 @@ interface UseAuthResult {
     LiteralUnion<BuiltInProviderType, string>,
     ClientSafeProvider
   > | null
-  isLoading: boolean
-  isError: boolean
-  signIn: (
-    provider?: RedirectableProviderType,
-    options?: { callbackUrl?: string }
-  ) => Promise<void>
-  signOut: (options?: {
-    callbackUrl?: string
-    redirect?: boolean
-  }) => Promise<void>
+  signIn: <P extends RedirectableProviderType | undefined = undefined>(
+    provider?:
+      | LiteralUnion<
+          P extends RedirectableProviderType
+            ? BuiltInProviderType | P
+            : BuiltInProviderType
+        >
+      | undefined,
+    options?: SignInOptions | undefined,
+    authorizationParams?: SignInAuthorizationParams | undefined
+  ) => Promise<any>
+  signOut: <R extends boolean = true>(
+    options?: SignOutParams<R> | undefined
+  ) => Promise<R extends true ? undefined : SignOutResponse>
 }
 
 export const useAuth = (): UseAuthResult => {
   const { data: session } = useSession()
 
-  const {
-    data: providers,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ['providers'],
-    queryFn: async () => {
-      return getProviders()
-    },
-  })
+  const [providers, setProviders] = useState<Record<
+    LiteralUnion<BuiltInProviderType, string>,
+    ClientSafeProvider
+  > | null>(null)
 
-  return {
-    session,
-    providers: providers || null,
-    signIn,
-    signOut,
-    isLoading,
-    isError,
-  }
+  useEffect(() => {
+    const setUpProviders = async () => {
+      const res = await getProviders()
+      setProviders(res)
+    }
+
+    setUpProviders()
+  }, [])
+
+  return { session, providers, signIn, signOut }
 }
