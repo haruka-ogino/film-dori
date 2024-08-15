@@ -1,5 +1,5 @@
 import { Location } from '@/models/locations'
-import { GoogleSearchRes } from '@/models/google-locations'
+import { GoogleSearchRes, SingleGoogleRes } from '@/models/google-locations'
 
 export async function getLocations(): Promise<Location[] | undefined> {
   try {
@@ -62,7 +62,7 @@ export async function getGoogleLocation(id: string) {
     }
 
     const location = await res.json()
-    return location
+    return location as SingleGoogleRes
   } catch (error) {
     console.error('Error fetching location:', error)
     throw new Error('Failed to fetch location. Please try again.')

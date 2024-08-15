@@ -27,7 +27,6 @@ export default function Post() {
       { searchInput: inputState },
       {
         onSuccess: (data) => {
-          console.log(data)
           setLocations(data)
           setShowRes(true)
         },
