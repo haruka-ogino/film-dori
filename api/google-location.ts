@@ -50,3 +50,21 @@ export async function searchGoogleLocation({
     throw new Error('Failed to fetch locations from google. Please try again.')
   }
 }
+
+export async function getGoogleLocation({ id }: { id: string }) {
+  try {
+    const res = await fetch(`/api/locations/search/${id}`)
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch location (${res.status}): ${res.statusText}`
+      )
+    }
+
+    const location = await res.json()
+    return location
+  } catch (error) {
+    console.error('Error fetching location:', error)
+    throw new Error('Failed to fetch location. Please try again.')
+  }
+}
