@@ -7,16 +7,11 @@
 }
 
 html {
-  /* background-color: #edfeff; */
-  /* background-color: rgb(233, 245, 255); */
-  /* background-image: radial-gradient(at 27% 37%, #3a8bfd 0px, transparent 50%),
-    radial-gradient(at 97% 21%, #72fe7d 0px, transparent 50%),
-    radial-gradient(at 52% 99%, #fd3a4e 0px, transparent 50%); */
-  background: rgb(255, 223, 253);
+  background: rgb(255, 245, 254);
   background: linear-gradient(
-    83deg,
-    rgba(255, 223, 253, 1) 0%,
-    rgba(220, 225, 255, 1) 100%
+    70deg,
+    rgb(252, 234, 249) 0%,
+    rgb(231, 235, 255) 100%
   );
   font-weight: 400;
   font-style: normal;
