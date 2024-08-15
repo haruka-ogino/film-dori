@@ -29,11 +29,11 @@ export default function RootLayout({
       <Provider session={session}>
         <ReactQueryProvider>
           <body
-            // className={`${singleDay_init.variable} single_day min-h-screen grid grid-rows-[1fr_auto]`}
             className={`${singleDay_init.variable} single_day min-h-screen`}
           >
-            <header className="flex justify-between items-center overflow-x-hidden h-44">
-              <h1 className="text-5xl">All the Ghibli Things!</h1>
+            <header className="flex justify-between items-center overflow-hidden h-44">
+              {/* <h1 className="text-8xl">Film Michi!</h1> */}
+              <h1 className="text-8xl">FILM MICHI</h1>
               <Link href="/">
                 {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
                 <img
@@ -44,7 +44,9 @@ export default function RootLayout({
               </Link>
             </header>
             <NavBar />
-            <main className="flex min-h-[55%] flex-col">{children}</main>
+            <main className="flex min-h-[55%] flex-col items-center">
+              {children}
+            </main>
             <Footer />
           </body>
         </ReactQueryProvider>

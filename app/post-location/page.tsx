@@ -118,8 +118,9 @@ export default function Post() {
           value={inputState}
           onChange={handleChange}
           placeholder="search location"
+          className="m-5"
         />
-        <button type="submit">Save</button>
+        <button type="submit">Search</button>
       </form>
       {showRes && (
         <>

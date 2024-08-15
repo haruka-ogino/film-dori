@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="w-8/12 mx-auto flex justify-between  mb-5">
+    <footer className="w-full mx-auto flex flex-wrap justify-between  mb-5">
       <h1>Made by Haruka Ogino</h1>
-      <section>
-        <h4>Website's GitHub Repo:</h4>
+      <section className="flex flex-col items-center">
+        <h4>Website's GitHub Repo</h4>
         <a href="https://github.com/haruka-ogino/ghibli">
           <img
             className="h-7"
