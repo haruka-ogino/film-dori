@@ -57,7 +57,6 @@ a:hover,
   font-family: var(--font-single_day);
 }
 
-/* CSS */
 .button-submit {
   background-color: initial;
   background-image: linear-gradient(#8233f8 0, #760be0 100%);
@@ -73,9 +72,53 @@ a:hover,
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: bottom;
-  padding: 5px 20px;
+  padding: 0px 15px;
 }
 
 .button-submit:hover {
   opacity: 0.7;
+}
+
+.search_result {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  background: rgb(247, 241, 249);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.search_result:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: linear-gradient(
+    160deg,
+    rgb(150, 165, 243) 0%,
+    rgb(239, 160, 226) 100%
+  );
+  border-radius: 15px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.search_result:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background: rgb(247, 241, 249);
+  border-radius: 10px;
+  z-index: -1;
 }

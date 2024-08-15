@@ -1,9 +1,12 @@
 'use client'
 import { useSearchGoogle } from '@/hooks/locations'
+import { useAuth } from '@/hooks/useProviders'
 import { GoogleSearchRes } from '@/models/locations'
 import { useState } from 'react'
 
 export default function Post() {
+  const { session } = useAuth()
+
   const [inputState, setInputState] = useState('')
   const [locations, setLocations] = useState<GoogleSearchRes[]>([])
   const [showRes, setShowRes] = useState<boolean>(false)
@@ -33,8 +36,8 @@ export default function Post() {
   return (
     <>
       <h1>Share a location!</h1>
-      <p>~ This page is under construction ~</p>
-      <p>~ Stay tuned for updates ~</p>
+      {/* <p>~ This page is under construction ~</p> */}
+      {/* <p>~ Stay tuned for updates ~</p> */}
       {/* <p>
         Lorem ipsum odor amet, consectetuer adipiscing elit. Curabitur sem cras,
         sed convallis commodo conubia ante aptent. Aliquet amet taciti maecenas
@@ -130,10 +133,17 @@ export default function Post() {
       {showRes && (
         <>
           <h1>Search results:</h1>
-          <ul className="flex flex-col items-center">
+          <ul className="flex flex-col items-center w-full">
             {locations.map((location, i) => (
-              <li key={i} className="li-style w-11/12">
-                <h2>{location.displayName.text}</h2>
+              <li key={i} className="li-style search_result">
+                <div className="flex flex-wrap justify-between">
+                  <h2>{location.displayName.text}</h2>
+                  {session?.user ? (
+                    <button className="button-submit">Save Location</button>
+                  ) : (
+                    <p>Sign in to save location</p>
+                  )}
+                </div>
                 <p>{location.formattedAddress}</p>
               </li>
             ))}
