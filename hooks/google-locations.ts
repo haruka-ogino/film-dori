@@ -22,15 +22,3 @@ export function useSearchGoogle() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ['googleLocations'] }),
   })
 }
-
-// OBSOLETE
-// export function useGoogleInfo(id: string) {
-//   const query = useQuery({
-//     queryKey: ['googleLocation'],
-//     queryFn: async () => getGoogleLocation(id),
-//   })
-
-//   return {
-//     ...query,
-//   }
-// }
