@@ -51,7 +51,7 @@ export async function searchGoogleLocation({
   }
 }
 
-export async function getGoogleLocation({ id }: { id: string }) {
+export async function getGoogleLocation(id: string) {
   try {
     const res = await fetch(`/api/locations/search/${id}`)
 
