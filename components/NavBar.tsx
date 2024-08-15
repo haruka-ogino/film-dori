@@ -14,13 +14,14 @@ import {
 import { BuiltInProviderType } from 'next-auth/providers/index'
 
 const NavBar = () => {
+  const [toggleDropdown, setToggleDropdown] = useState(false)
+
   const { data: session } = useSession()
 
   const [providers, setProviders] = useState<Record<
     LiteralUnion<BuiltInProviderType, string>,
     ClientSafeProvider
   > | null>(null)
-  const [toggleDropdown, setToggleDropdown] = useState(false)
 
   useEffect(() => {
     const setUpProviders = async () => {
