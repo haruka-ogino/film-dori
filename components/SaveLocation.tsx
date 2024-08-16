@@ -15,8 +15,13 @@ export default function SaveLocation({
             <h1>{displayName}</h1>
             <p>{rating} ⭐️</p>
           </div>
-
           <a href={url}>{formattedAddress}</a>
+          <div className="flex justify-around items-center">
+            <button className="button-submit w-[150px]">
+              Save to my locations
+            </button>
+            <button className="button-submit button-cancel">Cancel</button>
+          </div>
         </section>
       </div>
     )

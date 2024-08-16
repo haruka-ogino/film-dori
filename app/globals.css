@@ -58,7 +58,7 @@ a:hover,
 }
 
 .button-submit {
-  /* height: 40px; */
+  line-height: 1;
   background-color: initial;
   background-image: linear-gradient(#8233f8 0, #760be0 100%);
   border-radius: 5px;
@@ -73,11 +73,16 @@ a:hover,
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: bottom;
-  padding: 0px 15px;
+  padding: 5px 15px;
 }
 
 .button-submit:hover {
   opacity: 0.7;
+}
+
+.button-cancel {
+  background-color: initial;
+  background-image: linear-gradient(#f83333 0, #e00b12 100%);
 }
 
 .search_result {
