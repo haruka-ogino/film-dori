@@ -1,7 +1,6 @@
 // locations from DB
 
 import { LocationData } from '@/models/locations'
-import { log } from 'console'
 
 export async function saveLocation(data: LocationData) {
   try {
