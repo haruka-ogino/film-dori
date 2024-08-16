@@ -142,7 +142,7 @@ export default function Post() {
           <h1>Search results:</h1>
           <ul className="flex flex-col items-center w-full">
             {locations.map((location, i) => (
-              <li key={i} className="li-style search_result">
+              <li key={i} className="li-style search_result w-full">
                 <div className="flex justify-between items-center">
                   <div>
                     <h2>{location.displayName}</h2>
