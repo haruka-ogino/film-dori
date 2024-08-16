@@ -90,7 +90,11 @@ export default function Post() {
         </>
       )}
       {saveLocation && (
-        <SaveLocation location={locationProp} open={setSaveLocation} />
+        <SaveLocation
+          location={locationProp}
+          open={setSaveLocation}
+          session={session}
+        />
       )}
     </>
   )

@@ -1,13 +1,16 @@
 import { GoogleSearchRes } from '@/models/google-locations'
+import { Session } from 'next-auth'
 import { Dispatch, SetStateAction } from 'react'
 
-export default function SaveLocation({
-  location,
-  open,
-}: {
+interface Props {
   location: GoogleSearchRes | undefined
   open: Dispatch<SetStateAction<boolean>>
-}) {
+  session: Session | null
+}
+
+export default function SaveLocation({ location, open, session }: Props) {
+  console.log(session?.user?.id)
+
   function saveLocation() {
     return 'yay'
   }
