@@ -1,15 +1,16 @@
 // locations from DB
 
-interface Params {
-  authId: string
-  id: string
-  image: string
-  description: string
-}
-export async function addLocation({ authId, id, image, description }: Params) {
+import { LocationData } from '@/models/locations'
+import { log } from 'console'
+
+export async function saveLocation(data: LocationData) {
   try {
+    const { authId, id, image, description } = data
     const res = await fetch(`/api/locations/${authId}`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         id,
         image,
@@ -24,6 +25,8 @@ export async function addLocation({ authId, id, image, description }: Params) {
     }
 
     const location = await res.json()
+    console.log(location)
+
     return location
   } catch (error) {
     console.error('Error adding location:', error)

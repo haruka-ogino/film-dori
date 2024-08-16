@@ -8,3 +8,11 @@ export interface Location {
   address: string
   url: string
 }
+
+export interface LocationData {
+  id: string
+  image: string
+  description: string
+
+  authId: string
+}
