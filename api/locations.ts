@@ -3,8 +3,10 @@
 import { LocationData } from '@/models/locations'
 
 export async function saveLocation(data: LocationData) {
+  console.log(data)
+
   try {
-    const { authId, id, image, description } = data
+    const { authId, id, image, description, tag_id } = data
     const res = await fetch(`/api/locations/${authId}`, {
       method: 'POST',
       headers: {
@@ -14,6 +16,7 @@ export async function saveLocation(data: LocationData) {
         id,
         image,
         description,
+        tag_id,
       }),
     })
 

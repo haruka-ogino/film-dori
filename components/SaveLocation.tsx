@@ -11,53 +11,29 @@ interface Props {
 }
 
 export default function SaveLocation({ location, open, session }: Props) {
+  const authId = session?.user?.id || 'huh'
+  const id = location?.id || 'what'
   const [newLocation, setNewLocation] = useState({
-    id: '',
+    id,
     image: '',
     description: '',
-    authId: '',
+    authId,
     tag_id: 0,
   })
 
   console.log(location)
 
   const saveLocation = useSaveLocation()
-  const { data: tags, isLoading, isError } = useTags()
-
-  // function handleChange(
-  //   e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  // ) {
-  //   const { name, value, type } = e.target
-
-  //   console.log('Element Type:', type)
-  //   console.log('Value Property:', value)
-
-  //   if (type === 'radio') {
-  //     const input = e.target as HTMLInputElement
-  //     console.log('Checked Property:', input.checked)
-  //     setNewLocation((prev) => ({
-  //       ...prev,
-  //       [name]: input.checked,
-  //     }))
-  //   } else {
-  //     setNewLocation((prev) => ({
-  //       ...prev,
-  //       [name]: value,
-  //     }))
-  //   }
-  // }
+  const { data: tags } = useTags()
 
   function saveNewLocation(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    if (location && session && session.user) {
-      const authId = session.user.id || ''
-      setNewLocation((prev) => {
-        console.log(prev)
+    setNewLocation((prev) => {
+      console.log(prev)
 
-        return { ...prev, id: location.id, authId }
-      })
-    }
+      return { ...prev, id, authId }
+    })
 
     saveLocation.mutate(newLocation)
     open(false)

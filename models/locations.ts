@@ -16,4 +16,5 @@ export interface LocationData {
   description: string
 
   authId: string
+  tag_id: number
 }
