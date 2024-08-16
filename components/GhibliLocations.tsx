@@ -1,6 +1,6 @@
 'use client'
 
-import { useLocations } from '@/hooks/google-locations'
+import { useLocations } from '@/hooks/useLocations'
 import { Location } from '@/models/locations'
 
 const GhibliLocations = () => {
