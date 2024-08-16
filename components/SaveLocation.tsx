@@ -32,6 +32,7 @@ export default function SaveLocation({ location, open, session }: Props) {
     }
 
     saveLocation.mutate(newLocation)
+    open(false)
   }
 
   if (location) {
@@ -59,7 +60,7 @@ export default function SaveLocation({ location, open, session }: Props) {
                 setNewLocation({ ...newLocation, description: e.target.value })
               }
               placeholder="describe location"
-              className="m-3 ml-10 pl-2 h-20 min-w-[25em] rounded-md"
+              className="m-3 ml-10 pl-2 h-20 min-w-[32em] rounded-md"
               required
             />
             <br />
@@ -74,7 +75,7 @@ export default function SaveLocation({ location, open, session }: Props) {
                 setNewLocation({ ...newLocation, image: e.target.value })
               }
               placeholder="image url"
-              className="m-3 ml-10 pl-2 min-w-[25em] rounded-md"
+              className="m-3 ml-10 pl-2 min-w-[32em] rounded-md"
               required
             />
             <div className="flex flex-wrap justify-center items-center">
