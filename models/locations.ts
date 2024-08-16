@@ -7,6 +7,7 @@ export interface Location {
   name: string
   address: string
   url: string
+  tag: string
 }
 
 export interface LocationData {

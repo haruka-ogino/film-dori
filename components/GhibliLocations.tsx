@@ -17,6 +17,7 @@ const GhibliLocations = () => {
         {locations.map((location: Location, i: number) => (
           <section key={i} className="mt-10 mp-10 flex flex-col w-full">
             <h2 className="text-4xl">{location.name}</h2>
+            <p>{location.tag}</p>
             <img src={location.image} className="self-center m-3" />
             <p>{location.description}</p>
             <p>Google rating: {location.rating} ⭐️</p>

@@ -15,6 +15,7 @@ export default function SaveLocation({ location, open, session }: Props) {
     image: '',
     description: '',
     authId: '',
+    tag: '',
   })
 
   console.log(location)
