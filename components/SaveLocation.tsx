@@ -1,10 +1,17 @@
 import { GoogleSearchRes } from '@/models/google-locations'
+import { Dispatch, SetStateAction } from 'react'
 
 export default function SaveLocation({
   location,
+  open,
 }: {
   location: GoogleSearchRes | undefined
+  open: Dispatch<SetStateAction<boolean>>
 }) {
+  function saveLocation() {
+    return 'yay'
+  }
+
   if (location) {
     const { rating, displayName, formattedAddress, url } = location
 
@@ -17,10 +24,15 @@ export default function SaveLocation({
           </div>
           <a href={url}>{formattedAddress}</a>
           <div className="flex justify-around items-center">
-            <button className="button-submit w-[150px]">
+            <button className="button-submit w-[150px]" onClick={saveLocation}>
               Save to my locations
             </button>
-            <button className="button-submit button-cancel">Cancel</button>
+            <button
+              className="button-submit button-cancel"
+              onClick={() => open(false)}
+            >
+              Cancel
+            </button>
           </div>
         </section>
       </div>
