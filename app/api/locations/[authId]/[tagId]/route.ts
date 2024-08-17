@@ -29,28 +29,35 @@ export const GET = async (
 
   let query = `
     SELECT
-      locations.id, image, authId, description, tag, tag_id as tagId
+      locations.id, locations.image, users.image as userImg, users.username, authId, description, tag, tag_id as tagId
     FROM
       locations
       JOIN tags ON tags.id = locations.tag_id
-    WHERE
-      authId = ?
+      JOIN users ON users.id = locations.authId
   `
 
-  const args = [authId]
+  const args = []
 
   const tag_id = Number(tagId)
 
-  if (tag_id !== 0) {
-    query += ` AND tagId = ?`
+  if (authId !== 'x' && tag_id !== 0) {
+    console.log('all inputs in')
+
+    query += ` WHERE authId = ? AND tagId = ?`
+    args.push(authId)
+    args.push(tag_id.toString())
+  } else if (authId !== 'x') {
+    console.log('only authId specified')
+    query += ` WHERE authId = ?`
+    args.push(authId)
+  } else if (tag_id !== 0) {
+    console.log('only tag specified')
+    query += ` WHERE tagId = ?`
     args.push(tag_id.toString())
   }
 
-  console.log({ sql: query, args })
-
   try {
     const user_locations = await turso.execute({ sql: query, args })
-    console.log(user_locations)
 
     const locations_data = await Promise.all(
       user_locations.rows.map(async (location) => {

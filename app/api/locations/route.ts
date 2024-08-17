@@ -4,9 +4,9 @@ import { turso } from '@/utils/database'
 
 export const GET = async (req: Request) => {
   try {
-    const all_locations = await turso.execute(
-      `SELECT locations.id, image, authId, description, tag FROM locations JOIN tags ON tags.id=locations.tag_id`
-    )
+    const query = `SELECT locations.id, image, authId, description, tag FROM locations JOIN tags ON tags.id=locations.tag_id`
+
+    const all_locations = await turso.execute(query)
 
     const locations = all_locations.rows
 
