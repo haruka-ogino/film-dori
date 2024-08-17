@@ -27,4 +27,7 @@ export function useUserLocations(authId: string, tag_id: number) {
     queryFn: async () => getUserLocations(authId, tag_id),
     queryKey: ['my-locations', authId],
   })
+  return {
+    ...query,
+  }
 }
