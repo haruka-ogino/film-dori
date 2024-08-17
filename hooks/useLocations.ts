@@ -1,17 +1,6 @@
-import { getLocations, getUserLocations, saveLocation } from '@/api/locations'
+import { getLocations, saveLocation } from '@/api/locations'
 import { LocationData } from '@/models/locations'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-
-export function useLocations() {
-  const query = useQuery({
-    queryKey: ['locations'],
-    queryFn: getLocations,
-  })
-
-  return {
-    ...query,
-  }
-}
 
 export function useSaveLocation() {
   const qc = useQueryClient()
@@ -22,9 +11,9 @@ export function useSaveLocation() {
   })
 }
 
-export function useUserLocations(authId: string, tagId: number) {
+export function useLocations(authId: string, tagId: number) {
   const query = useQuery({
-    queryFn: async () => getUserLocations(authId, tagId),
+    queryFn: async () => getLocations(authId, tagId),
     queryKey: ['my-locations', authId, tagId],
   })
   return {

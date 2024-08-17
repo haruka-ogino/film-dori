@@ -1,6 +1,6 @@
 'use client'
 import { useAuth } from '@/hooks/useProviders'
-import { useUserLocations } from '@/hooks/useLocations'
+import { useLocations } from '@/hooks/useLocations'
 import { useState } from 'react'
 import Locations from '@/components/Locations'
 
@@ -10,7 +10,7 @@ export default function Home() {
   const title = 'Discover Locations'
   const key = 'locations'
 
-  const { data: locations, isLoading, isError } = useUserLocations(authId, tag)
+  const { data: locations, isLoading, isError } = useLocations(authId, tag)
 
   if (isLoading) return <h1>Loading...</h1>
 
