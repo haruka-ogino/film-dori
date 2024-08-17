@@ -53,7 +53,10 @@ export async function saveLocation(data: LocationData) {
   }
 }
 
-export async function getUserLocations(authId: string, tagId: number) {
+export async function getUserLocations(
+  authId: string,
+  tagId: number
+): Promise<Location[] | undefined> {
   try {
     console.log(tagId)
     console.log(authId)

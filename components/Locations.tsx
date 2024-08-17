@@ -56,6 +56,10 @@ export default function Locations({
           <p>
             <a href={location.url}>📍 {location.address}</a>
           </p>
+          {/* <div className="flex">
+            <img src={location.userImg} alt="user-icon" /> */}
+          <p className="self-center">By {location.username}</p>
+          {/* </div> */}
         </section>
       ))}
     </>

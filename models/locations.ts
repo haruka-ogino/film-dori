@@ -1,6 +1,7 @@
 export interface Location {
   id: string
   image: string
+  userImg: string
   description: string
 
   rating: number
@@ -9,6 +10,8 @@ export interface Location {
   url: string
   tag: string
   tagId: number
+  username: string
+  authId: string
 }
 
 export interface LocationData {
