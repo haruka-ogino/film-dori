@@ -20,6 +20,7 @@ export default function Locations({
   tag,
 }: Params) {
   const queryClient = useQueryClient()
+  console.log(locations)
 
   function handleClick(id: number) {
     setTag(id)

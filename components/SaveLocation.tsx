@@ -15,15 +15,19 @@ export default function SaveLocation({ location, open, session }: Props) {
   const id = location?.id || 'error getting location'
   const address = location?.formattedAddress || 'error getting location'
   const name = location?.displayName || 'error getting location'
+  const url = location?.url || 'error getting location'
+  const rating = location?.rating || 0
 
   const [newLocation, setNewLocation] = useState({
     id,
     image: '',
     description: '',
-    authId,
     tagId: 0,
+    authId,
     address,
     name,
+    url,
+    rating,
   })
 
   console.log(location)
