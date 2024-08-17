@@ -28,7 +28,6 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 25px;
-  /* color: rgb(5, 97, 102); */
   width: 70%;
 }
 
@@ -127,4 +126,19 @@ a:hover,
   background: rgb(247, 241, 249);
   border-radius: 10px;
   z-index: -1;
+}
+
+.tag {
+  color: rgb(255, 245, 254);
+  background: linear-gradient(
+    160deg,
+    rgb(111, 131, 228) 0%,
+    rgb(215, 101, 196) 100%
+  );
+  width: fit-content;
+  font-size: 25px;
+  line-height: 25px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin: 5px 20px;
 }
