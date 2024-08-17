@@ -22,10 +22,10 @@ export function useSaveLocation() {
   })
 }
 
-export function useUserLocations(authId: string, tag_id: number) {
+export function useUserLocations(authId: string, tagId: number) {
   const query = useQuery({
-    queryFn: async () => getUserLocations(authId, tag_id),
-    queryKey: ['my-locations', authId],
+    queryFn: async () => getUserLocations(authId, tagId),
+    queryKey: ['my-locations', authId, tagId],
   })
   return {
     ...query,

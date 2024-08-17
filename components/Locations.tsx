@@ -13,7 +13,7 @@ export default function Locations({ locations, title, setTag }: Params) {
 
   function handleClick(id: number) {
     setTag(id)
-    queryClient.invalidateQueries({ queryKey: ['my-locations', id] })
+    queryClient.invalidateQueries({ queryKey: ['locations', id] })
   }
 
   return (
@@ -23,7 +23,7 @@ export default function Locations({ locations, title, setTag }: Params) {
         <section key={i} className="mt-10 mp-10 flex flex-col w-full">
           <div className="flex flex-wrap justify-left align-center">
             <h2 className="text-4xl">{location.name}</h2>
-            <p className="tag" onClick={() => handleClick(location.tag_id)}>
+            <p className="tag" onClick={() => handleClick(location.tagId)}>
               {location.tag}
             </p>
           </div>

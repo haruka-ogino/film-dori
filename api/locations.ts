@@ -53,12 +53,17 @@ export async function saveLocation(data: LocationData) {
   }
 }
 
-export async function getUserLocations(authId: string, tag_id: number) {
+export async function getUserLocations(authId: string, tagId: number) {
   try {
-    console.log(tag_id)
+    console.log(tagId)
+    console.log(authId)
 
-    const res = await fetch(`/location/${authId}/${tag_id}`)
-    // const res = await fetch(`/location/${authId}/${tag_id}`)
+    const res = await fetch(`/api/locations/${authId}/${tagId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
 
     if (!res.ok) {
       throw new Error(

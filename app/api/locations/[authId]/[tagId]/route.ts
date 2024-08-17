@@ -29,7 +29,7 @@ export const GET = async (
 
   let query = `
     SELECT
-      locations.id, image, authId, description, tag, tag_id
+      locations.id, image, authId, description, tag, tag_id as tagId
     FROM
       locations
       JOIN tags ON tags.id = locations.tag_id
@@ -42,7 +42,7 @@ export const GET = async (
   const tag_id = Number(tagId)
 
   if (tag_id !== 0) {
-    query += ` AND tag_id = ?`
+    query += ` AND tagId = ?`
     args.push(tag_id.toString())
   }
 

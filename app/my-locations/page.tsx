@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function MyLocations() {
   const { session } = useAuth()
   const authId = session?.user?.id || 'huh'
-  const [tag, setTag] = useState(0)
+  const [tag, setTag] = useState(1)
 
   const { data: locations, isLoading, isError } = useUserLocations(authId, tag)
 
