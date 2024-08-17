@@ -1,4 +1,5 @@
 import { Location } from '@/models/locations'
+import { useQueryClient } from '@tanstack/react-query'
 import { Dispatch, SetStateAction } from 'react'
 
 interface Params {
@@ -8,6 +9,13 @@ interface Params {
 }
 
 export default function Locations({ locations, title, setTag }: Params) {
+  const queryClient = useQueryClient()
+
+  function handleClick(id: number) {
+    setTag(id)
+    queryClient.invalidateQueries({ queryKey: ['my-locations', id] })
+  }
+
   return (
     <>
       <h1>{title}</h1>
@@ -15,7 +23,9 @@ export default function Locations({ locations, title, setTag }: Params) {
         <section key={i} className="mt-10 mp-10 flex flex-col w-full">
           <div className="flex flex-wrap justify-left align-center">
             <h2 className="text-4xl">{location.name}</h2>
-            <p className="tag">{location.tag}</p>
+            <p className="tag" onClick={() => handleClick(location.tag_id)}>
+              {location.tag}
+            </p>
           </div>
           <img
             src={location.image}
