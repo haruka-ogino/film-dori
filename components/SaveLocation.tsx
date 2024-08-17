@@ -101,7 +101,7 @@ export default function SaveLocation({ location, open, session }: Props) {
                         const selectedTagId = parseInt(e.target.value, 10)
                         setNewLocation((prev) => ({
                           ...prev,
-                          tag_id: selectedTagId,
+                          tagId: selectedTagId,
                         }))
                       }}
                       className="mr-2"
