@@ -18,7 +18,8 @@ export interface LocationData {
   id: string
   image: string
   description: string
-
+  name: string
+  address: string
   authId: string
-  tag_id: number
+  tagId: number
 }

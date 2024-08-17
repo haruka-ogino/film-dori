@@ -6,12 +6,12 @@ export const POST = async (
   { params }: { params: { authId: string } }
 ) => {
   const { authId } = params
-  const { id, image, description, name, address, tag_id } = await req.json()
+  const { id, image, description, name, address, tagId } = await req.json()
 
   const query =
     'INSERT INTO newlocations (id, image, description, name, address, auth_id, tag_id) VALUES (?,?,?,?,?,?,?)'
 
-  const args = [id, image, description, name, address, authId, tag_id]
+  const args = [id, image, description, name, address, authId, tagId]
 
   try {
     const result = await turso.execute({ sql: query, args })

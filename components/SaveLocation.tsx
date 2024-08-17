@@ -11,14 +11,19 @@ interface Props {
 }
 
 export default function SaveLocation({ location, open, session }: Props) {
-  const authId = session?.user?.id || 'huh'
-  const id = location?.id || 'what'
+  const authId = session?.user?.id || 'no authId'
+  const id = location?.id || 'error getting location'
+  const address = location?.formattedAddress || 'error getting location'
+  const name = location?.displayName || 'error getting location'
+
   const [newLocation, setNewLocation] = useState({
     id,
     image: '',
     description: '',
     authId,
-    tag_id: 0,
+    tagId: 0,
+    address,
+    name,
   })
 
   console.log(location)
@@ -87,7 +92,7 @@ export default function SaveLocation({ location, open, session }: Props) {
                       id={`input-${tag.id}`}
                       name="tag_id"
                       value={tag.id}
-                      checked={newLocation.tag_id === tag.id}
+                      checked={newLocation.tagId === tag.id}
                       onChange={(e) => {
                         const selectedTagId = parseInt(e.target.value, 10)
                         setNewLocation((prev) => ({
