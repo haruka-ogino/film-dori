@@ -33,7 +33,7 @@ export default function RootLayout({
           >
             <header className="flex justify-between items-center overflow-hidden h-44">
               {/* <h1 className="text-8xl">Film Michi!</h1> */}
-              <h1 className="text-8xl">FILM MICHI</h1>
+              <h1 className="text-8xl">FILM DORI</h1>
               <Link href="/">
                 {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
                 <img
