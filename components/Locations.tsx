@@ -6,19 +6,37 @@ interface Params {
   locations: Location[]
   title: string
   setTag: Dispatch<SetStateAction<number>>
+  key: string
+  authId?: string
+  tag: number
 }
 
-export default function Locations({ locations, title, setTag }: Params) {
+export default function Locations({
+  locations,
+  title,
+  setTag,
+  key,
+  authId,
+  tag,
+}: Params) {
   const queryClient = useQueryClient()
 
   function handleClick(id: number) {
     setTag(id)
-    queryClient.invalidateQueries({ queryKey: ['locations', id] })
+    queryClient.invalidateQueries({ queryKey: [key, id, authId] })
   }
 
   return (
     <>
       <h1>{title}</h1>
+      {tag === 0 ? (
+        <p>all locations</p>
+      ) : (
+        <div className="flex flex-center">
+          <p className="tag">{locations[0].tag}</p>
+          <button onClick={() => setTag(0)}>- remove filter -</button>
+        </div>
+      )}
       {locations.map((location: Location, i: number) => (
         <section key={i} className="mt-10 mp-10 flex flex-col w-full">
           <div className="flex flex-wrap justify-left align-center">
