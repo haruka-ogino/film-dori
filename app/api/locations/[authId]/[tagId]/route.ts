@@ -23,14 +23,34 @@ export const POST = async (
 
 export const GET = async (
   req: NextRequest,
-  { params }: { params: { authId: string } }
+  { params }: { params: { authId: string; tagId: number } }
 ) => {
-  const { authId } = params
+  const { authId, tagId } = params
 
-  const query = `SELECT locations.id, image, authId, description, tag FROM locations JOIN tags ON tags.id = locations.tag_id WHERE authId = ?`
+  let query = `
+    SELECT
+      locations.id, image, authId, description, tag, tag_id
+    FROM
+      locations
+      JOIN tags ON tags.id = locations.tag_id
+    WHERE
+      authId = ?
+  `
+
+  const args = [authId]
+
+  const tag_id = Number(tagId)
+
+  if (tag_id !== 0) {
+    query += ` AND tag_id = ?`
+    args.push(tag_id.toString())
+  }
+
+  console.log({ sql: query, args })
 
   try {
-    const user_locations = await turso.execute({ sql: query, args: [authId] })
+    const user_locations = await turso.execute({ sql: query, args })
+    console.log(user_locations)
 
     const locations_data = await Promise.all(
       user_locations.rows.map(async (location) => {
