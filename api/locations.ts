@@ -20,9 +20,8 @@ export async function getLocations(): Promise<Location[] | undefined> {
     throw new Error('Failed to fetch locations. Please try again.')
   }
 }
-export async function saveLocation(data: LocationData) {
-  console.log(data)
 
+export async function saveLocation(data: LocationData) {
   try {
     const { authId, id, image, description, tag_id } = data
     const res = await fetch(`/api/locations/${authId}`, {
@@ -51,5 +50,24 @@ export async function saveLocation(data: LocationData) {
   } catch (error) {
     console.error('Error adding location:', error)
     throw new Error('Failed to add location. Please try again.')
+  }
+}
+
+export async function getUserLocations(authId: string) {
+  try {
+    const res = await fetch(`/location/${authId}`)
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch locations (${res.status}): ${res.statusText}`
+      )
+    }
+
+    const locations = await res.json()
+
+    return locations
+  } catch (error) {
+    console.error('Error fetching locations:', error)
+    throw new Error('Failed to fetch locations. Please try again.')
   }
 }
