@@ -7,7 +7,7 @@ interface Params {
   title: string
   setTag: Dispatch<SetStateAction<number>>
   key: string
-  authId?: string
+  // authId?: string
   tag: number
 }
 
@@ -16,14 +16,14 @@ export default function Locations({
   title,
   setTag,
   key,
-  authId,
+  // authId,
   tag,
 }: Params) {
   const queryClient = useQueryClient()
 
   function handleClick(id: number) {
     setTag(id)
-    queryClient.invalidateQueries({ queryKey: [key, id, authId] })
+    queryClient.invalidateQueries({ queryKey: [key, id] })
   }
 
   return (

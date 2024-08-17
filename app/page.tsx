@@ -1,10 +1,26 @@
-import GhibliLocations from '@/components/GhibliLocations'
+'use client'
+import { useAuth } from '@/hooks/useProviders'
+import { useUserLocations } from '@/hooks/useLocations'
+import { useState } from 'react'
+import Locations from '@/components/Locations'
 
 export default function Home() {
-  return (
-    <>
-      <h1>Welcome!</h1>
-      {/* <p>
+  const authId = 'x'
+  const [tag, setTag] = useState(0)
+  const title = 'Discover Locations'
+  const key = 'locations'
+
+  const { data: locations, isLoading, isError } = useUserLocations(authId, tag)
+
+  if (isLoading) return <h1>Loading...</h1>
+
+  if (isError) return <h1>You are experiencing an error...</h1>
+
+  if (locations)
+    return (
+      <>
+        {/* <h1>Welcome!</h1> */}
+        {/* <p>
         A place where you can see films, characters, dishes and more from the
         Ghibli Studio films.
       </p>
@@ -12,11 +28,18 @@ export default function Home() {
         Test your Ghibli knowledge with the quiz, or tease your brain with a
         jigsaw puzzle.
       </p> */}
-      <p>
-        The place where you can share locations that inspired your favourite
-        films and tv shows!
-      </p>
-      <GhibliLocations />
-    </>
-  )
+        {/* <p>
+          The place where you can share locations that inspired your favourite
+          films and tv shows!
+        </p> */}
+        {/* <GhibliLocations /> */}
+        <Locations
+          locations={locations}
+          title={title}
+          setTag={setTag}
+          key={key}
+          tag={tag}
+        />
+      </>
+    )
 }

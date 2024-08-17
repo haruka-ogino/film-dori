@@ -26,7 +26,6 @@ export default function MyLocations() {
             title={title}
             setTag={setTag}
             key={key}
-            authId={authId}
             tag={tag}
           />
         ) : (
