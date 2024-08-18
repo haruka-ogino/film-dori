@@ -67,17 +67,16 @@ export default function Locations({
               <button onClick={() => setTag(0)}>- remove filters -</button>
             </div> */}
             <div className="flex flex-center">
-              <p className="mr-2">
-                locations by
-                {/* <span className="tag">{locations[0].username}</span> */}
-              </p>
               {/* <p className="tag">{locations[0].username}</p> */}
               <button
                 className="flex flex-col flex-center hover:underline hover:cursor-pointer hover:opacity-60"
                 onClick={() => setAuthId('x')}
               >
-                {' '}
-                {locations[0].username} <span className="">x</span>
+                <p className="mr-2">
+                  locations by
+                  {/* <span className="tag">{locations[0].username}</span> */}{' '}
+                  {locations[0].username} <span className="">x</span>
+                </p>
                 {/* <span className="hover:opacity-60">x</span> */}
               </button>
             </div>
@@ -95,7 +94,10 @@ export default function Locations({
         <section key={i} className="mt-10 mp-10 flex flex-col w-full">
           <div className="flex flex-wrap justify-left align-center">
             <h2 className="text-4xl">{location.name}</h2>
-            <p className="tag" onClick={() => handleTagClick(location.tagId)}>
+            <p
+              className="tag m-[5px_20px]"
+              onClick={() => handleTagClick(location.tagId)}
+            >
               {location.tag}
             </p>
           </div>
@@ -122,7 +124,6 @@ export default function Locations({
           ) : (
             <p className="self-center">By {location.username}</p>
           )}
-          {/* </div> */}
         </section>
       ))}
     </>
