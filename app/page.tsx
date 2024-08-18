@@ -5,8 +5,8 @@ import { useState } from 'react'
 import Locations from '@/components/Locations'
 
 export default function Home() {
-  const authId = 'x'
   const [tag, setTag] = useState(0)
+  const [authId, setAuthId] = useState('x')
   const title = 'Discover Locations'
   const key = 'locations'
 
@@ -36,6 +36,7 @@ export default function Home() {
         <Locations
           locations={locations}
           title={title}
+          setAuthId={setAuthId}
           setTag={setTag}
           key={key}
           tag={tag}
