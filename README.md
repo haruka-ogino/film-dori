@@ -1,6 +1,6 @@
-# 🗺️ Film Michi
+# 🗺️ Film Dori
 
-Welcome to my app! A place to share locations that are inspired by or the inspiration to your favourite films and tv shows. Its aim is to encourage tourism in lesser known areas, putting less pressure on areas suffering from over-tourism.
+Welcome to Film Dori! A place to share locations that are inspired by or the inspiration to your favourite films and tv shows. Film Dori aims to encourage tourism in lesser known areas, putting less pressure on areas suffering from over-tourism.
 
 ## About
 
