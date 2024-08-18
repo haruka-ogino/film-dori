@@ -4,7 +4,6 @@ import NavBar from '@/components/NavBar'
 import { Single_Day } from 'next/font/google'
 import Link from 'next/link'
 import Provider from '@/components/Provider'
-import { SessionProviderProps } from 'next-auth/react'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 import Footer from '@/components/Footer'
 
@@ -24,14 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Provider session={undefined}>
-        <ReactQueryProvider>
-          <head>
-            <link rel="icon" href="/favicon.png" />
-          </head>
-          <body
-            className={`${singleDay_init.variable} single_day min-h-screen`}
-          >
+      <ReactQueryProvider>
+        <head>
+          <link rel="icon" href="/favicon.png" />
+        </head>
+        <body className={`${singleDay_init.variable} single_day min-h-screen`}>
+          <Provider session={undefined}>
             <header className="flex justify-between items-center overflow-hidden h-60">
               {/* <h1 className="text-8xl">Film Michi!</h1> */}
               <h1 className="text-8xl">FILM DORI</h1>
@@ -49,9 +46,9 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
-          </body>
-        </ReactQueryProvider>
-      </Provider>
+          </Provider>
+        </body>
+      </ReactQueryProvider>
     </html>
   )
 }
