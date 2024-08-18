@@ -6,6 +6,8 @@ import Link from 'next/link'
 import Provider from '@/components/Provider'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 import Footer from '@/components/Footer'
+import Head from 'next/head'
+import { SessionProviderProps } from 'next-auth/react'
 
 const singleDay_init = Single_Day({
   weight: ['400'],
@@ -18,17 +20,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  session,
 }: Readonly<{
   children: React.ReactNode
+  session: SessionProviderProps['session']
 }>) {
   return (
     <html lang="en">
-      <ReactQueryProvider>
-        <head>
-          <link rel="icon" href="/favicon.png" />
-        </head>
-        <body className={`${singleDay_init.variable} single_day min-h-screen`}>
-          <Provider session={undefined}>
+      <Head>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
+      <body className={`${singleDay_init.variable} single_day min-h-screen`}>
+        <ReactQueryProvider>
+          <Provider session={session}>
             <header className="flex justify-between items-center overflow-hidden h-60">
               {/* <h1 className="text-8xl">Film Michi!</h1> */}
               <h1 className="text-8xl">FILM DORI</h1>
@@ -47,8 +51,8 @@ export default function RootLayout({
             </main>
             <Footer />
           </Provider>
-        </body>
-      </ReactQueryProvider>
+        </ReactQueryProvider>
+      </body>
     </html>
   )
 }
