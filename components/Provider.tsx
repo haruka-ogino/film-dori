@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 
 interface Props {
   children: ReactNode
-  session: SessionProviderProps['session']
+  session?: SessionProviderProps['session']
 }
 
 const Provider = ({ children, session }: Props) => {

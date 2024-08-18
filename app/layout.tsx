@@ -22,7 +22,7 @@ export default function RootLayout({
   session,
 }: Readonly<{
   children: React.ReactNode
-  session: SessionProviderProps['session']
+  session?: SessionProviderProps['session']
 }>) {
   return (
     <html lang="en">
