@@ -65,17 +65,13 @@ export const GET = async (
   const tag_id = Number(tagId)
 
   if (authId !== 'x' && tag_id !== 0) {
-    console.log('all inputs in')
-
     query += ` WHERE auth_id = ? AND tag_id = ?`
     args.push(authId)
     args.push(tag_id.toString())
   } else if (authId !== 'x') {
-    console.log('only authId specified')
     query += ` WHERE auth_id = ?`
     args.push(authId)
   } else if (tag_id !== 0) {
-    console.log('only tag specified')
     query += ` WHERE tag_id = ?`
     args.push(tag_id.toString())
   }

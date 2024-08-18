@@ -24,7 +24,6 @@ export default function Locations({
   authId,
 }: Params) {
   const queryClient = useQueryClient()
-  console.log(locations)
 
   function handleTagClick(id: number) {
     setTag(id)

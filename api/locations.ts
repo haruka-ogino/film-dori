@@ -40,7 +40,6 @@ export async function saveLocation(data: LocationData) {
     }
 
     const location = await res.json()
-    console.log(location)
 
     return location
   } catch (error) {
@@ -54,9 +53,6 @@ export async function getLocations(
   tagId: number
 ): Promise<Location[] | undefined> {
   try {
-    console.log(tagId)
-    console.log(authId)
-
     const res = await fetch(`/api/locations/${authId}/${tagId}`, {
       method: 'GET',
       headers: {

@@ -30,8 +30,6 @@ export default function SaveLocation({ location, open, session }: Props) {
     rating,
   })
 
-  console.log(location)
-
   const saveLocation = useSaveLocation()
   const { data: tags } = useTags()
 
@@ -39,8 +37,6 @@ export default function SaveLocation({ location, open, session }: Props) {
     e.preventDefault()
 
     setNewLocation((prev) => {
-      console.log(prev)
-
       return { ...prev, id, authId }
     })
 
@@ -50,7 +46,6 @@ export default function SaveLocation({ location, open, session }: Props) {
 
   if (location && tags) {
     const { rating, displayName, formattedAddress, url } = location
-    console.log(tags)
 
     return (
       <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60">
@@ -73,8 +68,6 @@ export default function SaveLocation({ location, open, session }: Props) {
                 <textarea
                   name="description"
                   onChange={(e) => {
-                    console.log(e)
-
                     setNewLocation({
                       ...newLocation,
                       description: e.target.value,
@@ -120,8 +113,6 @@ export default function SaveLocation({ location, open, session }: Props) {
               name="image-url"
               type="text"
               onChange={(e) => {
-                console.log(e)
-
                 setNewLocation({ ...newLocation, image: e.target.value })
               }}
               placeholder="image url"

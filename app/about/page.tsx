@@ -1,7 +1,7 @@
 export default function FutureGoals() {
   return (
     <>
-      <h1>About this website:</h1>
+      <h1>About this website</h1>
       <p>
         During my travels in Japan, I frequented locations that had inspired or
         been featured in some tv shows and films. I found that doing this
@@ -33,6 +33,7 @@ export default function FutureGoals() {
         Try finding the location on Google Maps first and copy the exact name to
         the search bar on the Add Location page.
       </p>
+      <br />
       <h2>Future goals for this app</h2>
       <p>
         The following features are part of the minimum viable product (MVP) but
