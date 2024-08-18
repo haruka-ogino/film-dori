@@ -18,7 +18,7 @@ During my own travels in Japan, I frequented places that either inspired Ghibli 
 ## Installation - **From the command line**
 
 ```
-git clone https://github.com/haruka-ogino/ghibli.git
+git clone https://github.com/haruka-ogino/film-dori.git
 cd ghibli-things
 npm install # to install dependencies
 npm run dev # to start the dev server
@@ -33,5 +33,4 @@ You can find the app running on [http://localhost:3000](http://localhost:3000).
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=fflat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-blue?style=fflat-square&logo=node.js)](https://nodejs.org/)
 [![SQLite](https://img.shields.io/badge/SQLite-07405E?style=fflat-square&logo=sqlite)](https://www.sqlite.org/)
-![Vitest](https://img.shields.io/badge/Vitest-green?style=fflat-square&logo=vite)
 ![Turso](https://img.shields.io/badge/Turso-07405E?style=fflat-square&logo=turso)
