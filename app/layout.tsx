@@ -13,8 +13,8 @@ const singleDay_init = Single_Day({
   variable: '--font-single_day',
 })
 export const metadata: Metadata = {
-  title: 'All the Ghibli Things!',
-  description: 'A library for all Ghibli things',
+  title: 'Film Dori',
+  description: 'The place to share your favourite places!',
 }
 
 export default function RootLayout({
@@ -28,17 +28,20 @@ export default function RootLayout({
     <html lang="en">
       <Provider session={session}>
         <ReactQueryProvider>
+          <head>
+            <link rel="icon" href="/favicon.png" />
+          </head>
           <body
             className={`${singleDay_init.variable} single_day min-h-screen`}
           >
-            <header className="flex justify-between items-center overflow-hidden h-44">
+            <header className="flex justify-between items-center overflow-hidden h-60">
               {/* <h1 className="text-8xl">Film Michi!</h1> */}
               <h1 className="text-8xl">FILM DORI</h1>
               <Link href="/">
                 {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
                 <img
-                  className="w-48"
-                  src="https://www.ghibli-museum.jp/en/img/mainimg.png"
+                  className="h-60"
+                  src="/film-dori-grey.png"
                   alt="link to home page"
                 />
               </Link>
