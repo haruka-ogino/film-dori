@@ -28,25 +28,25 @@ export default function RootLayout({
           <link rel="icon" href="/favicon.png" />
         </head>
         <body className={`${singleDay_init.variable} single_day min-h-screen`}>
-          <Provider session={undefined}>
-            <header className="flex justify-between items-center overflow-hidden h-60">
-              {/* <h1 className="text-8xl">Film Michi!</h1> */}
-              <h1 className="text-8xl">FILM DORI</h1>
-              <Link href="/">
-                {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
-                <img
-                  className="h-60"
-                  src="/film-dori-grey.png"
-                  alt="link to home page"
-                />
-              </Link>
-            </header>
-            <NavBar />
-            <main className="flex min-h-[55%] flex-col items-center">
-              {children}
-            </main>
-            <Footer />
-          </Provider>
+          {/* <Provider session={undefined}> */}
+          <header className="flex justify-between items-center overflow-hidden h-60">
+            {/* <h1 className="text-8xl">Film Michi!</h1> */}
+            <h1 className="text-8xl">FILM DORI</h1>
+            <Link href="/">
+              {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
+              <img
+                className="h-60"
+                src="/film-dori-grey.png"
+                alt="link to home page"
+              />
+            </Link>
+          </header>
+          {/* <NavBar /> */}
+          <main className="flex min-h-[55%] flex-col items-center">
+            {children}
+          </main>
+          <Footer />
+          {/* </Provider> */}
         </body>
       </ReactQueryProvider>
     </html>
