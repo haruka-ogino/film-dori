@@ -40,6 +40,7 @@ export default function Home() {
           setTag={setTag}
           key={key}
           tag={tag}
+          authId={authId}
         />
       </>
     )

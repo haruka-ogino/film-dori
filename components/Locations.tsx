@@ -9,6 +9,7 @@ interface Params {
   key: string
   tag: number
   setAuthId?: Dispatch<SetStateAction<string>>
+  authId?: string
 }
 
 export default function Locations({
@@ -18,6 +19,7 @@ export default function Locations({
   key,
   setAuthId,
   tag,
+  authId,
 }: Params) {
   const queryClient = useQueryClient()
   console.log(locations)
@@ -34,28 +36,61 @@ export default function Locations({
     }
   }
 
+  // if (tag)
+
   return (
     <>
       <h1>{title}</h1>
-      {tag === 0 && !setAuthId ? (
-        <p>discover locations</p>
-      ) : setAuthId ? (
-        <>
-          <div className="flex flex-center">
-            <p className="tag">{locations[0].tag}</p>
-            <button onClick={() => setTag(0)}>- remove filters -</button>
-          </div>
-          <div className="flex flex-center">
-            <p className="tag">{locations[0].username}</p>
-            <button onClick={() => setAuthId('x')}>- remove filters -</button>
-          </div>
-        </>
-      ) : (
+      {title === 'My Locations' && tag !== 0 && (
         <div className="flex flex-center">
           <p className="tag">{locations[0].tag}</p>
           <button onClick={() => setTag(0)}>- remove filter -</button>
         </div>
       )}
+      {setAuthId &&
+        (tag !== 0 && authId !== 'x' ? (
+          <div className="flex flex-center">
+            <div className="flex flex-center">
+              <p className="tag">{locations[0].tag}</p>
+              <button onClick={() => setTag(0)}>x</button>
+            </div>
+            <div className="flex flex-col flex-center hover:underline hover:cursor-pointer hover:opacity-60">
+              <button onClick={() => setAuthId('x')}>
+                {locations[0].username} <span className="">x</span>
+              </button>
+            </div>
+          </div>
+        ) : tag === 0 && authId !== 'x' ? (
+          <>
+            {/* <div className="flex flex-center">
+              <p className="tag">{locations[0].tag}</p>
+              <button onClick={() => setTag(0)}>- remove filters -</button>
+            </div> */}
+            <div className="flex flex-center">
+              <p className="mr-2">
+                locations by
+                {/* <span className="tag">{locations[0].username}</span> */}
+              </p>
+              {/* <p className="tag">{locations[0].username}</p> */}
+              <button
+                className="flex flex-col flex-center hover:underline hover:cursor-pointer hover:opacity-60"
+                onClick={() => setAuthId('x')}
+              >
+                {' '}
+                {locations[0].username} <span className="">x</span>
+                {/* <span className="hover:opacity-60">x</span> */}
+              </button>
+            </div>
+          </>
+        ) : (
+          tag !== 0 &&
+          authId === 'x' && (
+            <div className="flex flex-center">
+              <p className="tag">{locations[0].tag}</p>
+              <button onClick={() => setTag(0)}>x</button>
+            </div>
+          )
+        ))}
       {locations.map((location: Location, i: number) => (
         <section key={i} className="mt-10 mp-10 flex flex-col w-full">
           <div className="flex flex-wrap justify-left align-center">
