@@ -5,9 +5,9 @@ interface Props {
   setId: Dispatch<SetStateAction<string>>
 }
 
-export default function UserInfo({ username, setId }: Props) {
+export default function UserTag({ username, setId }: Props) {
   return (
-    <div>
+    <>
       <p className="px-2">locations by</p>
       <p className="bg-white px-2 rounded-full">
         {username}
@@ -17,6 +17,6 @@ export default function UserInfo({ username, setId }: Props) {
           </span>
         </button>
       </p>
-    </div>
+    </>
   )
 }

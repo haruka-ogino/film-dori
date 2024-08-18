@@ -1,6 +1,8 @@
 import { Location } from '@/models/locations'
 import { useQueryClient } from '@tanstack/react-query'
 import { Dispatch, SetStateAction } from 'react'
+import MediaTag from './MediaTag'
+import UserTag from './UserTag'
 
 interface Params {
   locations: Location[]
@@ -36,69 +38,25 @@ export default function Locations({
     }
   }
 
-  // if (tag)
-
   return (
     <>
       <h1>{title}</h1>
       {title === 'My Locations' && tag !== 0 && (
-        <div className="flex flex-center">
-          <p className="tag">{locations[0].tag}</p>
-          <button onClick={() => setTag(0)}>- remove filter -</button>
-        </div>
+        <MediaTag tag={locations[0].tag} setTag={setTag} />
       )}
       {setAuthId &&
         (tag !== 0 && authId !== 'x' ? (
-          <div className="flex flex-center">
-            <p className="tag m-0 p-0">
-              {locations[0].tag}
-              <button onClick={() => setTag(0)}>
-                <span className="ml-1 border-2 px-2 rounded-full hover:opacity-50">
-                  x
-                </span>
-              </button>
-            </p>
-            <>
-              <p className="px-2">locations by</p>
-              <p className="bg-white px-2 rounded-full">
-                {locations[0].username}{' '}
-                <button onClick={() => setAuthId('x')}>
-                  <span className="ml-1 border-2 px-2 rounded-full border-[rgb(169,111,228)] hover:opacity-50">
-                    x
-                  </span>
-                </button>
-              </p>
-            </>
+          <div className="flex flex-center items-end">
+            <MediaTag tag={locations[0].tag} setTag={setTag} />
+            <UserTag username={locations[0].username} setId={setAuthId} />
           </div>
         ) : tag === 0 && authId !== 'x' ? (
-          <>
-            {/* <div className="flex flex-center">
-              <p className="tag">{locations[0].tag}</p>
-              <button onClick={() => setTag(0)}>- remove filters -</button>
-            </div> */}
-            <div className="flex flex-center">
-              {/* <p className="tag">{locations[0].username}</p> */}
-              <button
-                className="flex flex-col flex-center hover:underline hover:cursor-pointer hover:opacity-60"
-                onClick={() => setAuthId('x')}
-              >
-                <p className="mr-2">
-                  locations by
-                  {/* <span className="tag">{locations[0].username}</span> */}{' '}
-                  {locations[0].username} <span className="">x</span>
-                </p>
-                {/* <span className="hover:opacity-60">x</span> */}
-              </button>
-            </div>
-          </>
+          <div className="flex flex-center items-end">
+            <UserTag username={locations[0].username} setId={setAuthId} />
+          </div>
         ) : (
           tag !== 0 &&
-          authId === 'x' && (
-            <div className="flex flex-center">
-              <p className="tag">{locations[0].tag}</p>
-              <button onClick={() => setTag(0)}>x</button>
-            </div>
-          )
+          authId === 'x' && <MediaTag tag={locations[0].tag} setTag={setTag} />
         ))}
       {locations.map((location: Location, i: number) => (
         <section key={i} className="mt-10 mp-10 flex flex-col w-full">
@@ -122,8 +80,6 @@ export default function Locations({
           <p>
             <a href={location.url}>📍 {location.address}</a>
           </p>
-          {/* <div className="flex">
-            <img src={location.userImg} alt="user-icon" /> */}
           {title !== 'My Locations' ? (
             <p
               className="self-center hover:underline hover:cursor-pointer"
