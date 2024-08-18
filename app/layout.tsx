@@ -22,11 +22,11 @@ export default function RootLayout({
   session,
 }: Readonly<{
   children: React.ReactNode
-  session?: SessionProviderProps['session']
+  session: SessionProviderProps['session']
 }>) {
   return (
     <html lang="en">
-      <Provider session={session}>
+      <Provider>
         <ReactQueryProvider>
           <head>
             <link rel="icon" href="/favicon.png" />
