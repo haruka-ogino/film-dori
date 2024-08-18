@@ -17,14 +17,17 @@ const NavBar = () => {
     <>
       {/* Desktop Navigation */}
       <nav className="sm:flex justify-around items-center hidden overflow-x-hidden py-2 my-2 border-y-2 border-blue-900">
-        <Link href="/goals" className="mx-2">
-          Future goals for app
+        <Link href="/" className="mx-2">
+          Discover
         </Link>
         <Link href="/post-location" className="mx-2">
           Add Location
         </Link>
         <Link href="/my-locations" className="mx-2">
           My Locations
+        </Link>
+        <Link href="/about" className="mx-2">
+          About
         </Link>
         {session?.user ? (
           <div className="flex gap-3 md:gap-5 mx-2">
