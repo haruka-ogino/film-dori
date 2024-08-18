@@ -50,15 +50,25 @@ export default function Locations({
       {setAuthId &&
         (tag !== 0 && authId !== 'x' ? (
           <div className="flex flex-center">
-            <div className="flex flex-center">
-              <p className="tag">{locations[0].tag}</p>
-              <button onClick={() => setTag(0)}>x</button>
-            </div>
-            <div className="flex flex-col flex-center hover:underline hover:cursor-pointer hover:opacity-60">
-              <button onClick={() => setAuthId('x')}>
-                {locations[0].username} <span className="">x</span>
+            <p className="tag m-0 p-0">
+              {locations[0].tag}
+              <button onClick={() => setTag(0)}>
+                <span className="ml-1 border-2 px-2 rounded-full hover:opacity-50">
+                  x
+                </span>
               </button>
-            </div>
+            </p>
+            <>
+              <p className="px-2">locations by</p>
+              <p className="bg-white px-2 rounded-full">
+                {locations[0].username}{' '}
+                <button onClick={() => setAuthId('x')}>
+                  <span className="ml-1 border-2 px-2 rounded-full border-[rgb(169,111,228)] hover:opacity-50">
+                    x
+                  </span>
+                </button>
+              </p>
+            </>
           </div>
         ) : tag === 0 && authId !== 'x' ? (
           <>
@@ -95,7 +105,7 @@ export default function Locations({
           <div className="flex flex-wrap justify-left align-center">
             <h2 className="text-4xl">{location.name}</h2>
             <p
-              className="tag m-[5px_20px]"
+              className="tag m-[5px_20px] cursor-pointer hover:opacity-70"
               onClick={() => handleTagClick(location.tagId)}
             >
               {location.tag}

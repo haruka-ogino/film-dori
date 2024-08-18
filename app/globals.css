@@ -135,16 +135,15 @@ a:hover,
     rgb(111, 131, 228) 0%,
     rgb(215, 101, 196) 100%
   );
-  cursor: pointer;
+  /* color: rgb(169, 111, 228); */
+
   border-radius: 20px;
   font-size: 25px;
   padding: 5px 10px;
   line-height: 25px;
   width: fit-content;
-  /*   margin: 5px 20px; */
-  /* m-[5px_20px]  */
 }
 
-.tag:hover {
+/* .tag:hover {
   opacity: 0.7;
-}
+} */
