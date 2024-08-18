@@ -19,14 +19,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  session,
 }: Readonly<{
   children: React.ReactNode
-  session: SessionProviderProps['session']
 }>) {
   return (
     <html lang="en">
-      <Provider>
+      <Provider session={undefined}>
         <ReactQueryProvider>
           <head>
             <link rel="icon" href="/favicon.png" />
