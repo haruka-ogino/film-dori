@@ -18,13 +18,14 @@ export const metadata: Metadata = {
   description: 'The place to share your favourite places!',
 }
 
-export default function RootLayout({
-  children,
-  session,
-}: Readonly<{
+type Props = {
   children: React.ReactNode
-  session: SessionProviderProps['session']
-}>) {
+}
+// type PropsExtended = {
+//   children?: React.ReactNode
+//   session?: SessionProviderProps['session']
+// }
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <Head>
@@ -32,7 +33,7 @@ export default function RootLayout({
       </Head>
       <body className={`${singleDay_init.variable} single_day min-h-screen`}>
         <ReactQueryProvider>
-          <Provider session={session}>
+          <Provider session={undefined}>
             <header className="flex justify-between items-center overflow-hidden h-60">
               {/* <h1 className="text-8xl">Film Michi!</h1> */}
               <h1 className="text-8xl">FILM DORI</h1>
