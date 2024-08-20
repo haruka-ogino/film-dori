@@ -1,16 +1,99 @@
+import {
+  FaLinkedin,
+  FaGithubSquare,
+  FaFileAlt,
+  FaEnvelope,
+} from 'react-icons/fa'
+
 export default function Footer() {
   return (
-    <footer className="w-full mx-auto flex flex-wrap justify-between  mb-5">
-      <h1>Made by Haruka Ogino</h1>
-      <section className="flex flex-col items-center">
+    <footer className="w-full m-8 mx-auto flex flex-wrap justify-between items-end">
+      <div style={{ marginRight: '8em' }}>
+        <section className="name">
+          <h1>Made by Haruka Ogino</h1>
+          <h2 className="m-0 p-0">Full-stack Developer</h2>
+        </section>
+        <section className="footer-links mt-1 mx-2 text-[#4d3593]">
+          <a
+            className="flex items-center my-1 mx-0 p-0"
+            href="mailto:harukariq@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {/* <FaEnvelope size={24} className="text-[#4d3593]" /> */}
+            <FaEnvelope size={24} className="text-[#4d3593]" />
+            <p style={{ marginLeft: '5px' }}>harukariq@gmail.com</p>
+          </a>
+          <a
+            className="flex items-center my-1 mx-0 p-0"
+            href="https://nz.linkedin.com/in/haruka-ogino-769540148"
+            target="_blank"
+          >
+            <FaLinkedin size={28} className="text-[#4d3593]" />
+            {/* <FaLinkedin size={28} className="text-[#4d3593]" /> */}
+            <p style={{ marginLeft: '3px' }}>LinkedIn</p>
+          </a>
+          <a
+            className="flex items-center my-1 mx-0 p-0"
+            href="https://github.com/haruka-ogino"
+            target="_blank"
+          >
+            <FaGithubSquare size={28} className="text-[#4d3593]" />
+            {/* <FaGithubSquare size={28} className="text-[#4d3593]" /> */}
+            <p style={{ marginLeft: '3px' }}>GitHub</p>
+          </a>
+        </section>
+      </div>
+
+      <section className="flex flex-col">
         <h4>Website's GitHub Repo</h4>
         <a href="https://github.com/haruka-ogino/ghibli" target="_blank">
           <img
             className="h-7"
-            src="https://img.shields.io/badge/GitHub-224756?style=fflat-square&logo=github"
+            src="https://img.shields.io/badge/GitHub-4d3593?style=fflat-square&logo=github"
             alt="github banner as a link to this site's repo"
           />
         </a>
+        <section className="my-4">
+          <h4 className="mb-1">This website was built using:</h4>
+          <ul className="flex flex-wrap justify-center">
+            <li>
+              <img
+                className="h-7 mr-2 my-1"
+                src="https://img.shields.io/badge/React-4d3593?style=fflat-square&logo=react"
+                alt="react js banner"
+              />
+            </li>
+            <li>
+              <img
+                className="h-7 mr-2 my-1"
+                src="https://img.shields.io/badge/Next.js-4d3593?style=fflat-square&logo=nextdotjs&logoColor=white"
+                alt="next js banner"
+              />
+            </li>
+            <li>
+              <img
+                className="h-7 mr-2 my-1"
+                src="https://img.shields.io/badge/Node.js-4d3593?style=fflat-square&logo=node.js"
+                alt="node JS banner"
+              />
+            </li>
+            <li>
+              <img
+                className="h-7 mr-2 my-1"
+                src="https://img.shields.io/badge/Tailwind_CSS-4d3593?style=fflat-square&logo=tailwind-css&logoColor=38B2AC"
+                alt="tailwind banner"
+              />
+            </li>
+            <li>
+              <img
+                className="h-7 mr-2 my-1"
+                src="https://img.shields.io/badge/Turso-4d3593?style=fflat-square&logo=turso"
+                alt="turso banner"
+              />
+            </li>
+          </ul>
+        </section>
       </section>
     </footer>
   )
