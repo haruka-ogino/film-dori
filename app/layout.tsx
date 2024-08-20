@@ -24,9 +24,7 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/FD-logo.png" />
-      </head>
+      {/* <head><link rel="icon" href="/favicon.png" /></head> */}
       <body className={`${singleDay_init.variable} single_day min-h-screen`}>
         <ReactQueryProvider>
           <Provider session={undefined}>
