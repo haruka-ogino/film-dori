@@ -1,6 +1,6 @@
 import { Location } from '@/models/locations'
 import { useQueryClient } from '@tanstack/react-query'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, RefObject, SetStateAction, useRef } from 'react'
 import MediaTag from './MediaTag'
 import UserTag from './UserTag'
 
@@ -28,13 +28,19 @@ export default function Locations({
   function handleTagClick(id: number) {
     setTag(id)
     queryClient.invalidateQueries({ queryKey: [key, id] })
+    scroll()
   }
 
   function handleNameClick(id: string) {
     if (setAuthId) {
       setAuthId(id)
       queryClient.invalidateQueries({ queryKey: [key, id, 'locations'] })
+      scroll()
     }
+  }
+
+  function scroll() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
