@@ -1,4 +1,4 @@
-export default function FutureGoals() {
+export default function About() {
   return (
     <>
       <h1>About this website</h1>
@@ -25,6 +25,12 @@ export default function FutureGoals() {
       </p>
       <br />
       <h2>Frequently Asked Questions</h2>
+      <h3>What does Film Dori mean?</h3>
+      <p>
+        Dori means 'street' in Japanese, meaning that the name of this website
+        translates to 'Film Street' in plain English. By using this site, you
+        can explore real streets that inspired your favourite films!
+      </p>
       <h3>What if I can't find the location I want to share?</h3>
       <p>
         The search function uses the Google Places API. This means that if you
