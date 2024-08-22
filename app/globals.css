@@ -29,8 +29,8 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 25px;
-  width: 70%;
-  /* max-width: 1200px; */
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -147,6 +147,11 @@ a:hover,
   width: fit-content;
 }
 
-/* .tag:hover {
-  opacity: 0.7;
-} */
+.open-icon {
+  background: linear-gradient(
+    160deg,
+    rgb(111, 131, 228) 0%,
+    rgb(215, 101, 196) 100%
+  );
+  color: rgb(255, 245, 254);
+}
