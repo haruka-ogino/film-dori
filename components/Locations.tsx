@@ -3,6 +3,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { Dispatch, RefObject, SetStateAction, useRef } from 'react'
 import MediaTag from './MediaTag'
 import UserTag from './UserTag'
+import Link from 'next/link'
 
 interface Params {
   locations: Location[]
@@ -46,6 +47,11 @@ export default function Locations({
   return (
     <>
       <h1>{title}</h1>
+      {title === 'My Locations' && locations.length === 0 && (
+        <Link href="post-location">
+          <p>Start sharing locations!</p>
+        </Link>
+      )}
       {title === 'My Locations' && tag !== 0 && (
         <MediaTag tag={locations[0].tag} setTag={setTag} />
       )}

@@ -23,9 +23,11 @@ const NavBar = () => {
         <Link href="/post-location" className="mx-2">
           Add Location
         </Link>
-        <Link href="/my-locations" className="mx-2">
-          My Locations
-        </Link>
+        {session?.user && (
+          <Link href="/my-locations" className="mx-2">
+            My Locations
+          </Link>
+        )}
         <Link href="/about" className="mx-2">
           About
         </Link>
