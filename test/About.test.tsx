@@ -3,11 +3,21 @@ import About from '@/app/about/page'
 import '@testing-library/jest-dom'
 
 describe('About component', () => {
-  it('About', async () => {
+  it('About title', async () => {
     // Arrange
     render(<About />)
     // Act
-    const currentHeading = screen.getByText('About this website')
+    const currentHeading = screen.getByRole('heading', { level: 1 })
+    // Assert
+    expect(currentHeading).toHaveTextContent('About this website')
+    // expect(currentHeading.textContent).toBe('About this website')
+  })
+
+  it('check for future goals heading', async () => {
+    // Arrange
+    render(<About />)
+    // Act
+    const currentHeading = screen.getByText('Future goals for this app')
     // Assert
     expect(currentHeading).toBeInTheDocument()
   })
