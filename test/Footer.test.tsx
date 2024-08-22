@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import '@testing-library/jest-dom'
 
 describe('Footer component', () => {
-  it('Footer title', async () => {
+  it('Footer title', () => {
     // Arrange
     render(<Footer />)
     // Act
@@ -12,7 +12,7 @@ describe('Footer component', () => {
     expect(currentHeading).toHaveTextContent('Made by Haruka Ogino')
   })
 
-  it('check for github link', async () => {
+  it('check for github link', () => {
     // Arrange
     render(<Footer />)
     // Act
@@ -21,7 +21,7 @@ describe('Footer component', () => {
     expect(currentHeading).toBeInTheDocument()
   })
 
-  it('check for tech stack', async () => {
+  it('check for tech stack', () => {
     // Arrange
     render(<Footer />)
     // Act

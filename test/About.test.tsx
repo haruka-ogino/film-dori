@@ -13,7 +13,7 @@ describe('About component', () => {
     // expect(currentHeading.textContent).toBe('About this website')
   })
 
-  it('check for future goals heading', async () => {
+  it('check for future goals heading', () => {
     // Arrange
     render(<About />)
     // Act
@@ -22,7 +22,7 @@ describe('About component', () => {
     expect(currentHeading).toBeInTheDocument()
   })
 
-  it('check for film dori meaning', async () => {
+  it('check for film dori meaning', () => {
     // Arrange
     render(<About />)
     // Act
