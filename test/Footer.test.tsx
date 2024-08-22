@@ -20,4 +20,15 @@ describe('Footer component', () => {
     // Assert
     expect(currentHeading).toBeInTheDocument()
   })
+
+  it('check for tech stack', async () => {
+    // Arrange
+    render(<Footer />)
+    // Act
+    const currentHeading = screen.getByRole('heading', {
+      name: 'This website was built using:',
+    })
+    // Assert
+    expect(currentHeading).toBeInTheDocument()
+  })
 })

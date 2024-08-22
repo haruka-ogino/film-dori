@@ -21,4 +21,15 @@ describe('About component', () => {
     // Assert
     expect(currentHeading).toBeInTheDocument()
   })
+
+  it('check for film dori meaning', async () => {
+    // Arrange
+    render(<About />)
+    // Act
+    const currentHeading = screen.getByRole('heading', {
+      name: 'What does Film Dori mean?',
+    })
+    // Assert
+    expect(currentHeading).toBeInTheDocument()
+  })
 })
