@@ -89,18 +89,34 @@ const NavBar = () => {
               {/* <h5 className="fixed top-10 leading-3 right-4 text-8xl">x</h5> */}
               <h5 className="leading-3 text-8xl">x</h5>
             </button>
-            <Link href="/" className="mx-2 my-8">
+            <Link
+              href="/"
+              className="mx-2 my-8"
+              onClick={() => setToggleDropdown(false)}
+            >
               Discover
             </Link>
-            <Link href="/post-location" className="mx-2 my-8">
+            <Link
+              href="/post-location"
+              className="mx-2 my-8"
+              onClick={() => setToggleDropdown(true)}
+            >
               Add Location
             </Link>
             {session?.user && (
-              <Link href="/my-locations" className="mx-2 my-8">
+              <Link
+                href="/my-locations"
+                className="mx-2 my-8"
+                onClick={() => setToggleDropdown(false)}
+              >
                 My Locations
               </Link>
             )}
-            <Link href="/about" className="mx-2 my-8">
+            <Link
+              href="/about"
+              className="mx-2 my-8"
+              onClick={() => setToggleDropdown(false)}
+            >
               About
             </Link>
             {session?.user ? (
