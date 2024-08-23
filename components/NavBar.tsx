@@ -65,24 +65,24 @@ const NavBar = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="sm:hidden fixed right-0 top-0 transform-translate-x-1/2 py-1 z-10 overflow-hidden gradient m-2">
+      <nav className="sm:hidden text-right fixed right-2 top-2 transform-translate-x-1/2 z-10 overflow-hidden">
         {/* <nav className="sm:hidden fixed right-0 mr-16 top-0 flex justify-around transform -translate-x-1/2 py-1 bg-[#f4fbfe] w-[70%] z-10 box-border overflow-hidden"> */}
         {!toggleDropdown ? (
           <div
-            className="relative w-16 pt-1"
+            className="relative w-16 h-[70px] pt-1 flex flex-col justify-around gradient"
             id=""
             onClick={() => setToggleDropdown(true)}
           >
-            <button className="leading-5 py-2 rounded">
-              <h5>━</h5>
-              <h5>━</h5>
-              <h5>━</h5>
+            <button className="py-0 leading-4 text-4xl">
+              <h5 className="py-0">━</h5>
+              <h5 className="py-0">━</h5>
+              <h5 className="py-0">━</h5>
             </button>
           </div>
         ) : (
-          <div className="flex flex-col justify-around w-[30rem] h-[40rem] text-5xl">
+          <div className="flex flex-col justify-around w-80 h-94 text-4xl">
             <button
-              className="fixed top-10 right-5 w-16 pt-2"
+              className="fixed top-8 right-5 pt-2"
               id=""
               onClick={() => setToggleDropdown(false)}
             >
