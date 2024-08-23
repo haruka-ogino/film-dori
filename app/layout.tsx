@@ -31,10 +31,10 @@ export default function RootLayout({ children }: Props) {
             <header className="flex justify-between items-center overflow-hidden h-60">
               {/* <h1 className="text-8xl">Film Michi!</h1> */}
               <h1 className="text-8xl">FILM DORI</h1>
-              <Link href="/">
+              <Link href="/" className="">
                 {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
                 <img
-                  className="h-60"
+                  className="h-60 hidden sm:block"
                   src="/film-dori-grey.png"
                   alt="link to home page"
                 />
