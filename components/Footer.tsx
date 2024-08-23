@@ -2,7 +2,7 @@ import { FaLinkedin, FaGithubSquare, FaEnvelope } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <footer className="w-full m-8 mx-auto flex flex-wrap justify-between items-end">
+    <footer className="w-full p-4 mx-auto flex flex-wrap justify-between items-end">
       <section className="mr-[30px]">
         {/* <section className="name"> */}
         <h1>Made by Haruka Ogino</h1>

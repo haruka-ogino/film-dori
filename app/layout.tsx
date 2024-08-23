@@ -41,7 +41,7 @@ export default function RootLayout({ children }: Props) {
               </Link>
             </header>
             <NavBar />
-            <main className="flex min-h-[55%] flex-col items-center">
+            <main className="flex min-h-[55%] flex-col items-center pb-8 border-b-2 border-blue-900">
               {children}
             </main>
             <Footer />
