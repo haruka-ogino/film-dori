@@ -17,22 +17,22 @@ const NavBar = () => {
     <>
       {/* Desktop Navigation */}
       <nav className="sm:flex justify-around items-center hidden overflow-x-hidden py-2 my-2 border-y-2 border-blue-900">
-        <Link href="/" className="mx-2 my-8">
+        <Link href="/" className="mx-2 my-2">
           Discover
         </Link>
-        <Link href="/post-location" className="mx-2 my-8">
+        <Link href="/post-location" className="mx-2 my-2">
           Add Location
         </Link>
         {session?.user && (
-          <Link href="/my-locations" className="mx-2 my-8">
+          <Link href="/my-locations" className="mx-2 my-2">
             My Locations
           </Link>
         )}
-        <Link href="/about" className="mx-2 my-8">
+        <Link href="/about" className="mx-2 my-2">
           About
         </Link>
         {session?.user ? (
-          <div className="flex gap-3 md:gap-5 mx-2 my-8">
+          <div className="flex gap-3 md:gap-5 mx-2 my-2">
             <button type="button" className="log-btn" onClick={() => signOut()}>
               Sign Out
             </button>
@@ -51,7 +51,7 @@ const NavBar = () => {
               Object.values(providers).map((provider) => (
                 <button
                   type="button"
-                  className="log-btn"
+                  className="log-btn mx-2 my-2"
                   key={provider.name}
                   onClick={() => {
                     signIn(provider.id)
@@ -80,7 +80,7 @@ const NavBar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex flex-col justify-around w-80 h-94 text-4xl">
+          <div className="flex flex-col items-center justify-around w-80 h-94 text-4xl gradient">
             <button
               className="fixed top-8 right-5 pt-2"
               id=""
