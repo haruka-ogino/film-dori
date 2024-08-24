@@ -65,7 +65,7 @@ export default function Post() {
           <ul className="flex flex-col items-center text-left w-full">
             {locations.map((location, i) => (
               <li key={i} className="li-style search_result w-full">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center p-3">
                   <div>
                     <h2>{location.displayName}</h2>
                     <p>{location.formattedAddress}</p>
@@ -78,7 +78,7 @@ export default function Post() {
                       Save Location
                     </button>
                   ) : (
-                    <p>Sign in to save location</p>
+                    <p className="pl-3 text-center">Sign in to save location</p>
                   )}
                 </div>
               </li>
