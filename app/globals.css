@@ -93,7 +93,6 @@ a:hover,
   outline: none;
   background: rgb(247, 241, 249);
   position: relative;
-  z-index: 30;
   border-radius: 15px;
   user-select: none;
   -webkit-user-select: none;
