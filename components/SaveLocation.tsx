@@ -49,7 +49,7 @@ export default function SaveLocation({ location, open, session }: Props) {
 
     return (
       <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60">
-        <section className="search_result w-8/12">
+        <section className="search_result w-8/12 text-left">
           <div className="flex justify-between items-center flex-wrap">
             <h1>{displayName}</h1>
             {location.rating && <p>{rating} ⭐️</p>}

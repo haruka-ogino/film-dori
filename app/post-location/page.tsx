@@ -43,9 +43,6 @@ export default function Post() {
   return (
     <>
       <h1>Share a location!</h1>
-      {/* <p>~ This page is under construction ~</p> */}
-      {/* <p>~ Stay tuned for updates ~</p> */}
-      {/* <p>Login to share locations and save your favourite locations.</p> */}
       <form
         onSubmit={handleSubmit}
         className="flex items-center justify-around flex-wrap max-w-96 m-5"
@@ -65,7 +62,7 @@ export default function Post() {
       {showRes && (
         <>
           <h1>Search results:</h1>
-          <ul className="flex flex-col items-center w-full">
+          <ul className="flex flex-col items-center text-left w-full">
             {locations.map((location, i) => (
               <li key={i} className="li-style search_result w-full">
                 <div className="flex justify-between items-center">
