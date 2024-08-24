@@ -27,10 +27,10 @@ npm run dev # to start the dev server
 You can find the app running on [http://localhost:3000](http://localhost:3000).
 
 ## Tech Stack
-[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=fflat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-beige?style=fflat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![React.js](https://img.shields.io/badge/React-orange?style=fflat-square&logo=react)](https://reactjs.org/)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=fflat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-blue?style=fflat-square&logo=node.js)](https://nodejs.org/)
-[![SQLite](https://img.shields.io/badge/SQLite-07405E?style=fflat-square&logo=sqlite)](https://www.sqlite.org/)
-![Turso](https://img.shields.io/badge/Turso-07405E?style=fflat-square&logo=turso)
+[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-4d3593?style=fflat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4d3593?style=fflat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![React.js](https://img.shields.io/badge/React-4d3593?style=fflat-square&logo=react)](https://reactjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-4d3593?style=fflat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-4d3593?style=fflat-square&logo=node.js)](https://nodejs.org/)
+[![SQLite](https://img.shields.io/badge/SQLite-4d3593?style=fflat-square&logo=sqlite)](https://www.sqlite.org/)
+![Turso](https://img.shields.io/badge/Turso-4d3593?style=fflat-square&logo=turso)(https://turso.tech/)
