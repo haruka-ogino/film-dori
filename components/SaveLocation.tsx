@@ -121,15 +121,12 @@ export default function SaveLocation({ location, open, session }: Props) {
                 className="m-3 pl-2 w-[95%] rounded-md"
                 required
               />
-              <div className="flex flex-wrap justify-center items-center">
-                <button
-                  type="submit"
-                  className="button-submit w-[150px] mr-[50px]"
-                >
+              <div className="flex flex-wrap justify-around items-center mr-[30px]">
+                <button type="submit" className="button-submit w-[150px] mx-4">
                   Save to my locations
                 </button>
                 <button
-                  className="button-submit button-cancel"
+                  className="button-submit button-cancel my-2 mx-4"
                   onClick={() => open(false)}
                 >
                   Cancel
