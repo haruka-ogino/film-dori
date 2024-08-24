@@ -34,4 +34,4 @@ You can find the app running on [http://localhost:3000](http://localhost:3000).
 [![Next.js](https://img.shields.io/badge/Next.js-4d3593?style=fflat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-4d3593?style=fflat-square&logo=node.js)](https://nodejs.org/)
 [![SQLite](https://img.shields.io/badge/SQLite-4d3593?style=fflat-square&logo=sqlite)](https://www.sqlite.org/)
-![Turso](https://img.shields.io/badge/Turso-4d3593?style=fflat-square&logo=turso)(https://turso.tech/)
+[![Turso](https://img.shields.io/badge/Turso-4d3593?style=fflat-square&logo=turso)](https://turso.tech/)
