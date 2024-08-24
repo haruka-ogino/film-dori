@@ -65,7 +65,7 @@ const NavBar = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="sm:hidden text-right fixed right-2 top-2 transform-translate-x-1/2 z-12 overflow-hidden">
+      <nav className="sm:hidden text-right fixed right-2 top-2 transform-translate-x-1/2 z-20 overflow-hidden">
         {/* <nav className="sm:hidden fixed right-0 mr-16 top-0 flex justify-around transform -translate-x-1/2 py-1 bg-[#f4fbfe] w-[70%] z-10 box-border overflow-hidden"> */}
         {!toggleDropdown ? (
           <div
