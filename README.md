@@ -12,7 +12,8 @@ During my own travels in Japan, I frequented places that either inspired Ghibli 
 
 * API endpoints
 * React components
-* database modules
+* Database modules
+* Authentication
 
 
 ## Installation - **From the command line**
