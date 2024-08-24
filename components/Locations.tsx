@@ -1,9 +1,10 @@
 import { Location } from '@/models/locations'
 import { useQueryClient } from '@tanstack/react-query'
-import { Dispatch, RefObject, SetStateAction, useRef } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import MediaTag from './MediaTag'
 import UserTag from './UserTag'
 import Link from 'next/link'
+import { FaRegTrashAlt, FaEdit } from 'react-icons/fa'
 
 interface Params {
   locations: Location[]
@@ -57,12 +58,12 @@ export default function Locations({
       )}
       {setAuthId &&
         (tag !== 0 && authId !== 'x' ? (
-          <div className="flex flex-center items-end">
+          <div className="flex justify-center items-end flex-wrap">
             <MediaTag tag={locations[0].tag} setTag={setTag} />
             <UserTag username={locations[0].username} setId={setAuthId} />
           </div>
         ) : tag === 0 && authId !== 'x' ? (
-          <div className="flex flex-center items-end">
+          <div className="flex justify-center items-end flex-wrap">
             <UserTag username={locations[0].username} setId={setAuthId} />
           </div>
         ) : (
@@ -74,7 +75,7 @@ export default function Locations({
           <div className="flex flex-wrap justify-left align-center">
             <h2 className="text-4xl">{location.name}</h2>
             <p
-              className="tag m-[5px_20px]"
+              className="tag m-[5px_20px] p-[5px_10px] cursor-pointer"
               onClick={() => handleTagClick(location.tagId)}
             >
               {location.tag}
@@ -82,12 +83,12 @@ export default function Locations({
           </div>
           <div className="relative flex justify-center m-3">
             {/* {title === 'My Locations' && ( */}
-            <div className="absolute tag m-[5px_20px] self-end flex top-[-57px] right-0">
-              <button className="cursor-pointer hover:opacity-50 pr-2">
-                edit
+            <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 tag">
+              <button className="cursor-pointer hover:opacity-50 pr-4">
+                <FaEdit size={25} />
               </button>
               <button className="cursor-pointer hover:opacity-50">
-                delete
+                <FaRegTrashAlt size={25} />
               </button>
             </div>
             {/* )} */}

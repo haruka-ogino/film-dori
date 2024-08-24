@@ -6,7 +6,7 @@ interface Props {
 }
 export default function MediaTag({ tag, setTag }: Props) {
   return (
-    <p className="tag m-0 p-0">
+    <p className="tag m-0 p-0 p-[5px_10px]">
       {tag}
       <button onClick={() => setTag(0)}>
         <span className="ml-1 border-2 px-2 rounded-full hover:opacity-50">
