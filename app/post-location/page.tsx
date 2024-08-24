@@ -40,6 +40,16 @@ export default function Post() {
     setSaveLocation(true)
   }
 
+  console.log(locations)
+  const example = {
+    displayName: 'Kamishichiken Kurosuke',
+    formattedAddress:
+      'Japan, 〒602-8381 Kyoto, 前Kamigyo Ward, Shinseichō, 京都市上京区真盛町 602-8381 京都府京都市上京区今出川通七本松西入ル真盛町699 上七軒歌舞練場',
+    id: 'ChIJha7W0e0HAWAR-2a33DX1cVM',
+    rating: 4.2,
+    url: 'https://maps.google.com/?cid=6012856589201401595',
+  }
+
   return (
     <>
       <h1>Share a location!</h1>
@@ -86,13 +96,18 @@ export default function Post() {
           </ul>
         </>
       )}
-      {saveLocation && (
+      <SaveLocation
+        location={example}
+        open={setSaveLocation}
+        session={session}
+      />
+      {/* {saveLocation && (
         <SaveLocation
           location={locationProp}
           open={setSaveLocation}
           session={session}
         />
-      )}
+      )} */}
     </>
   )
 }

@@ -48,8 +48,8 @@ export default function SaveLocation({ location, open, session }: Props) {
     const { rating, displayName, formattedAddress, url } = location
 
     return (
-      <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60">
-        <section className="search_result w-8/12 text-left">
+      <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60 z-20">
+        <section className="search_result md:w-8/12 w-11/12 text-left">
           <div className="overflow-y-auto grow my-[10px] mx-[5px] px-[15px]">
             <div className="flex justify-between items-center flex-wrap">
               <h1>{displayName}</h1>
