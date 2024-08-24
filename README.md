@@ -12,14 +12,15 @@ During my own travels in Japan, I frequented places that either inspired Ghibli 
 
 * API endpoints
 * React components
-* database modules
+* Database modules
+* Authentication
 
 
 ## Installation - **From the command line**
 
 ```
 git clone https://github.com/haruka-ogino/film-dori.git
-cd ghibli-things
+cd film-dori
 npm install # to install dependencies
 npm run dev # to start the dev server
 ```
