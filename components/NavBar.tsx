@@ -99,7 +99,7 @@ const NavBar = () => {
             <Link
               href="/post-location"
               className="mx-2 my-8"
-              onClick={() => setToggleDropdown(true)}
+              onClick={() => setToggleDropdown(false)}
             >
               Add Location
             </Link>
