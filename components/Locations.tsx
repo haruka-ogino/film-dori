@@ -82,16 +82,16 @@ export default function Locations({
             </p>
           </div>
           <div className="relative flex justify-center m-3">
-            {/* {title === 'My Locations' && ( */}
-            <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 tag">
-              <button className="cursor-pointer hover:opacity-50 pr-4">
-                <FaEdit size={25} />
-              </button>
-              <button className="cursor-pointer hover:opacity-50">
-                <FaRegTrashAlt size={25} />
-              </button>
-            </div>
-            {/* )} */}
+            {title === 'My Locations' && (
+              <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 tag">
+                <button className="cursor-pointer hover:opacity-50 pr-4">
+                  <FaEdit size={25} />
+                </button>
+                <button className="cursor-pointer hover:opacity-50">
+                  <FaRegTrashAlt size={25} />
+                </button>
+              </div>
+            )}
             <img src={location.image} alt={`Location of ${location.name}`} />
           </div>
           <p>{location.description}</p>
