@@ -70,21 +70,29 @@ export default function Locations({
           authId === 'x' && <MediaTag tag={locations[0].tag} setTag={setTag} />
         ))}
       {locations.map((location: Location, i: number) => (
-        <section key={i} className="mt-10 mp-10 flex flex-col w-full">
+        <section key={i} className="mt-10 flex flex-col w-full">
           <div className="flex flex-wrap justify-left align-center">
             <h2 className="text-4xl">{location.name}</h2>
             <p
-              className="tag m-[5px_20px] cursor-pointer hover:opacity-70"
+              className="tag m-[5px_20px]"
               onClick={() => handleTagClick(location.tagId)}
             >
               {location.tag}
             </p>
           </div>
-          <img
-            src={location.image}
-            className="self-center m-3"
-            alt={`Location of ${location.name}`}
-          />
+          <div className="relative flex justify-center m-3">
+            {/* {title === 'My Locations' && ( */}
+            <div className="absolute tag m-[5px_20px] self-end flex top-[-57px] right-0">
+              <button className="cursor-pointer hover:opacity-50 pr-2">
+                edit
+              </button>
+              <button className="cursor-pointer hover:opacity-50">
+                delete
+              </button>
+            </div>
+            {/* )} */}
+            <img src={location.image} alt={`Location of ${location.name}`} />
+          </div>
           <p>{location.description}</p>
           <p>Google rating: {location.rating} ⭐️</p>
           <p>Address:</p>
