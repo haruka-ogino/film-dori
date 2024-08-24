@@ -40,15 +40,15 @@ export default function Post() {
     setSaveLocation(true)
   }
 
-  console.log(locations)
-  const example = {
-    displayName: 'Kamishichiken Kurosuke',
-    formattedAddress:
-      'Japan, 〒602-8381 Kyoto, 前Kamigyo Ward, Shinseichō, 京都市上京区真盛町 602-8381 京都府京都市上京区今出川通七本松西入ル真盛町699 上七軒歌舞練場',
-    id: 'ChIJha7W0e0HAWAR-2a33DX1cVM',
-    rating: 4.2,
-    url: 'https://maps.google.com/?cid=6012856589201401595',
-  }
+  // console.log(locations)
+  // const example = {
+  //   displayName: 'Kamishichiken Kurosuke',
+  //   formattedAddress:
+  //     'Japan, 〒602-8381 Kyoto, 前Kamigyo Ward, Shinseichō, 京都市上京区真盛町 602-8381 京都府京都市上京区今出川通七本松西入ル真盛町699 上七軒歌舞練場',
+  //   id: 'ChIJha7W0e0HAWAR-2a33DX1cVM',
+  //   rating: 4.2,
+  //   url: 'https://maps.google.com/?cid=6012856589201401595',
+  // }
 
   return (
     <>
@@ -74,8 +74,8 @@ export default function Post() {
           <h1>Search results:</h1>
           <ul className="flex flex-col items-center text-left w-full">
             {locations.map((location, i) => (
-              <li key={i} className="li-style search_result z-1 w-full">
-                <div className="flex justify-between items-center p-3">
+              <li key={i} className="li-style search_result z-10 w-full">
+                <div className="flex flex-col md:flex-row justify-between items-center p-3">
                   <div>
                     <h2>{location.displayName}</h2>
                     <p>{location.formattedAddress}</p>
@@ -96,18 +96,18 @@ export default function Post() {
           </ul>
         </>
       )}
-      <SaveLocation
+      {/* <SaveLocation
         location={example}
         open={setSaveLocation}
         session={session}
-      />
-      {/* {saveLocation && (
+      /> */}
+      {saveLocation && (
         <SaveLocation
           location={locationProp}
           open={setSaveLocation}
           session={session}
         />
-      )} */}
+      )}
     </>
   )
 }
