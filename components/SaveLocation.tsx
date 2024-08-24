@@ -50,90 +50,93 @@ export default function SaveLocation({ location, open, session }: Props) {
     return (
       <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60">
         <section className="search_result w-8/12 text-left">
-          <div className="flex justify-between items-center flex-wrap">
-            <h1>{displayName}</h1>
-            {location.rating && <p>{rating} ⭐️</p>}
-          </div>
-          <a href={url}>{formattedAddress}</a>
-          <br />
-          <br />
-          <form onSubmit={saveNewLocation}>
-            <section className="flex flex-wrap">
-              <div className="mr-10">
-                <label htmlFor="description">
-                  Location Description{' '}
-                  <span className="relative top-[-5px]">*</span>
-                </label>
-                <br />
-                <textarea
-                  name="description"
-                  onChange={(e) => {
-                    setNewLocation({
-                      ...newLocation,
-                      description: e.target.value,
-                    })
-                  }}
-                  placeholder="describe location"
-                  className="m-3 ml-5 pl-2 h-36 min-w-[20em] rounded-md"
-                  required
-                />
-              </div>
-              <div>
-                <p>
-                  Select a tag <span className="relative top-[-5px]">*</span>
-                </p>
-                {tags.map((tag, i) => (
-                  <div key={i}>
-                    <input
-                      type="radio"
-                      id={`input-${tag.id}`}
-                      name="tag_id"
-                      value={tag.id}
-                      checked={newLocation.tagId === tag.id}
-                      onChange={(e) => {
-                        const selectedTagId = parseInt(e.target.value, 10)
-                        setNewLocation((prev) => ({
-                          ...prev,
-                          tagId: selectedTagId,
-                        }))
-                      }}
-                      className="mr-2"
-                    />
-                    <label htmlFor={`input-${tag.id}`}>{tag.tag}</label>
-                  </div>
-                ))}
-              </div>
-            </section>
-            <br />
-            <label htmlFor="image-url">
-              Image Link <span className="relative top-[-5px]">*</span>
-            </label>
-            <br />
-            <input
-              name="image-url"
-              type="text"
-              onChange={(e) => {
-                setNewLocation({ ...newLocation, image: e.target.value })
-              }}
-              placeholder="image url"
-              className="m-3 ml-5 pl-2 min-w-[32em] rounded-md"
-              required
-            />
-            <div className="flex flex-wrap justify-center items-center">
-              <button
-                type="submit"
-                className="button-submit w-[150px] mr-[50px]"
-              >
-                Save to my locations
-              </button>
-              <button
-                className="button-submit button-cancel"
-                onClick={() => open(false)}
-              >
-                Cancel
-              </button>
+          <div className="overflow-y-auto grow my-[10px] mx-[5px] px-[15px]">
+            <div className="flex justify-between items-center flex-wrap">
+              <h1>{displayName}</h1>
+              {location.rating && <p>{rating} ⭐️</p>}
             </div>
-          </form>
+            <a href={url}>{formattedAddress}</a>
+            <br />
+            <br />
+            <form onSubmit={saveNewLocation}>
+              <section className="flex flex-col flex-wrap lg:flex-row">
+                <div className="mr-10 flex-[2]">
+                  <label htmlFor="description">
+                    Location Description{' '}
+                    <span className="relative top-[-5px]">*</span>
+                  </label>
+                  <br />
+                  <textarea
+                    name="description"
+                    onChange={(e) => {
+                      setNewLocation({
+                        ...newLocation,
+                        description: e.target.value,
+                      })
+                    }}
+                    placeholder="describe location"
+                    // className="rounded-md"
+                    className="m-3 pl-2 w-full h-[75%] rounded-md"
+                    required
+                  />
+                </div>
+                <div className="flex-[1] mb-5">
+                  <p>
+                    Select a tag <span className="relative top-[-5px]">*</span>
+                  </p>
+                  {tags.map((tag, i) => (
+                    <div key={i}>
+                      <input
+                        type="radio"
+                        id={`input-${tag.id}`}
+                        name="tag_id"
+                        value={tag.id}
+                        checked={newLocation.tagId === tag.id}
+                        onChange={(e) => {
+                          const selectedTagId = parseInt(e.target.value, 10)
+                          setNewLocation((prev) => ({
+                            ...prev,
+                            tagId: selectedTagId,
+                          }))
+                        }}
+                        className="m-3"
+                      />
+                      <label htmlFor={`input-${tag.id}`}>{tag.tag}</label>
+                    </div>
+                  ))}
+                </div>
+              </section>
+              {/* <br /> */}
+              <label htmlFor="image-url">
+                Image Link <span className="relative top-[-5px]">*</span>
+              </label>
+              <br />
+              <input
+                name="image-url"
+                type="text"
+                onChange={(e) => {
+                  setNewLocation({ ...newLocation, image: e.target.value })
+                }}
+                placeholder="image url"
+                className="m-3 pl-2 w-[95%] rounded-md"
+                required
+              />
+              <div className="flex flex-wrap justify-center items-center">
+                <button
+                  type="submit"
+                  className="button-submit w-[150px] mr-[50px]"
+                >
+                  Save to my locations
+                </button>
+                <button
+                  className="button-submit button-cancel"
+                  onClick={() => open(false)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
         </section>
       </div>
     )

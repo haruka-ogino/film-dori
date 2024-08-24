@@ -88,7 +88,6 @@ a:hover,
 }
 
 .search_result {
-  padding: 10px 20px;
   margin: 10px 0px;
   border: none;
   outline: none;
@@ -99,6 +98,9 @@ a:hover,
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .search_result:before {
