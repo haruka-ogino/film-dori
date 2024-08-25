@@ -72,6 +72,23 @@ export const PATCH = async (
     return new Response('Failed to edit location', { status: 500 })
   }
 }
+
+export const GET = async (
+  req: NextRequest,
+  { params }: { params: { id: string; authId: string } }
+) => {
+  const { id, authId } = params
+
+  const sql = `SELECT * FROM newlocations WHERE id = ? AND auth_id = ?`
+  const args = [id, authId]
+
+  try {
+    const location = await turso.execute({ sql, args })
+    return new Response(JSON.stringify(location.rows[0]), { status: 200 })
+  } catch (error) {
+    return new Response('Failed to fetch location', { status: 500 })
+  }
+}
 // ChIJmcj9QppiGWAR36TzFsn8oaY
 // 107958491462184596092
 // SELECT
