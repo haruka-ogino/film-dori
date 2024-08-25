@@ -66,7 +66,6 @@ const NavBar = () => {
 
       {/* Mobile Navigation */}
       <nav className="sm:hidden text-right fixed right-2 top-2 transform-translate-x-1/2 z-20 overflow-hidden">
-        {/* <nav className="sm:hidden fixed right-0 mr-16 top-0 flex justify-around transform -translate-x-1/2 py-1 bg-[#f4fbfe] w-[70%] z-10 box-border overflow-hidden"> */}
         {!toggleDropdown ? (
           <div
             className="relative w-16 h-[70px] pt-1 flex flex-col justify-around gradient"
@@ -86,7 +85,6 @@ const NavBar = () => {
               id=""
               onClick={() => setToggleDropdown(false)}
             >
-              {/* <h5 className="fixed top-10 leading-3 right-4 text-8xl">x</h5> */}
               <h5 className="leading-3 text-8xl">x</h5>
             </button>
             <Link

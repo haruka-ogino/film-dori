@@ -106,7 +106,6 @@ export default function SaveLocation({ location, open, session }: Props) {
                   ))}
                 </div>
               </section>
-              {/* <br /> */}
               <label htmlFor="image-url">
                 Image Link <span className="relative top-[-5px]">*</span>
               </label>

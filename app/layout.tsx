@@ -24,12 +24,10 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      {/* <head><link rel="icon" href="/favicon.png" /></head> */}
       <body className={`${singleDay_init.variable} single_day min-h-screen`}>
         <ReactQueryProvider>
           <Provider session={undefined}>
             <header className="flex justify-between items-center overflow-hidden h-60">
-              {/* <h1 className="text-8xl">Film Michi!</h1> */}
               <h1 className="text-8xl">FILM DORI</h1>
               <Link href="/" className="">
                 {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}

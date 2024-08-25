@@ -4,10 +4,7 @@ export default function Footer() {
   return (
     <footer className="w-full p-4 mx-auto flex flex-wrap justify-between items-end">
       <section className="mr-[30px]">
-        {/* <section className="name"> */}
         <h1>Made by Haruka Ogino</h1>
-        {/* <h2 className="m-0 p-0">Full-stack Developer</h2> */}
-        {/* </section> */}
         <section className="footer-links mt-1 mx-2 text-[#4d3593]">
           <a
             className="flex items-center my-1 mx-0 p-0"
@@ -15,7 +12,6 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            {/* <FaEnvelope size={24} className="text-[#4d3593]" /> */}
             <FaEnvelope size={24} className="text-[#4d3593]" />
             <p className="ml-[5px]">harukariq@gmail.com</p>
           </a>
@@ -25,7 +21,6 @@ export default function Footer() {
             target="_blank"
           >
             <FaLinkedin size={28} className="text-[#4d3593]" />
-            {/* <FaLinkedin size={28} className="text-[#4d3593]" /> */}
             <p className="ml-[3px]">LinkedIn</p>
           </a>
           <a
