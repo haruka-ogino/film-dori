@@ -75,10 +75,13 @@ export async function getLocations(
   }
 }
 
-export async function deleteLocation(
-  id: string,
+export async function deleteLocation({
+  id,
+  authId,
+}: {
+  id: string
   authId: string
-): Promise<Location[] | undefined> {
+}) {
   try {
     const res = await fetch(`/api/locations/${authId}/by-id/${id}`, {
       method: 'DELETE',
