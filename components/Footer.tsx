@@ -41,7 +41,7 @@ export default function Footer() {
       </section>
 
       <section className="flex flex-col mb-2 items-start">
-        <h4>Website's GitHub Repo</h4>
+        <h4 className="my-1">Website's GitHub Repo</h4>
         <a href="https://github.com/haruka-ogino/ghibli" target="_blank">
           <img
             className="h-7"
@@ -49,7 +49,7 @@ export default function Footer() {
             alt="github banner as a link to this site's repo"
           />
         </a>
-        <h4 className="mb-1">This website was built using:</h4>
+        <h4 className="mt-1">This website was built using:</h4>
         <ul className="flex flex-wrap justify-center">
           <li>
             <img
