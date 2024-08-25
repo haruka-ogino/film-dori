@@ -26,6 +26,6 @@ export function useDeleteLocation() {
 
   return useMutation({
     mutationFn: (data: { authId: string; id: string }) => deleteLocation(data),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['googleLocations'] }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['locations'] }),
   })
 }
