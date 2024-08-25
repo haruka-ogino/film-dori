@@ -57,20 +57,22 @@ export default function LocationCard({
         </p>
       </div>
       <div className="relative flex justify-center m-3">
-        <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 tag">
-          <button
-            className="cursor-pointer hover:opacity-50 pr-4"
-            onClick={() => setEdit(true)}
-          >
-            <FaEdit size={25} />
-          </button>
-          <button
-            className="cursor-pointer hover:opacity-50"
-            onClick={() => handleDelete(location.id)}
-          >
-            <FaRegTrashAlt size={25} />
-          </button>
-        </div>
+        {title === 'My Locations' && (
+          <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 tag">
+            <button
+              className="cursor-pointer hover:opacity-50 pr-4"
+              onClick={() => setEdit(true)}
+            >
+              <FaEdit size={25} />
+            </button>
+            <button
+              className="cursor-pointer hover:opacity-50"
+              onClick={() => handleDelete(location.id)}
+            >
+              <FaRegTrashAlt size={25} />
+            </button>
+          </div>
+        )}
         <img src={location.image} alt={`Location of ${location.name}`} />
       </div>
       <p>{location.description}</p>
