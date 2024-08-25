@@ -18,6 +18,58 @@ export const DELETE = async (
     return new Response('Failed to delete location', { status: 500 })
   }
 }
+
+export const PATCH = async (
+  req: NextRequest,
+  { params }: { params: { id: string; authId: string } }
+) => {
+  const { id, authId } = params
+  const { image, description, name, tagId } = await req.json()
+
+  const args = []
+  const setColumns = []
+
+  if (image && image !== '') {
+    setColumns.push('image = ?')
+    args.push(image)
+  }
+  if (name && name !== '') {
+    setColumns.push('name = ?')
+    args.push(name)
+  }
+  if (description && description !== '') {
+    setColumns.push('description = ?')
+    args.push(description)
+  }
+  if (tagId && tagId !== 0) {
+    setColumns.push('tag_id= ?')
+    args.push(tagId)
+  }
+
+  if (setColumns.length === 0) {
+    return new Response('No valid fields provided to update', { status: 400 })
+  }
+
+  const setQuery = setColumns.join(', ')
+
+  const query = `
+    UPDATE 
+      newlocations
+    SET
+      ${setQuery}
+    WHERE 
+      id = ? AND auth_id = ?
+  `
+
+  args.push(id, authId)
+
+  try {
+    const result = await turso.execute({ sql: query, args })
+    return new Response(JSON.stringify(result), { status: 200 })
+  } catch (error) {
+    return new Response('Failed to edit location', { status: 500 })
+  }
+}
 // ChIJmcj9QppiGWAR36TzFsn8oaY
 // 107958491462184596092
 // SELECT
