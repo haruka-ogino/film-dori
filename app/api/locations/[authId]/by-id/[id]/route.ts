@@ -29,19 +29,21 @@ export const PATCH = async (
   const args = []
   const setColumns = []
 
-  if (image && image !== '') {
+  const tag_id = Number(tagId)
+
+  if (image !== '') {
     setColumns.push('image = ?')
     args.push(image)
   }
-  if (name && name !== '') {
+  if (name !== '') {
     setColumns.push('name = ?')
     args.push(name)
   }
-  if (description && description !== '') {
+  if (description !== '') {
     setColumns.push('description = ?')
     args.push(description)
   }
-  if (tagId && tagId !== 0) {
+  if (tag_id !== 0) {
     setColumns.push('tag_id= ?')
     args.push(tagId)
   }
