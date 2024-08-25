@@ -1,3 +1,4 @@
+import { useDeleteLocation } from '@/hooks/useLocations'
 import { Location } from '@/models/locations'
 import { FaRegTrashAlt, FaEdit } from 'react-icons/fa'
 
@@ -7,6 +8,7 @@ interface Params {
   handleTagClick: (id: number) => void
   handleNameClick: (id: string) => void
   i: number
+  authId: string
 }
 
 export default function LocationCard({
@@ -14,8 +16,15 @@ export default function LocationCard({
   title,
   handleTagClick,
   handleNameClick,
+  authId,
   i,
 }: Params) {
+  const deleteLocation = useDeleteLocation()
+
+  function handleDelete(id: string) {
+    deleteLocation.mutate({ id, authId })
+  }
+
   return (
     <section key={i} className="mt-10 flex flex-col w-full">
       <div className="flex flex-wrap justify-left align-center">
@@ -33,7 +42,10 @@ export default function LocationCard({
             <button className="cursor-pointer hover:opacity-50 pr-4">
               <FaEdit size={25} />
             </button>
-            <button className="cursor-pointer hover:opacity-50">
+            <button
+              className="cursor-pointer hover:opacity-50"
+              onClick={() => handleDelete(location.id)}
+            >
               <FaRegTrashAlt size={25} />
             </button>
           </div>

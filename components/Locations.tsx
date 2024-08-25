@@ -13,7 +13,7 @@ interface Params {
   key: string
   tag: number
   setAuthId?: Dispatch<SetStateAction<string>>
-  authId?: string
+  authId: string
 }
 
 export default function Locations({
@@ -77,6 +77,7 @@ export default function Locations({
           handleTagClick={handleTagClick}
           handleNameClick={handleNameClick}
           i={i}
+          authId={authId}
         />
       ))}
     </>

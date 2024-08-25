@@ -27,6 +27,7 @@ export default function MyLocations() {
             setTag={setTag}
             key={key}
             tag={tag}
+            authId={authId}
           />
         ) : (
           <p>Login to start saving and sharing locations!.</p>
