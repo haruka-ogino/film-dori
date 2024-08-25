@@ -29,7 +29,6 @@ export default function Footer() {
             target="_blank"
           >
             <FaGithubSquare size={28} className="text-[#4d3593]" />
-            {/* <FaGithubSquare size={28} className="text-[#4d3593]" /> */}
             <p className="ml-[3px]">GitHub</p>
           </a>
         </section>

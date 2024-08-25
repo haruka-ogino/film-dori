@@ -74,3 +74,30 @@ export async function getLocations(
     throw new Error('Failed to fetch locations. Please try again.')
   }
 }
+
+export async function deleteLocation(
+  id: string,
+  authId: string
+): Promise<Location[] | undefined> {
+  try {
+    const res = await fetch(`/api/locations/${authId}/by-id/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to delete locations (${res.status}): ${res.statusText}`
+      )
+    }
+
+    const deleted = await res.json()
+
+    return deleted
+  } catch (error) {
+    console.error('Error deleting locations:', error)
+    throw new Error('Failed to delete locations. Please try again.')
+  }
+}
