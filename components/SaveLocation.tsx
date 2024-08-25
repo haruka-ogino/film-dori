@@ -1,8 +1,10 @@
+'use client'
 import { useSaveLocation } from '@/hooks/useLocations'
 import { useTags } from '@/hooks/useTags'
 import { GoogleSearchRes } from '@/models/google-locations'
 import { Session } from 'next-auth'
 import { Dispatch, SetStateAction, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface Props {
   location: GoogleSearchRes | undefined
@@ -17,6 +19,7 @@ export default function SaveLocation({ location, open, session }: Props) {
   const name = location?.displayName || 'error getting location'
   const url = location?.url || 'error getting location'
   const rating = location?.rating || 0
+  const router = useRouter()
 
   const [newLocation, setNewLocation] = useState({
     id,
@@ -42,6 +45,7 @@ export default function SaveLocation({ location, open, session }: Props) {
 
     saveLocation.mutate(newLocation)
     open(false)
+    router.push('/my-locations', { scroll: false })
   }
 
   if (location && tags) {

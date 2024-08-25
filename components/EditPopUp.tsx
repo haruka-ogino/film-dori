@@ -11,7 +11,7 @@ interface Props {
 
 export default function EditPopUp({ location, open }: Props) {
   const { session } = useAuth()
-  const authId = session?.user?.id || ''
+  // const authId = session?.user?.id || ''
   const updateLocation = useUpdateLocation()
   const { data: tags } = useTags()
 
@@ -24,7 +24,8 @@ export default function EditPopUp({ location, open }: Props) {
     address: location.address,
     rating: location.rating,
     url: location.address,
-    authId,
+    authId: location.authId,
+    // authId,
   })
 
   function sendUpdate(e: React.FormEvent<HTMLFormElement>) {
