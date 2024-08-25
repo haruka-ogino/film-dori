@@ -21,7 +21,7 @@ const NavBar = () => {
           Discover
         </Link>
         <Link href="/post-location" className="mx-2 my-2">
-          Add Location
+          Share Location
         </Link>
         {session?.user && (
           <Link href="/my-locations" className="mx-2 my-2">

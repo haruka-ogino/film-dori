@@ -5,6 +5,7 @@ import MediaTag from './MediaTag'
 import UserTag from './UserTag'
 import Link from 'next/link'
 import LocationCard from './LocationCard'
+import { useAuth } from '@/hooks/useProviders'
 
 interface Params {
   locations: Location[]
@@ -24,6 +25,8 @@ export default function Locations({
   authId,
 }: Params) {
   const queryClient = useQueryClient()
+  const { session } = useAuth()
+  const currentAuthId = session?.user?.id || null
 
   function handleTagClick(id: number) {
     setTag(id)
@@ -45,7 +48,20 @@ export default function Locations({
 
   return (
     <>
-      <h1>{title}</h1>
+      {title === 'Discover Locations' && !currentAuthId && (
+        <>
+          <h1>Welcome to Film Dori 🗺️</h1>
+          <p>
+            The place to share and discover the locations that inspired your
+            favourite films and shows 🎬 📺
+            <br />
+            Sign in to start sharing your favourite locations!
+          </p>
+          <br />
+        </>
+      )}
+      <h1 className="text-5xl">{title}</h1>
+
       {title === 'My Locations' && locations.length === 0 && (
         <Link href="post-location">
           <p>Start sharing locations!</p>
