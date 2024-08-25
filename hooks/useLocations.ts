@@ -12,7 +12,8 @@ export function useSaveLocation() {
 
   return useMutation({
     mutationFn: (data: LocationData) => saveLocation(data),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['locations'] }),
+    onSuccess: () =>
+      qc.invalidateQueries({ queryKey: ['locations', 'my-locations'] }),
   })
 }
 
@@ -31,7 +32,8 @@ export function useDeleteLocation() {
 
   return useMutation({
     mutationFn: (data: { authId: string; id: string }) => deleteLocation(data),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['locations'] }),
+    onSuccess: () =>
+      qc.invalidateQueries({ queryKey: ['locations', 'my-locations'] }),
   })
 }
 
@@ -40,6 +42,7 @@ export function useUpdateLocation() {
 
   return useMutation({
     mutationFn: (data: LocationData) => updateLocation(data),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['locations'] }),
+    onSuccess: () =>
+      qc.invalidateQueries({ queryKey: ['locations', 'my-locations'] }),
   })
 }
