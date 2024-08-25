@@ -16,7 +16,7 @@ const NavBar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="sm:flex justify-around items-center hidden overflow-x-hidden py-2 my-2 border-y-2 border-blue-900">
+      <nav className="md:flex justify-around items-center hidden overflow-x-hidden py-2 my-2 border-y-2 border-blue-900">
         <Link href="/" className="mx-2 my-2">
           Discover
         </Link>
@@ -65,7 +65,7 @@ const NavBar = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="sm:hidden text-right fixed right-2 top-2 transform-translate-x-1/2 z-20 overflow-hidden">
+      <nav className="md:hidden text-right fixed right-2 top-2 transform-translate-x-1/2 z-20 overflow-hidden">
         {!toggleDropdown ? (
           <div
             className="relative w-16 h-[70px] pt-1 flex flex-col justify-around gradient"

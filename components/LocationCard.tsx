@@ -47,7 +47,7 @@ export default function LocationCard({
 
   return (
     <>
-      <div className="flex flex-wrap justify-left align-center">
+      <div className="flex flex-col lg:flex-row justify-left align-center">
         <h2 className="text-4xl">{location.name}</h2>
         <p
           className="tag m-[5px_20px] p-[5px_10px] cursor-pointer"

@@ -27,12 +27,12 @@ export default function RootLayout({ children }: Props) {
       <body className={`${singleDay_init.variable} single_day min-h-screen`}>
         <ReactQueryProvider>
           <Provider session={undefined}>
-            <header className="flex justify-between items-center overflow-hidden h-60">
+            <header className="flex justify-center md:justify-between items-center overflow-hidden h-60">
               <h1 className="text-8xl">FILM DORI</h1>
-              <Link href="/" className="">
+              <Link href="/" className="hidden md:block">
                 {/* img needs alt text despite being decorative as it is providing functionality (link to home page) */}
                 <img
-                  className="h-60 hidden sm:block"
+                  className="h-60"
                   src="/film-dori-grey.png"
                   alt="link to home page"
                 />
