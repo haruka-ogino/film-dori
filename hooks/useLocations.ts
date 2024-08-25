@@ -1,4 +1,9 @@
-import { deleteLocation, getLocations, saveLocation } from '@/api/locations'
+import {
+  deleteLocation,
+  getLocations,
+  saveLocation,
+  updateLocation,
+} from '@/api/locations'
 import { LocationData } from '@/models/locations'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
@@ -26,6 +31,15 @@ export function useDeleteLocation() {
 
   return useMutation({
     mutationFn: (data: { authId: string; id: string }) => deleteLocation(data),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['locations'] }),
+  })
+}
+
+export function useUpdateLocation() {
+  const qc = useQueryClient()
+
+  return useMutation({
+    mutationFn: (data: LocationData) => updateLocation(data),
     onSuccess: () => qc.invalidateQueries({ queryKey: ['locations'] }),
   })
 }
