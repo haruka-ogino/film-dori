@@ -1,3 +1,4 @@
+import { useUpdateLocation } from '@/hooks/useLocations'
 import { useAuth } from '@/hooks/useProviders'
 import { useTags } from '@/hooks/useTags'
 import { Location } from '@/models/locations'
@@ -11,25 +12,28 @@ interface Props {
 export default function EditPopUp({ location, open }: Props) {
   const { session } = useAuth()
   const authId = session?.user?.id || ''
-
+  const updateLocation = useUpdateLocation()
   const { data: tags } = useTags()
 
   const [editLocation, setEditLocation] = useState({
-    image: location?.image,
-    description: location?.description,
-    tagId: location?.tagId,
-    name: location?.name,
+    image: location.image,
+    description: location.description,
+    tagId: location.tagId,
+    name: location.name,
+    id: location.address,
+    address: location.address,
+    rating: location.rating,
+    url: location.address,
+    authId,
   })
 
-  function updateLocation(e: React.FormEvent<HTMLFormElement>) {
+  function sendUpdate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-
+    updateLocation.mutate(editLocation)
     open(false)
   }
 
   if (location && tags) {
-    const { rating, name, address, url } = location
-
     return (
       <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60 z-20">
         <section className="search_result z-30 md:w-8/12 w-11/12 text-left">
@@ -51,7 +55,7 @@ export default function EditPopUp({ location, open }: Props) {
                 required
               />
             </div>
-            <form onSubmit={updateLocation}>
+            <form onSubmit={sendUpdate}>
               <section className="flex flex-col flex-wrap lg:flex-row">
                 <div className="mr-10 flex-[2]">
                   <label htmlFor="description">
