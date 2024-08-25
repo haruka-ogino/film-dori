@@ -104,3 +104,44 @@ export async function deleteLocation({
     throw new Error('Failed to delete locations. Please try again.')
   }
 }
+
+export async function updateLocation(data: LocationData) {
+  try {
+    const {
+      authId,
+      id,
+      image,
+      description,
+      tagId,
+      address,
+      name,
+      rating,
+      url,
+    } = data
+    const res = await fetch(`/api/locations/${authId}/by-id/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        image,
+        description,
+        tagId,
+        name,
+      }),
+    })
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to update location (${res.status}): ${res.statusText}`
+      )
+    }
+
+    const updated = await res.json()
+
+    return updated
+  } catch (error) {
+    console.error('Error updating location:', error)
+    throw new Error('Failed to update location. Please try again.')
+  }
+}
