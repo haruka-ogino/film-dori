@@ -9,7 +9,6 @@ export default function MyLocations() {
   const authId = session?.user?.id || ''
   const [tag, setTag] = useState(0)
   const title = 'My Locations'
-  const key = 'my-locations'
 
   const { data: locations, isLoading, isError } = useLocations(authId, tag)
 
@@ -25,7 +24,6 @@ export default function MyLocations() {
             locations={locations}
             title={title}
             setTag={setTag}
-            key={key}
             tag={tag}
             authId={authId}
           />

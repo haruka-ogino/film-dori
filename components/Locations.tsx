@@ -10,7 +10,6 @@ interface Params {
   locations: Location[]
   title: string
   setTag: Dispatch<SetStateAction<number>>
-  key: string
   tag: number
   setAuthId?: Dispatch<SetStateAction<string>>
   authId: string
@@ -20,7 +19,6 @@ export default function Locations({
   locations,
   title,
   setTag,
-  key,
   setAuthId,
   tag,
   authId,
@@ -29,14 +27,14 @@ export default function Locations({
 
   function handleTagClick(id: number) {
     setTag(id)
-    queryClient.invalidateQueries({ queryKey: [key, id] })
+    queryClient.invalidateQueries({ queryKey: ['my-locations', 'locations'] })
     scroll()
   }
 
   function handleNameClick(id: string) {
     if (setAuthId) {
       setAuthId(id)
-      queryClient.invalidateQueries({ queryKey: [key, id, 'locations'] })
+      queryClient.invalidateQueries({ queryKey: ['my-locations', 'locations'] })
       scroll()
     }
   }
@@ -71,14 +69,16 @@ export default function Locations({
           authId === 'x' && <MediaTag tag={locations[0].tag} setTag={setTag} />
         ))}
       {locations.map((location: Location, i: number) => (
-        <LocationCard
-          location={location}
-          title={title}
-          handleTagClick={handleTagClick}
-          handleNameClick={handleNameClick}
-          i={i}
-          authId={authId}
-        />
+        <section key={i} className="mt-10 flex flex-col w-full">
+          <LocationCard
+            location={location}
+            title={title}
+            handleTagClick={handleTagClick}
+            handleNameClick={handleNameClick}
+            i={i}
+            authId={authId}
+          />
+        </section>
       ))}
     </>
   )

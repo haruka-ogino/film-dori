@@ -19,7 +19,6 @@ export default function LocationCard({
   handleTagClick,
   handleNameClick,
   authId,
-  i,
 }: Params) {
   const deleteLocation = useDeleteLocation()
   const [edit, setEdit] = useState(false)
@@ -47,7 +46,7 @@ export default function LocationCard({
   // }
 
   return (
-    <section key={i} className="mt-10 flex flex-col w-full">
+    <>
       <div className="flex flex-wrap justify-left align-center">
         <h2 className="text-4xl">{location.name}</h2>
         <p
@@ -91,6 +90,6 @@ export default function LocationCard({
         <p className="self-center">By {location.username}</p>
       )}
       {edit && <EditPopUp location={location} open={setEdit} />}
-    </section>
+    </>
   )
 }
