@@ -22,7 +22,7 @@ export default function LocationCard({
   i,
 }: Params) {
   const deleteLocation = useDeleteLocation()
-  const [popUp, setPopUp] = useState(false)
+  const [edit, setEdit] = useState(false)
 
   function handleDelete(id: string) {
     deleteLocation.mutate({ id, authId })
@@ -58,11 +58,10 @@ export default function LocationCard({
         </p>
       </div>
       <div className="relative flex justify-center m-3">
-        {/* {title === 'My Locations' && ( */}
         <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 tag">
           <button
             className="cursor-pointer hover:opacity-50 pr-4"
-            onClick={() => setPopUp(true)}
+            onClick={() => setEdit(true)}
           >
             <FaEdit size={25} />
           </button>
@@ -73,7 +72,6 @@ export default function LocationCard({
             <FaRegTrashAlt size={25} />
           </button>
         </div>
-        {/* )} */}
         <img src={location.image} alt={`Location of ${location.name}`} />
       </div>
       <p>{location.description}</p>
@@ -92,7 +90,7 @@ export default function LocationCard({
       ) : (
         <p className="self-center">By {location.username}</p>
       )}
-      {popUp && <EditPopUp location={location} open={setPopUp} />}
+      {edit && <EditPopUp location={location} open={setEdit} />}
     </section>
   )
 }
