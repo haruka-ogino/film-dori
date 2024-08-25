@@ -75,7 +75,9 @@ export default function LocationCard({
         )}
         <img src={location.image} alt={`Location of ${location.name}`} />
       </div>
-      <p>{location.description}</p>
+      <p className="whitespace-pre-wrap">
+        {location.description.replace(/\\n/g, '\n')}
+      </p>
       <p>Google rating: {location.rating} ⭐️</p>
       <p>Address:</p>
       <p>
