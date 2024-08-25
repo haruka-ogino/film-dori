@@ -20,16 +20,18 @@ export default function EditPopUp({ location, open }: Props) {
     description: location.description,
     tagId: location.tagId,
     name: location.name,
-    id: location.address,
+    id: location.id,
     address: location.address,
     rating: location.rating,
-    url: location.address,
+    url: location.url,
     authId: location.authId,
     // authId,
   })
 
   function sendUpdate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    console.log(editLocation)
+
     updateLocation.mutate(editLocation)
     open(false)
   }
