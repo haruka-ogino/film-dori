@@ -63,7 +63,7 @@ export default function Post() {
           value={inputState}
           onChange={handleChange}
           placeholder="search location"
-          className="m-3 pl-2 min-w-7/12  rounded-md"
+          className="m-3 pl-2 w-7/12  rounded-md"
         />
         <button type="submit" className="button-submit">
           Search
