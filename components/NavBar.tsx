@@ -122,7 +122,7 @@ const NavBar = () => {
                 <button
                   type="button"
                   className="log-btn"
-                  onClick={() => signOut()}
+                  onClick={() => signOut({ callbackUrl: '/' })}
                 >
                   Sign Out
                 </button>
@@ -144,7 +144,7 @@ const NavBar = () => {
                       className="log-btn my-8"
                       key={provider.name}
                       onClick={() => {
-                        signIn(provider.id)
+                        signIn(provider.id, { callbackUrl: '/my-locations' })
                       }}
                     >
                       Sign in
