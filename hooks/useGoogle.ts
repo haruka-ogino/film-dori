@@ -1,4 +1,4 @@
-import { searchGoogleLocation } from '@/api/google-location'
+import { searchGoogleLocation } from '../api/google'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 export function useSearchGoogle() {
