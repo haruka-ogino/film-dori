@@ -55,6 +55,7 @@ export default function Post() {
       url,
       name: displayName,
       address: formattedAddress,
+      authId: session?.user?.id ?? 'no auth',
     })
     setSaveLocation(true)
   }
@@ -121,7 +122,6 @@ export default function Post() {
       {saveLocation && (
         <SaveLocation
           open={setSaveLocation}
-          session={session}
           newLocation={newLocation}
           setNewLocation={setNewLocation}
           getDescription={handleGetDescription}

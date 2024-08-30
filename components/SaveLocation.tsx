@@ -8,7 +8,6 @@ import { LocationData } from '@/models/locations'
 
 interface Props {
   open: Dispatch<SetStateAction<boolean>>
-  session: Session | null
   newLocation: LocationData
   setNewLocation: Dispatch<SetStateAction<LocationData>>
   getDescription: (locationName: string) => void
@@ -16,12 +15,10 @@ interface Props {
 
 export default function SaveLocation({
   open,
-  session,
   newLocation,
   setNewLocation,
   getDescription,
 }: Props) {
-  const authId = session?.user?.id || 'no authId'
   const router = useRouter()
 
   const saveLocation = useSaveLocation()
@@ -30,10 +27,6 @@ export default function SaveLocation({
 
   function saveNewLocation(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-
-    setNewLocation((prev) => {
-      return { ...prev, authId }
-    })
 
     saveLocation.mutate(newLocation)
     open(false)
