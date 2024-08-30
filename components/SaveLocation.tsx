@@ -11,6 +11,7 @@ interface Props {
   session: Session | null
   newLocation: LocationData
   setNewLocation: Dispatch<SetStateAction<LocationData>>
+  getDescription: (locationName: string) => void
 }
 
 export default function SaveLocation({
@@ -18,6 +19,7 @@ export default function SaveLocation({
   session,
   newLocation,
   setNewLocation,
+  getDescription,
 }: Props) {
   const authId = session?.user?.id || 'no authId'
   const router = useRouter()
@@ -55,11 +57,18 @@ export default function SaveLocation({
             <form onSubmit={saveNewLocation}>
               <section className="flex flex-col flex-wrap lg:flex-row">
                 <div className="mr-10 flex-[2]">
-                  <label htmlFor="description">
-                    Location Description{' '}
-                    <span className="relative top-[-5px]">*</span>
-                  </label>
-                  <br />
+                  <div className="flex justify-between">
+                    <label htmlFor="description">
+                      Location Description{' '}
+                      <span className="relative top-[-5px]">*</span>
+                    </label>
+                    <button
+                      onClick={() => getDescription(name)}
+                      className="tag px-2 py-0"
+                    >
+                      use AI ✨
+                    </button>
+                  </div>
                   <textarea
                     name="description"
                     onChange={(e) => {

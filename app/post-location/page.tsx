@@ -57,7 +57,6 @@ export default function Post() {
       address: formattedAddress,
     })
     setSaveLocation(true)
-    handleGetDescription(locations[i].displayName)
   }
 
   const getDescription = useAIDescription()
@@ -125,6 +124,7 @@ export default function Post() {
           session={session}
           newLocation={newLocation}
           setNewLocation={setNewLocation}
+          getDescription={handleGetDescription}
         />
       )}
     </>
