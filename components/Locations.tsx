@@ -30,14 +30,18 @@ export default function Locations({
 
   function handleTagClick(id: number) {
     setTag(id)
-    queryClient.invalidateQueries({ queryKey: ['locations', 'my-locations'] })
+    queryClient.invalidateQueries({
+      queryKey: ['locations', 'my-locations', authId, tag],
+    })
     scroll()
   }
 
   function handleNameClick(id: string) {
     if (setAuthId) {
       setAuthId(id)
-      queryClient.invalidateQueries({ queryKey: ['locations', 'my-locations'] })
+      queryClient.invalidateQueries({
+        queryKey: ['locations', 'my-locations', authId, tag],
+      })
       scroll()
     }
   }
