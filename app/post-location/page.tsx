@@ -102,16 +102,16 @@ export default function Post() {
                     <h2>{location.displayName}</h2>
                     <p>{location.formattedAddress}</p>
                   </div>
-                  {/* {session?.user ? ( */}
-                  <button
-                    className="button-submit w-72"
-                    onClick={() => handleClick(i)}
-                  >
-                    Save Location
-                  </button>
-                  {/* ) : (
+                  {session?.user ? (
+                    <button
+                      className="button-submit w-72"
+                      onClick={() => handleClick(i)}
+                    >
+                      Save Location
+                    </button>
+                  ) : (
                     <p className="pl-3 text-center">Sign in to save location</p>
-                  )} */}
+                  )}
                 </div>
               </li>
             ))}
