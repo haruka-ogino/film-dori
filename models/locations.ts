@@ -21,7 +21,6 @@ export interface LocationData {
   name: string
   address: string
   authId: string
-
   rating: number
   tagId: number
   url: string

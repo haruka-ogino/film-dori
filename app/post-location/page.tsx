@@ -3,6 +3,7 @@ import SaveLocation from '@/components/SaveLocation'
 import { useAIDescription, useSearchGoogle } from '@/hooks/useGoogle'
 import { useAuth } from '@/hooks/useProviders'
 import { GoogleSearchRes } from '@/models/google'
+import { LocationData } from '@/models/locations'
 import { useState } from 'react'
 
 export default function Post() {
@@ -11,9 +12,18 @@ export default function Post() {
   const [inputState, setInputState] = useState('')
   const [locations, setLocations] = useState<GoogleSearchRes[]>([])
   const [showRes, setShowRes] = useState<boolean>(false)
-  const [locationProp, setLocationProp] = useState<GoogleSearchRes>()
   const [saveLocation, setSaveLocation] = useState(false)
-  const [description, setDescription] = useState('')
+  const [newLocation, setNewLocation] = useState<LocationData>({
+    id: '',
+    image: '',
+    description: '',
+    tagId: 0,
+    authId: '',
+    address: '',
+    name: '',
+    url: '',
+    rating: 0,
+  })
 
   const search = useSearchGoogle()
 
@@ -37,7 +47,15 @@ export default function Post() {
   }
 
   function handleClick(i: number) {
-    setLocationProp(locations[i])
+    const { formattedAddress, displayName, id, rating, url } = locations[i]
+    setNewLocation({
+      ...newLocation,
+      id,
+      rating,
+      url,
+      name: displayName,
+      address: formattedAddress,
+    })
     setSaveLocation(true)
     handleGetDescription(locations[i].displayName)
   }
@@ -49,7 +67,7 @@ export default function Post() {
       { locationInfo: locationName },
       {
         onSuccess: (data) => {
-          setDescription(data)
+          setNewLocation({ ...newLocation, description: data })
         },
       }
     )
@@ -85,16 +103,16 @@ export default function Post() {
                     <h2>{location.displayName}</h2>
                     <p>{location.formattedAddress}</p>
                   </div>
-                  {/* {session?.user ? ( */}
-                  <button
-                    className="button-submit w-72"
-                    onClick={() => handleClick(i)}
-                  >
-                    Save Location
-                  </button>
-                  {/* ) : (
+                  {session?.user ? (
+                    <button
+                      className="button-submit w-72"
+                      onClick={() => handleClick(i)}
+                    >
+                      Save Location
+                    </button>
+                  ) : (
                     <p className="pl-3 text-center">Sign in to save location</p>
-                  )} */}
+                  )}
                 </div>
               </li>
             ))}
@@ -103,10 +121,10 @@ export default function Post() {
       )}
       {saveLocation && (
         <SaveLocation
-          location={locationProp}
           open={setSaveLocation}
           session={session}
-          description={description}
+          newLocation={newLocation}
+          setNewLocation={setNewLocation}
         />
       )}
     </>

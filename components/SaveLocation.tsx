@@ -1,46 +1,37 @@
 'use client'
 import { useSaveLocation } from '@/hooks/useLocations'
 import { useTags } from '@/hooks/useTags'
-import { GoogleSearchRes } from '@/models/google-locations'
+import { GoogleSearchRes } from '@/models/google'
 import { Session } from 'next-auth'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { LocationData } from '@/models/locations'
 
 interface Props {
-  location: GoogleSearchRes | undefined
   open: Dispatch<SetStateAction<boolean>>
   session: Session | null
+  newLocation: LocationData
+  setNewLocation: Dispatch<SetStateAction<LocationData>>
 }
 
-export default function SaveLocation({ location, open, session }: Props) {
+export default function SaveLocation({
+  open,
+  session,
+  newLocation,
+  setNewLocation,
+}: Props) {
   const authId = session?.user?.id || 'no authId'
-  const id = location?.id || 'error getting location'
-  const address = location?.formattedAddress || 'error getting location'
-  const name = location?.displayName || 'error getting location'
-  const url = location?.url || 'error getting location'
-  const rating = location?.rating || 0
   const router = useRouter()
 
-  const [newLocation, setNewLocation] = useState({
-    id,
-    image: '',
-    description: '',
-    tagId: 0,
-    authId,
-    address,
-    name,
-    url,
-    rating,
-  })
-
   const saveLocation = useSaveLocation()
+
   const { data: tags } = useTags()
 
   function saveNewLocation(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     setNewLocation((prev) => {
-      return { ...prev, id, authId }
+      return { ...prev, authId }
     })
 
     saveLocation.mutate(newLocation)
@@ -49,17 +40,17 @@ export default function SaveLocation({ location, open, session }: Props) {
   }
 
   if (location && tags) {
-    const { rating, displayName, formattedAddress, url } = location
+    const { rating, name, address, url } = newLocation
 
     return (
       <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60 z-20">
         <section className="search_result z-30 md:w-8/12 w-11/12 text-left">
           <div className="overflow-y-auto grow my-[10px] mx-[5px] px-[15px]">
             <div className="flex justify-between items-center flex-wrap">
-              <h1>{displayName}</h1>
-              {location.rating && <p>{rating} ⭐️</p>}
+              <h1>{name}</h1>
+              {rating !== 0 && <p>{rating} ⭐️</p>}
             </div>
-            <a href={url}>{formattedAddress}</a>
+            <a href={url}>{address}</a>
             <br />
             <br />
             <form onSubmit={saveNewLocation}>
@@ -79,7 +70,7 @@ export default function SaveLocation({ location, open, session }: Props) {
                       })
                     }}
                     placeholder="describe location"
-                    // className="rounded-md"
+                    value={newLocation.description}
                     className="m-3 pl-2 w-full h-[75%] rounded-md"
                     required
                   />

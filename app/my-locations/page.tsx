@@ -28,7 +28,7 @@ export default function MyLocations() {
             authId={authId}
           />
         ) : (
-          <p>Login to start saving and sharing locations!.</p>
+          <p>Login to start saving and sharing locations!</p>
         )}
       </>
     )
