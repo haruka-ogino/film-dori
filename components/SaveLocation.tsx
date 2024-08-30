@@ -1,9 +1,8 @@
 'use client'
 import { useSaveLocation } from '@/hooks/useLocations'
 import { useTags } from '@/hooks/useTags'
-import { GoogleSearchRes } from '@/models/google'
 import { Session } from 'next-auth'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/navigation'
 import { LocationData } from '@/models/locations'
 
