@@ -57,16 +57,16 @@ export default function SaveLocation({
             <form onSubmit={saveNewLocation}>
               <section className="flex flex-col flex-wrap lg:flex-row">
                 <div className="mr-10 flex-[2]">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between flex-wrap">
                     <label htmlFor="description">
                       Location Description{' '}
                       <span className="relative top-[-5px]">*</span>
                     </label>
                     <button
                       onClick={() => getDescription(name)}
-                      className="tag px-2 py-0"
+                      className="tag px-3 pt-2 pb-1 whitespace-nowrap"
                     >
-                      use AI ✨
+                      use AI✨
                     </button>
                   </div>
                   <textarea
