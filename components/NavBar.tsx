@@ -68,7 +68,7 @@ const NavBar = () => {
       <nav className="md:hidden text-right fixed right-2 top-2 transform-translate-x-1/2 z-20 overflow-hidden">
         {!toggleDropdown ? (
           <div
-            className="relative w-16 h-[70px] pt-1 flex flex-col justify-around gradient"
+            className="relative w-16 h-[70px] pt-1 flex flex-col justify-around gradient rounded-[5px]"
             id=""
             onClick={() => setToggleDropdown(true)}
           >
@@ -79,7 +79,7 @@ const NavBar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-around w-80 h-94 text-4xl gradient">
+          <div className="flex flex-col items-center justify-around w-80 h-94 text-4xl gradient rounded-[5px]">
             <button
               className="fixed top-8 right-5 pt-2"
               id=""

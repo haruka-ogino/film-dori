@@ -139,22 +139,7 @@ a:hover,
     rgb(111, 131, 228) 0%,
     rgb(215, 101, 196) 100%
   );
-  /* color: rgb(169, 111, 228); */
-
-  border-radius: 20px;
-  font-size: 25px;
-  /* padding: 5px 10px; */
-  line-height: 25px;
-  width: fit-content;
-}
-
-.open-icon {
-  background: linear-gradient(
-    160deg,
-    rgb(111, 131, 228) 0%,
-    rgb(215, 101, 196) 100%
-  );
-  color: rgb(255, 245, 254);
+  /* gradient rounded-[20px] w-fit leading-[25px] text-[25px]*/
 }
 
 .gradient {
@@ -164,5 +149,4 @@ a:hover,
     rgb(215, 101, 196) 100%
   );
   color: rgb(255, 245, 254);
-  border-radius: 5px;
 }

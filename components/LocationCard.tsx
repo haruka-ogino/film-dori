@@ -50,7 +50,7 @@ export default function LocationCard({
       <div className="flex flex-col lg:flex-row justify-left align-center">
         <h2 className="text-4xl">{location.name}</h2>
         <p
-          className="tag m-[5px_20px] p-[5px_10px] cursor-pointer"
+          className="gradient rounded-[20px] w-fit leading-[25px] text-[25px] m-[5px_20px] p-[5px_10px] cursor-pointer"
           onClick={() => handleTagClick(location.tagId)}
         >
           {location.tag}
@@ -58,7 +58,7 @@ export default function LocationCard({
       </div>
       <div className="relative flex justify-center m-3">
         {title === 'My Locations' && (
-          <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 tag">
+          <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 gradient rounded-[20px] w-fit leading-[25px] text-[25px]">
             <button
               className="cursor-pointer hover:opacity-50 pr-4"
               onClick={() => setEdit(true)}
