@@ -1,8 +1,8 @@
 'use client'
 import SaveLocation from '@/components/SaveLocation'
-import { useSearchGoogle } from '@/hooks/useGoogleLocations'
+import { useAIDescription, useSearchGoogle } from '@/hooks/useGoogle'
 import { useAuth } from '@/hooks/useProviders'
-import { GoogleSearchRes } from '@/models/google-locations'
+import { GoogleSearchRes } from '@/models/google'
 import { useState } from 'react'
 
 export default function Post() {
@@ -13,6 +13,7 @@ export default function Post() {
   const [showRes, setShowRes] = useState<boolean>(false)
   const [locationProp, setLocationProp] = useState<GoogleSearchRes>()
   const [saveLocation, setSaveLocation] = useState(false)
+  const [description, setDescription] = useState('')
 
   const search = useSearchGoogle()
 
@@ -38,6 +39,20 @@ export default function Post() {
   function handleClick(i: number) {
     setLocationProp(locations[i])
     setSaveLocation(true)
+    handleGetDescription(locations[i].displayName)
+  }
+
+  const getDescription = useAIDescription()
+
+  function handleGetDescription(locationName: string) {
+    getDescription.mutate(
+      { locationInfo: locationName },
+      {
+        onSuccess: (data) => {
+          setDescription(data)
+        },
+      }
+    )
   }
 
   return (
@@ -70,16 +85,16 @@ export default function Post() {
                     <h2>{location.displayName}</h2>
                     <p>{location.formattedAddress}</p>
                   </div>
-                  {session?.user ? (
-                    <button
-                      className="button-submit w-72"
-                      onClick={() => handleClick(i)}
-                    >
-                      Save Location
-                    </button>
-                  ) : (
+                  {/* {session?.user ? ( */}
+                  <button
+                    className="button-submit w-72"
+                    onClick={() => handleClick(i)}
+                  >
+                    Save Location
+                  </button>
+                  {/* ) : (
                     <p className="pl-3 text-center">Sign in to save location</p>
-                  )}
+                  )} */}
                 </div>
               </li>
             ))}
@@ -91,6 +106,7 @@ export default function Post() {
           location={locationProp}
           open={setSaveLocation}
           session={session}
+          description={description}
         />
       )}
     </>
