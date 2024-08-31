@@ -2,7 +2,7 @@ import { FaLinkedin, FaGithubSquare, FaEnvelope } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <footer className="w-full p-4 mx-auto flex flex-wrap justify-between items-end">
+    <footer className="w-full p-4 mx-auto flex flex-wrap justify-between items-start">
       <section className="mr-[30px]">
         <h1>Made by Haruka Ogino</h1>
         <section className="footer-links mt-1 mx-2 text-[#4d3593]">
@@ -81,6 +81,18 @@ export default function Footer() {
             />
           </li>
         </ul>
+        <h4 className="mt-4">
+          Have feedback? Please{' '}
+          <a
+            href="mailto:harukariq@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            click here
+          </a>{' '}
+          to send your feedback!
+        </h4>
       </section>
     </footer>
   )
