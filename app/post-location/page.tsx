@@ -62,9 +62,9 @@ export default function Post() {
 
   const getDescription = useAIDescription()
 
-  function handleGetDescription(locationName: string) {
+  function handleGetDescription(locationName: string, address: string) {
     getDescription.mutate(
-      { locationInfo: locationName },
+      { locationInfo: locationName, address },
       {
         onSuccess: (data) => {
           setNewLocation({ ...newLocation, description: data })

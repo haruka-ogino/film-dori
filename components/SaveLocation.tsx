@@ -1,7 +1,6 @@
 'use client'
 import { useSaveLocation } from '@/hooks/useLocations'
 import { useTags } from '@/hooks/useTags'
-import { Session } from 'next-auth'
 import { Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/navigation'
 import { LocationData } from '@/models/locations'
@@ -10,7 +9,7 @@ interface Props {
   open: Dispatch<SetStateAction<boolean>>
   newLocation: LocationData
   setNewLocation: Dispatch<SetStateAction<LocationData>>
-  getDescription: (locationName: string) => void
+  getDescription: (locationName: string, address: string) => void
 }
 
 export default function SaveLocation({
@@ -56,7 +55,8 @@ export default function SaveLocation({
                       <span className="relative top-[-5px]">*</span>
                     </label>
                     <button
-                      onClick={() => getDescription(name)}
+                      type="button"
+                      onClick={() => getDescription(name, address)}
                       className="gradient px-3 pt-2 pb-1 whitespace-nowrap rounded-[20px] w-fit leading-[25px] text-[25px]"
                     >
                       use AI✨
