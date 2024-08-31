@@ -37,16 +37,23 @@ export default function EditPopUp({ location, open }: Props) {
   function handleGetDescription(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
 
-    getDescription.mutate(
-      { locationInfo: location.name, address: location.address },
-      {
-        onSuccess: (data) => {
-          setEditLocation((prev) => {
-            return { ...prev, description: data }
-          })
-        },
-      }
-    )
+    const userConfirmed = window.confirm(`
+      Generating an AI response will replace your current description and permanently delete it upon saving changes.
+      Are you sure you want to continue?
+    `)
+
+    if (userConfirmed) {
+      getDescription.mutate(
+        { locationInfo: location.name, address: location.address },
+        {
+          onSuccess: (data) => {
+            setEditLocation((prev) => {
+              return { ...prev, description: data }
+            })
+          },
+        }
+      )
+    }
   }
 
   if (location && tags) {
