@@ -25,7 +25,7 @@ export default function Locations({
   authId,
 }: Params) {
   const queryClient = useQueryClient()
-  const { session } = useAuth()
+  const { session, signIn } = useAuth()
   const currentAuthId = session?.user?.id || null
 
   function handleTagClick(id: number) {
@@ -59,7 +59,16 @@ export default function Locations({
             The place to share and discover the locations that inspired your
             favourite films and shows 🎬 📺
             <br />
-            Sign in to start sharing your favourite locations!
+            <a
+              onClick={(e) => {
+                e.preventDefault()
+                signIn()
+              }}
+              className="underline hover:cursor-pointer"
+            >
+              Sign in
+            </a>{' '}
+            to start sharing your favourite locations!
           </p>
           <br />
         </>
