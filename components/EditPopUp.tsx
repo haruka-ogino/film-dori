@@ -1,5 +1,5 @@
+import { useAIDescription } from '@/hooks/useGoogle'
 import { useUpdateLocation } from '@/hooks/useLocations'
-import { useAuth } from '@/hooks/useProviders'
 import { useTags } from '@/hooks/useTags'
 import { Location } from '@/models/locations'
 import { Dispatch, SetStateAction, useState } from 'react'
@@ -10,8 +10,6 @@ interface Props {
 }
 
 export default function EditPopUp({ location, open }: Props) {
-  const { session } = useAuth()
-  // const authId = session?.user?.id || ''
   const updateLocation = useUpdateLocation()
   const { data: tags } = useTags()
 
@@ -32,6 +30,23 @@ export default function EditPopUp({ location, open }: Props) {
 
     updateLocation.mutate(editLocation)
     open(false)
+  }
+
+  const getDescription = useAIDescription()
+
+  function handleGetDescription(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault()
+
+    getDescription.mutate(
+      { locationInfo: location.name, address: location.address },
+      {
+        onSuccess: (data) => {
+          setEditLocation((prev) => {
+            return { ...prev, description: data }
+          })
+        },
+      }
+    )
   }
 
   if (location && tags) {
@@ -59,11 +74,19 @@ export default function EditPopUp({ location, open }: Props) {
             <form onSubmit={sendUpdate}>
               <section className="flex flex-col flex-wrap lg:flex-row">
                 <div className="mr-10 flex-[2]">
-                  <label htmlFor="description">
-                    Location Description{' '}
-                    <span className="relative top-[-5px]">*</span>
-                  </label>
-                  <br />
+                  <div className="flex justify-between flex-wrap">
+                    <label htmlFor="description">
+                      Location Description{' '}
+                      <span className="relative top-[-5px]">*</span>
+                    </label>
+                    <button
+                      type="button"
+                      onClick={handleGetDescription}
+                      className="gradient px-3 pt-2 pb-1 whitespace-nowrap rounded-[20px] w-fit leading-[25px] text-[25px]"
+                    >
+                      use AI✨
+                    </button>
+                  </div>
                   <textarea
                     name="description"
                     onChange={(e) => {
