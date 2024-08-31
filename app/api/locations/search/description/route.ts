@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai'
 export const POST = async (req: Request) => {
   try {
     // receive data
-    const { locationInfo: location_info } = await req.json()
+    const { locationInfo: location_info, address } = await req.json()
 
     // api checks
     const googleKey = process.env.GOOGLE_AI_KEY
@@ -18,7 +18,11 @@ export const POST = async (req: Request) => {
     // use line below to add some configurations - see docs
     // const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash', varName })
 
-    const prompt = `Write a brief (circa three sentences) about the location: ${location_info}`
+    const prompt = `
+      Write a brief (circa three sentences) about the location: ${location_info}, ${address}. 
+      If location is in any way related to any media (book, film, tv, etc), please say talk about it.
+      If this is not the case, do not acknowledge it.
+    `
 
     const result = await model.generateContent(prompt)
 
