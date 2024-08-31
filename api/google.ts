@@ -34,11 +34,13 @@ export async function searchGoogleLocation({
 
 export async function getAIDescription({
   locationInfo,
+  address,
 }: {
   locationInfo: string
+  address: string
 }) {
   try {
-    const info = JSON.stringify({ locationInfo })
+    const info = JSON.stringify({ locationInfo, address })
 
     const res = await fetch('/api/locations/search/description', {
       method: 'POST',
