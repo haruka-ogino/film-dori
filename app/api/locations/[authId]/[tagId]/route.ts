@@ -74,6 +74,8 @@ export const GET = async (
   } else if (tag_id !== 0) {
     query += ` WHERE tag_id = ?`
     args.push(tag_id.toString())
+  } else {
+    query += ` ORDER BY RANDOM() LIMIT 10`
   }
 
   try {
