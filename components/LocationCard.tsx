@@ -26,24 +26,6 @@ export default function LocationCard({
     deleteLocation.mutate({ id, authId })
   }
 
-  // const example = {
-  //   address: 'Japan, 〒206-0013 Tokyo, Tama, Sakuragaoka, 4-chōme−４３−２５',
-  //   authId: '110783889429574267521',
-  //   description:
-  //     'A neighborhood that inspired locations in "Whisper of the Heart"',
-  //   id: 'ChIJmbzCFl_jGGAR98V28VrP0QI',
-  //   image:
-  //     'https://d20aeo683mqd6t.cloudfront.net/articles/title_images/000/040/281/original/cover-photo.jpg',
-  //   name: 'Iroha-zaka Slope',
-  //   rating: 4.3,
-  //   tag: 'ghibli',
-  //   tagId: 1,
-  //   url: 'https://maps.google.com/?cid=203171447713482231',
-  //   userImg:
-  //     'https://lh3.googleusercontent.com/a/ACg8ocKUGaeHdEfoH0Gnzt7zQEwLL_mFhsbttpEXptq7TmqGPSl_Ev8=s96-c',
-  //   username: 'davidw',
-  // }
-
   return (
     <>
       <div className="flex flex-col lg:flex-row justify-left align-center">
