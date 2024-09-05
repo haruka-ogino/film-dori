@@ -104,7 +104,6 @@ export default function Locations({
             title={title}
             handleTagClick={handleTagClick}
             handleNameClick={handleNameClick}
-            i={i}
             authId={authId}
           />
         </section>

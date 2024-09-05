@@ -9,7 +9,6 @@ interface Params {
   title: string
   handleTagClick: (id: number) => void
   handleNameClick: (id: string) => void
-  i: number
   authId: string
 }
 
