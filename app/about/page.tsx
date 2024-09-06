@@ -2,6 +2,15 @@ export default function About() {
   return (
     <>
       <h1>About this website</h1>
+      <h2>Live Demo</h2>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/xASQR-xurMI"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
       <p>
         During my travels in Japan, I frequented locations that had inspired or
         been featured in some tv shows and films. I found that doing this
