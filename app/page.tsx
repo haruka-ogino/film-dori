@@ -15,7 +15,7 @@ export default function Home() {
 
   if (isLoading) return <h1>Loading...</h1>
 
-  if (isError) return <h1>You are experiencing an error...</h1>
+  if (isError) return <h1>Sorry, you are experiencing an error...</h1>
 
   if (locations)
     return (

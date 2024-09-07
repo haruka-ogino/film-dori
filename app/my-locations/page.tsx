@@ -3,6 +3,7 @@ import { useAuth } from '@/hooks/useProviders'
 import { useLocations } from '@/hooks/useLocations'
 import { useState } from 'react'
 import Locations from '@/components/Locations'
+import Link from 'next/link'
 
 export default function MyLocations() {
   const { session, signIn } = useAuth()
@@ -10,7 +11,7 @@ export default function MyLocations() {
   const [tag, setTag] = useState(0)
   const title = 'My Locations'
 
-  const { data: locations, isLoading, isError } = useLocations(authId, tag)
+  const { data: locations, isLoading } = useLocations(authId, tag)
 
   if (isLoading) return <h1>Loading...</h1>
 
@@ -24,6 +25,10 @@ export default function MyLocations() {
           tag={tag}
           authId={authId}
         />
+      ) : !locations && session?.user ? (
+        <Link href="post-location">
+          <h1>Start sharing locations!</h1>
+        </Link>
       ) : (
         <h1>
           {' '}
@@ -36,7 +41,7 @@ export default function MyLocations() {
           >
             Sign in
           </a>{' '}
-          to start saving and sharing locations!
+          to start sharing locations!
         </h1>
       )}
     </>
