@@ -56,8 +56,8 @@ export default function SaveLocation({
                     </label>
                     <button
                       type="button"
+                      className="gradient px-3 pt-0.5 whitespace-nowrap rounded-full w-fit"
                       onClick={() => getDescription(name, address)}
-                      className="gradient px-3 pt-2 pb-1 whitespace-nowrap rounded-[20px] w-fit leading-[25px] text-[25px]"
                     >
                       use AI✨
                     </button>
