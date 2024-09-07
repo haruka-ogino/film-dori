@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Locations from '@/components/Locations'
 
 export default function MyLocations() {
-  const { session } = useAuth()
+  const { session, signIn } = useAuth()
   const authId = session?.user?.id || ''
   const [tag, setTag] = useState(0)
   const title = 'My Locations'
@@ -14,22 +14,31 @@ export default function MyLocations() {
 
   if (isLoading) return <h1>Loading...</h1>
 
-  if (isError) return <h1>You are experiencing an error...</h1>
-
-  if (locations)
-    return (
-      <>
-        {session?.user ? (
-          <Locations
-            locations={locations}
-            title={title}
-            setTag={setTag}
-            tag={tag}
-            authId={authId}
-          />
-        ) : (
-          <p>Login to start saving and sharing locations!</p>
-        )}
-      </>
-    )
+  return (
+    <>
+      {locations && session?.user ? (
+        <Locations
+          locations={locations}
+          title={title}
+          setTag={setTag}
+          tag={tag}
+          authId={authId}
+        />
+      ) : (
+        <h1>
+          {' '}
+          <a
+            onClick={(e) => {
+              e.preventDefault()
+              signIn()
+            }}
+            className="underline hover:cursor-pointer"
+          >
+            Sign in
+          </a>{' '}
+          to start saving and sharing locations!
+        </h1>
+      )}
+    </>
+  )
 }
