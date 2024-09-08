@@ -1,6 +1,37 @@
 import { turso } from '@/utils/database'
 import { NextRequest } from 'next/server'
 
+export const POST = async (
+  req: NextRequest,
+  { params }: { params: { id: string; authId: string } }
+) => {
+  const { id, authId } = params
+  const { image, description, name, address, url, rating, tagId } =
+    await req.json()
+
+  const query =
+    'INSERT INTO newlocations (id, image, description, name, address, url, rating, auth_id, tag_id) VALUES (?,?,?,?,?,?,?,?,?)'
+
+  const args = [
+    id,
+    image,
+    description,
+    name,
+    address,
+    url,
+    rating,
+    authId,
+    tagId,
+  ]
+
+  try {
+    const result = await turso.execute({ sql: query, args })
+    return new Response(JSON.stringify(result), { status: 201 })
+  } catch (error) {
+    return new Response('Failed to save location', { status: 500 })
+  }
+}
+
 export const DELETE = async (
   req: NextRequest,
   { params }: { params: { id: string; authId: string } }

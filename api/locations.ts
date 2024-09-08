@@ -17,7 +17,7 @@ export async function saveLocation(data: LocationData) {
       url,
     } = data
 
-    const res = await fetch(`/api/locations/${authId}/0`, {
+    const res = await fetch(`/api/locations/${authId}/by-id/${id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
