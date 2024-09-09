@@ -24,22 +24,27 @@ const mockTagClick = jest.fn()
 const mockNameClick = jest.fn()
 const mockAuthId = '123'
 
+function renderCard() {
+  const queryClient = new QueryClient()
+
+  render(
+    <QueryClientProvider client={queryClient}>
+      <LocationCard
+        location={mockLocation}
+        title={mockTitle}
+        handleTagClick={mockTagClick}
+        handleNameClick={mockNameClick}
+        authId={mockAuthId}
+      />
+    </QueryClientProvider>
+  )
+}
+
 describe('LocationCard component', () => {
   describe('Render', () => {
-    const queryClient = new QueryClient()
     it('address field should render', () => {
       // Arrange
-      render(
-        <QueryClientProvider client={queryClient}>
-          <LocationCard
-            location={mockLocation}
-            title={mockTitle}
-            handleTagClick={mockTagClick}
-            handleNameClick={mockNameClick}
-            authId={mockAuthId}
-          />
-        </QueryClientProvider>
-      )
+      renderCard()
       // Act
       const text = screen.getByText('Address:')
 
