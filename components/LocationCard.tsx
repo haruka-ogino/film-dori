@@ -23,7 +23,14 @@ export default function LocationCard({
   const [edit, setEdit] = useState(false)
 
   function handleDelete(id: string) {
-    deleteLocation.mutate({ id, authId })
+    const userConfirmed = window.confirm(`
+      Are you sure you want to delete the location "${location.name}"?
+      Once you delete this, it is permanent and cannot be undone.
+    `)
+
+    if (userConfirmed) {
+      deleteLocation.mutate({ id, authId })
+    }
   }
 
   return (
