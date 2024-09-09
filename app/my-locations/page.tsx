@@ -15,35 +15,43 @@ export default function MyLocations() {
 
   if (isLoading) return <h1>Loading...</h1>
 
+  if (!locations && session?.user) {
+    return <h1>You are experiencing an error</h1>
+  }
+
+  if (locations?.length === 0 && session?.user) {
+    return (
+      <Link href="post-location">
+        <h1>Start sharing locations!</h1>
+      </Link>
+    )
+  }
+
+  if (locations && session?.user) {
+    return (
+      <Locations
+        locations={locations}
+        title={title}
+        setTag={setTag}
+        tag={tag}
+        authId={authId}
+      />
+    )
+  }
+
   return (
-    <>
-      {locations && session?.user ? (
-        <Locations
-          locations={locations}
-          title={title}
-          setTag={setTag}
-          tag={tag}
-          authId={authId}
-        />
-      ) : !locations && session?.user ? (
-        <Link href="post-location">
-          <h1>Start sharing locations!</h1>
-        </Link>
-      ) : (
-        <h1>
-          {' '}
-          <a
-            onClick={(e) => {
-              e.preventDefault()
-              signIn()
-            }}
-            className="underline hover:cursor-pointer"
-          >
-            Sign in
-          </a>{' '}
-          to start sharing locations!
-        </h1>
-      )}
-    </>
+    <h1>
+      {' '}
+      <a
+        onClick={(e) => {
+          e.preventDefault()
+          signIn()
+        }}
+        className="underline hover:cursor-pointer"
+      >
+        Sign in
+      </a>{' '}
+      to start sharing locations!
+    </h1>
   )
 }
