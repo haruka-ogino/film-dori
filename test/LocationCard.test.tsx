@@ -57,5 +57,13 @@ describe('LocationCard component', () => {
       // Assert
       expect(text).toBeInTheDocument()
     })
+    it('edit button should render', () => {
+      // Arrange
+      renderCard('My Locations')
+      // Act
+      const text = screen.getByTestId('edit-location')
+      // Assert
+      expect(text).toBeInTheDocument()
+    })
   })
 })
