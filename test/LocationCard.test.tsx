@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import LocationCard from '@/components/LocationCard'
 import '@testing-library/jest-dom'
@@ -53,17 +54,29 @@ describe('LocationCard component', () => {
       // Arrange
       renderCard('My Locations')
       // Act
-      const text = screen.getByTestId('delete-location')
+      const button = screen.getByTestId('delete-location')
       // Assert
-      expect(text).toBeInTheDocument()
+      expect(button).toBeInTheDocument()
     })
     it('edit button should render', () => {
       // Arrange
       renderCard('My Locations')
       // Act
-      const text = screen.getByTestId('edit-location')
+      const button = screen.getByTestId('edit-location')
       // Assert
-      expect(text).toBeInTheDocument()
+      expect(button).toBeInTheDocument()
+    })
+  })
+
+  describe('Behaviour', () => {
+    it('should call handleTagClick when tag is clicked', async () => {
+      // Arrange
+      renderCard('My Locations')
+      // Act
+      const tag = screen.getByTestId('tag-click')
+      await userEvent.click(tag)
+      // Assert
+      expect(mockTagClick).toHaveBeenCalled()
     })
   })
 })

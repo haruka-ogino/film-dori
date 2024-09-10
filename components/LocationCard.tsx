@@ -38,6 +38,7 @@ export default function LocationCard({
       <div className="flex flex-col lg:flex-row items-center">
         <h2 className="text-4xl">{location.name}</h2>
         <p
+          data-testid="tag-click"
           className="gradient rounded-full w-fit mx-5 my-1 px-2 cursor-pointer"
           onClick={() => handleTagClick(location.tagId)}
         >
