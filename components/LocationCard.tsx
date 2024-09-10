@@ -48,12 +48,14 @@ export default function LocationCard({
         {title === 'My Locations' && (
           <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 gradient rounded-[20px] w-fit leading-[25px] text-[25px]">
             <button
+              data-testid="edit-location"
               className="cursor-pointer hover:opacity-50 pr-4"
               onClick={() => setEdit(true)}
             >
               <FaEdit size={25} />
             </button>
             <button
+              data-testid="delete-location"
               className="cursor-pointer hover:opacity-50"
               onClick={() => handleDelete(location.id)}
             >

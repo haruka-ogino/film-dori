@@ -19,12 +19,11 @@ const mockLocation = {
   userImg: 'image-link',
   username: 'koda',
 }
-const mockTitle = 'Locations'
 const mockTagClick = jest.fn()
 const mockNameClick = jest.fn()
 const mockAuthId = '123'
 
-function renderCard() {
+function renderCard(mockTitle: string) {
   const queryClient = new QueryClient()
 
   render(
@@ -44,10 +43,17 @@ describe('LocationCard component', () => {
   describe('Render', () => {
     it('address field should render', () => {
       // Arrange
-      renderCard()
+      renderCard('Locations')
       // Act
       const text = screen.getByText('Address:')
-
+      // Assert
+      expect(text).toBeInTheDocument()
+    })
+    it('delete button should render', () => {
+      // Arrange
+      renderCard('My Locations')
+      // Act
+      const text = screen.getByTestId('delete-location')
       // Assert
       expect(text).toBeInTheDocument()
     })
