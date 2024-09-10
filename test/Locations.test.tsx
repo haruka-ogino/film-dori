@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import userEvent from '@testing-library/user-event'
 import Locations from '@/components/Locations'
 import '@testing-library/jest-dom'
 import { Location } from '@/models/locations'
@@ -22,10 +23,13 @@ const mockLocation = {
 }
 
 const mockSetTag = jest.fn()
-const tag = 0
 const mockAuthId = '123'
 
-function renderCard(mockTitle: string, mockLocations: Location[]) {
+function renderLocations(
+  mockTitle: string,
+  mockLocations: Location[],
+  tag: number
+) {
   const queryClient = new QueryClient()
 
   render(
@@ -40,3 +44,17 @@ function renderCard(mockTitle: string, mockLocations: Location[]) {
     </QueryClientProvider>
   )
 }
+
+describe('Locations component', () => {
+  describe('Render', () => {
+    it('render media type tag', () => {
+      // Arrange
+      renderLocations('Locations', [mockLocation, mockLocation], 1)
+      // Act
+      const tag = screen.getByRole('button', { name: 'x' })
+
+      // Assert
+      expect(tag).toBeInTheDocument()
+    })
+  })
+})
