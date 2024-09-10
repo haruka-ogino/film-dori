@@ -78,5 +78,14 @@ describe('LocationCard component', () => {
       // Assert
       expect(mockTagClick).toHaveBeenCalled()
     })
+    it('should call handleNameClick when name is clicked', async () => {
+      // Arrange
+      renderCard('Locations')
+      // Act
+      const name = screen.getByTestId('name-click')
+      await userEvent.click(name)
+      // Assert
+      expect(mockNameClick).toHaveBeenCalled()
+    })
   })
 })

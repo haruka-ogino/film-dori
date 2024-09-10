@@ -76,6 +76,7 @@ export default function LocationCard({
       </p>
       {title !== 'My Locations' ? (
         <p
+          data-testid="name-click"
           className="self-center hover:underline hover:cursor-pointer"
           onClick={() => handleNameClick(location.authId)}
         >
