@@ -13,7 +13,7 @@ describe('About component', () => {
     // expect(currentHeading.textContent).toBe('About this website')
   })
 
-  it('check for future goals heading', () => {
+  it.skip('check for future goals heading', () => {
     // Arrange
     render(<About />)
     // Act

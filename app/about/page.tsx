@@ -48,17 +48,6 @@ export default function About() {
         Try finding the location on Google Maps first and copy the exact name to
         the search bar on the Add Location page.
       </p>
-      <br />
-      <h2>Future goals for this app</h2>
-      <p>
-        The following features are part of the minimum viable product (MVP) but
-        have not yet been implemented:
-      </p>
-      <ul>
-        <li>* Responsiveness for mobile - specifically for the navbar.</li>
-        <li>* Tests using jest.</li>
-        <li>* Manually check styling.</li>
-      </ul>
     </>
   )
 }
