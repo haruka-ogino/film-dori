@@ -1,3 +1,5 @@
+export const revalidate = 0
+
 import { turso } from '@/utils/database'
 import { NextRequest } from 'next/server'
 
