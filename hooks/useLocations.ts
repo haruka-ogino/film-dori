@@ -21,6 +21,9 @@ export function useLocations(authId: string, tagId: number) {
   const query = useQuery({
     queryFn: async () => getLocations(authId, tagId),
     queryKey: ['locations', 'my-locations', authId, tagId],
+    staleTime: 0,
+    refetchOnWindowFocus: false,
+    refetchInterval: 3600 * 1000,
   })
   return {
     ...query,
