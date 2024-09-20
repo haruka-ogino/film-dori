@@ -47,7 +47,7 @@ export default function MyLocations() {
           e.preventDefault()
           signIn()
         }}
-        className="underline hover:cursor-pointer"
+        className="underline cursor-pointer"
       >
         Sign in
       </a>{' '}

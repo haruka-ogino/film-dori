@@ -72,12 +72,14 @@ export default function LocationCard({
       <p>Google rating: {location.rating} ⭐️</p>
       <p>Address:</p>
       <p>
-        <a href={location.url}>📍 {location.address}</a>
+        <a href={location.url} className="cursor-pointer">
+          📍 {location.address}
+        </a>
       </p>
       {title !== 'My Locations' ? (
         <p
           data-testid="name-click"
-          className="self-center hover:underline hover:cursor-pointer"
+          className="self-center hover:underline cursor-pointer"
           onClick={() => handleNameClick(location.authId)}
         >
           By {location.username}
