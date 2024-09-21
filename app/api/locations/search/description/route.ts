@@ -15,9 +15,6 @@ export const POST = async (req: Request) => {
     const genAI = new GoogleGenerativeAI(googleKey)
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
-    // use line below to add some configurations - see docs
-    // const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash', varName })
-
     const prompt = `
       Write a brief (circa three sentences) about the location: ${location_info}, ${address}. 
       If location is in any way related to any media (book, film, tv, etc), please say talk about it.
