@@ -54,7 +54,7 @@ const NavBar = () => {
                   className="log-btn mx-2 my-2"
                   key={provider.name}
                   onClick={() => {
-                    signIn(provider.id)
+                    signIn(provider.id, { callbackUrl: '/my-locations' })
                   }}
                 >
                   Sign in
