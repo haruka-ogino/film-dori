@@ -61,7 +61,7 @@ const NavBar = () => {
                     signIn(provider.id, { callbackUrl: '/my-locations' })
                   }}
                 >
-                  Sign in
+                  Sign in with {provider.name}
                 </button>
               ))}
           </>
