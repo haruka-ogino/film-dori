@@ -72,7 +72,7 @@ export default function LocationCard({
       <p>Google rating: {location.rating} ⭐️</p>
       <p>Address:</p>
       <p>
-        <a href={location.url} className="cursor-pointer">
+        <a href={location.url} className="cursor-pointer" target="_blank">
           📍 {location.address}
         </a>
       </p>
