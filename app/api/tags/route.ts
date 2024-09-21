@@ -1,5 +1,3 @@
-export const revalidate = 0
-
 import { turso } from '@/utils/database'
 
 export const GET = async (req: Request) => {
