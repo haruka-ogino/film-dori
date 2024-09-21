@@ -14,7 +14,6 @@ export async function searchGoogleLocation({
       headers: {
         'Content-Type': 'application/json',
       },
-      cache: 'no-store',
     })
 
     if (!res.ok) {
@@ -48,7 +47,6 @@ export async function getAIDescription({
       headers: {
         'Content-Type': 'application/json',
       },
-      cache: 'no-store',
     })
 
     if (!res.ok) {
