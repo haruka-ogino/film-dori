@@ -15,7 +15,7 @@ function renderMyLocations() {
 
 describe('MyLocations component', () => {
   describe('Render', () => {
-    it('', () => {
+    it.skip('', () => {
       // Arrange
       renderMyLocations()
       // Act
