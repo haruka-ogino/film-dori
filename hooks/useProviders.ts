@@ -3,39 +3,19 @@ import {
   signOut,
   useSession,
   getProviders,
-  LiteralUnion,
   ClientSafeProvider,
-  SignInOptions,
-  SignInAuthorizationParams,
-  SignOutResponse,
-  SignOutParams,
 } from 'next-auth/react'
-import {
-  BuiltInProviderType,
-  RedirectableProviderType,
-} from 'next-auth/providers/index'
 import { useQuery } from '@tanstack/react-query'
 
 interface UseAuthResult {
   session: ReturnType<typeof useSession>['data']
-  providers: Record<
-    LiteralUnion<BuiltInProviderType, string>,
-    ClientSafeProvider
-  > | null
-  signIn: <P extends RedirectableProviderType | undefined = undefined>(
-    provider?:
-      | LiteralUnion<
-          P extends RedirectableProviderType
-            ? BuiltInProviderType | P
-            : BuiltInProviderType
-        >
-      | undefined,
-    options?: SignInOptions | undefined,
-    authorizationParams?: SignInAuthorizationParams | undefined
+  providers: Record<string, ClientSafeProvider> | null
+  signIn: (
+    providerId?: string,
+    options?: { callbackUrl?: string }
   ) => Promise<any>
-  signOut: <R extends boolean = true>(
-    options?: SignOutParams<R> | undefined
-  ) => Promise<R extends true ? undefined : SignOutResponse>
+  signOut: (options?: { callbackUrl?: string }) => Promise<void>
+
   isLoading: boolean
   isError: boolean
 }
