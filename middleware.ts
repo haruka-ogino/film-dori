@@ -1,3 +1,3 @@
 export { default } from 'next-auth/middleware'
 
-export const config = { matcher: ['/api/locations/:authId/by-id/:id'] }
+export const config = { matcher: ['/api/locations/:authId/by-id/:id*'] }
