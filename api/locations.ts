@@ -1,5 +1,3 @@
-// locations from DB
-
 import { LocationData } from '@/models/locations'
 import { Location } from '@/models/locations'
 
@@ -89,7 +87,6 @@ export async function deleteLocation({
 
 export async function updateLocation(data: LocationData) {
   try {
-    // const { authId, id, image, description, tagId, name } = data
     const res = await fetch(`/api/locations/${data.authId}/by-id/${data.id}`, {
       method: 'PATCH',
       headers: {
