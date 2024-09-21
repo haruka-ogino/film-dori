@@ -33,7 +33,11 @@ const NavBar = () => {
         </Link>
         {session?.user ? (
           <div className="flex gap-3 md:gap-5 mx-2 my-2">
-            <button type="button" className="log-btn" onClick={() => signOut()}>
+            <button
+              type="button"
+              className="log-btn"
+              onClick={() => signOut({ callbackUrl: '/' })}
+            >
               Sign Out
             </button>
 
