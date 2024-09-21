@@ -7,7 +7,7 @@ import { LocationData } from '@/models/locations'
 import { useState } from 'react'
 
 export default function Post() {
-  const { session } = useAuth()
+  const { session, signIn } = useAuth()
 
   const [inputState, setInputState] = useState('')
   const [locations, setLocations] = useState<GoogleSearchRes[]>([])
@@ -94,6 +94,20 @@ export default function Post() {
       </form>
       {showRes && (
         <>
+          {!session?.user && (
+            <p className="pl-3 text-center">
+              <span
+                onClick={(e) => {
+                  e.preventDefault()
+                  signIn()
+                }}
+                className="underline cursor-pointer"
+              >
+                Sign in
+              </span>{' '}
+              to save locations
+            </p>
+          )}
           <h1>Search results:</h1>
           <ul className="flex flex-col items-center text-left w-full">
             {locations.map((location, i) => (
@@ -101,17 +115,15 @@ export default function Post() {
                 <div className="flex flex-col md:flex-row justify-between items-center p-3">
                   <div>
                     <h2>{location.displayName}</h2>
-                    <p>{location.formattedAddress}</p>
+                    <p>📍 {location.formattedAddress}</p>
                   </div>
-                  {session?.user ? (
+                  {session?.user && (
                     <button
                       className="button-submit w-72"
                       onClick={() => handleClick(i)}
                     >
                       Save Location
                     </button>
-                  ) : (
-                    <p className="pl-3 text-center">Sign in to save location</p>
                   )}
                 </div>
               </li>
