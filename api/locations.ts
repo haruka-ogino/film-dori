@@ -5,32 +5,13 @@ import { Location } from '@/models/locations'
 
 export async function saveLocation(data: LocationData) {
   try {
-    const {
-      authId,
-      id,
-      image,
-      description,
-      tagId,
-      address,
-      name,
-      rating,
-      url,
-    } = data
-
-    const res = await fetch(`/api/locations/${authId}/by-id/${id}`, {
+    const res = await fetch(`/api/locations/${data.authId}/by-id/${data.id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id,
-        image,
-        description,
-        tagId,
-        address,
-        rating,
-        name,
-        url,
+        ...data,
       }),
     })
 
@@ -108,27 +89,14 @@ export async function deleteLocation({
 
 export async function updateLocation(data: LocationData) {
   try {
-    const {
-      authId,
-      id,
-      image,
-      description,
-      tagId,
-      address,
-      name,
-      rating,
-      url,
-    } = data
-    const res = await fetch(`/api/locations/${authId}/by-id/${id}`, {
+    // const { authId, id, image, description, tagId, name } = data
+    const res = await fetch(`/api/locations/${data.authId}/by-id/${data.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        image,
-        description,
-        tagId,
-        name,
+        ...data,
       }),
     })
 
