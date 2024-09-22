@@ -17,6 +17,7 @@ During my own travels in Japan, I frequented places that either inspired Ghibli 
 
 ### Documentation
 
+* [NextAuth.js](https://next-auth.js.org/getting-started/introduction)
 * [Google OAuth 2.0](https://developers.google.com/identity/protocols/oauth2)
 * [Google Places API (New)](https://developers.google.com/maps/documentation/places/web-service/op-overview)
 * [Google Generative AI Gemini API](https://ai.google.dev/gemini-api/docs)
