@@ -28,9 +28,15 @@ export default function SaveLocation({
   function saveNewLocation(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    saveLocation.mutate(newLocation)
-    open(false)
-    router.push('/my-locations', { scroll: false })
+    saveLocation.mutate(
+      { ...newLocation },
+      {
+        onSuccess: () => {
+          open(false)
+          router.push('/my-locations', { scroll: false })
+        },
+      }
+    )
   }
 
   if (!location || !tags) {
