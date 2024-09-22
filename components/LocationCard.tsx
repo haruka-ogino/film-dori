@@ -87,7 +87,13 @@ export default function LocationCard({
       ) : (
         <p className="self-center">By {location.username}</p>
       )}
-      {edit && <EditPopUp location={location} open={setEdit} />}
+      {edit && (
+        <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60 z-20">
+          <section className="purple_container z-30 md:w-8/12 w-11/12 text-left">
+            <EditPopUp location={location} open={setEdit} />
+          </section>
+        </div>
+      )}
     </>
   )
 }

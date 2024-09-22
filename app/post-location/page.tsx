@@ -132,12 +132,16 @@ export default function Post() {
         </>
       )}
       {saveLocation && (
-        <SaveLocation
-          open={setSaveLocation}
-          newLocation={newLocation}
-          setNewLocation={setNewLocation}
-          getDescription={handleGetDescription}
-        />
+        <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60 z-20">
+          <section className="purple_container z-30 md:w-8/12 w-11/12 text-left">
+            <SaveLocation
+              open={setSaveLocation}
+              newLocation={newLocation}
+              setNewLocation={setNewLocation}
+              getDescription={handleGetDescription}
+            />
+          </section>
+        </div>
       )}
     </>
   )
