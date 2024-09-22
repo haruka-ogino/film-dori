@@ -4,6 +4,7 @@ import { useTags } from '@/hooks/useTags'
 import { Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/navigation'
 import { LocationData } from '@/models/locations'
+import ErrorMessage from './ErrorMessage'
 
 interface Props {
   open: Dispatch<SetStateAction<boolean>>
@@ -30,6 +31,10 @@ export default function SaveLocation({
     saveLocation.mutate(newLocation)
     open(false)
     router.push('/my-locations', { scroll: false })
+  }
+
+  if (!location || !tags) {
+    return <ErrorMessage open={open} />
   }
 
   if (location && tags) {

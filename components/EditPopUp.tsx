@@ -3,6 +3,7 @@ import { useUpdateLocation } from '@/hooks/useLocations'
 import { useTags } from '@/hooks/useTags'
 import { Location } from '@/models/locations'
 import { Dispatch, SetStateAction, useState } from 'react'
+import ErrorMessage from './ErrorMessage'
 
 interface Props {
   location: Location
@@ -54,6 +55,10 @@ export default function EditPopUp({ location, open }: Props) {
         }
       )
     }
+  }
+
+  if (!location || !tags) {
+    return <ErrorMessage open={open} />
   }
 
   if (location && tags) {
