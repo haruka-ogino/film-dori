@@ -86,7 +86,6 @@ const NavBar = () => {
           <div className="flex flex-col items-center justify-around w-80 h-94 text-4xl gradient rounded-[5px]">
             <button
               className="fixed top-8 right-5 pt-2"
-              id=""
               onClick={() => setToggleDropdown(false)}
             >
               <h5 className="leading-3 text-8xl">x</h5>
@@ -151,7 +150,7 @@ const NavBar = () => {
                         signIn(provider.id, { callbackUrl: '/my-locations' })
                       }}
                     >
-                      Sign in
+                      Sign in with {provider.name}
                     </button>
                   ))}
               </>
