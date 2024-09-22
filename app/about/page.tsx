@@ -8,7 +8,7 @@ export default function About() {
         height="315"
         src="https://www.youtube.com/embed/xASQR-xurMI"
         title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
       <p>
