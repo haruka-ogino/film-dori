@@ -59,7 +59,7 @@ export default function EditPopUp({ location, open }: Props) {
   if (location && tags) {
     return (
       <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60 z-20">
-        <section className="search_result z-30 md:w-8/12 w-11/12 text-left">
+        <section className="purple_container z-30 md:w-8/12 w-11/12 text-left">
           <div className="overflow-y-auto grow my-[10px] mx-[5px] px-[15px]">
             <div className="flex justify-between items-center flex-wrap">
               <label htmlFor="name">

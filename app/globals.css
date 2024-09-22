@@ -87,7 +87,7 @@ a:hover,
   background-image: linear-gradient(#f83333 0, #e00b12 100%);
 }
 
-.search_result {
+.purple_container {
   margin: 10px 0px;
   border: none;
   outline: none;
@@ -102,7 +102,7 @@ a:hover,
   flex-direction: column;
 }
 
-.search_result:before {
+.purple_container:before {
   content: '';
   position: absolute;
   top: 0;
@@ -120,7 +120,7 @@ a:hover,
   box-sizing: border-box;
 }
 
-.search_result:after {
+.purple_container:after {
   content: '';
   position: absolute;
   top: 5px;
