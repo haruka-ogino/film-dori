@@ -64,6 +64,7 @@ export default function SaveLocation({
                   </div>
                   <textarea
                     name="description"
+                    id="description"
                     onChange={(e) => {
                       setNewLocation({
                         ...newLocation,
@@ -108,6 +109,7 @@ export default function SaveLocation({
               <br />
               <input
                 name="image-url"
+                id="image-url"
                 type="text"
                 onChange={(e) => {
                   setNewLocation({ ...newLocation, image: e.target.value })
