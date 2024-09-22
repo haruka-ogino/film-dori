@@ -3,6 +3,7 @@ import { Location } from '@/models/locations'
 import { useState } from 'react'
 import { FaRegTrashAlt, FaEdit } from 'react-icons/fa'
 import EditPopUp from './EditPopUp'
+import { useAuth } from '@/hooks/useProviders'
 
 interface Params {
   location: Location
@@ -19,6 +20,7 @@ export default function LocationCard({
   handleNameClick,
   authId,
 }: Params) {
+  const { session } = useAuth()
   const deleteLocation = useDeleteLocation()
   const [edit, setEdit] = useState(false)
 
@@ -46,7 +48,7 @@ export default function LocationCard({
         </p>
       </div>
       <div className="relative flex justify-center m-3">
-        {title === 'My Locations' && (
+        {title === 'My Locations' && session?.user && (
           <div className="absolute p-[5px_12px] m-[5px] self-end flex top-[-57px] right-0 gradient rounded-[20px] w-fit leading-[25px] text-[25px]">
             <button
               data-testid="edit-location"
