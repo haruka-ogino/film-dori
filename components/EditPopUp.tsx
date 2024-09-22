@@ -61,24 +61,24 @@ export default function EditPopUp({ location, open }: Props) {
       <div className="fixed w-full h-full top-0 left-0 flex justify-center items-center bg-black bg-opacity-60 z-20">
         <section className="purple_container z-30 md:w-8/12 w-11/12 text-left">
           <div className="overflow-y-auto grow my-[10px] mx-[5px] px-[15px]">
-            <div className="flex justify-between items-center flex-wrap">
-              <label htmlFor="name">
-                Location name <span className="relative top-[-5px]">*</span>
-              </label>
-              <br />
-              <input
-                name="name"
-                type="text"
-                onChange={(e) => {
-                  setEditLocation({ ...editLocation, name: e.target.value })
-                }}
-                value={editLocation.name}
-                placeholder="image url"
-                className="m-3 pl-2 w-[95%] rounded-md"
-                required
-              />
-            </div>
             <form onSubmit={sendUpdate}>
+              <div className="flex justify-between items-center flex-wrap">
+                <label htmlFor="name">
+                  Location name <span className="relative top-[-5px]">*</span>
+                </label>
+                <br />
+                <input
+                  name="name"
+                  type="text"
+                  onChange={(e) => {
+                    setEditLocation({ ...editLocation, name: e.target.value })
+                  }}
+                  value={editLocation.name}
+                  placeholder="image url"
+                  className="m-3 pl-2 w-[95%] rounded-md"
+                  required
+                />
+              </div>
               <section className="flex flex-col flex-wrap lg:flex-row">
                 <div className="mr-10 flex-[2]">
                   <div className="flex justify-between flex-wrap">
