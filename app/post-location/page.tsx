@@ -13,7 +13,7 @@ export default function Post() {
   const [locations, setLocations] = useState<GoogleSearchRes[]>([])
   const [showRes, setShowRes] = useState<boolean>(false)
   const [saveLocation, setSaveLocation] = useState(false)
-  const [newLocation, setNewLocation] = useState<LocationData>({
+  const emptyLocation = {
     id: '',
     image: '',
     description: '',
@@ -23,7 +23,9 @@ export default function Post() {
     name: '',
     url: '',
     rating: 0,
-  })
+  }
+
+  const [newLocation, setNewLocation] = useState<LocationData>(emptyLocation)
 
   const search = useSearchGoogle()
 
@@ -49,7 +51,7 @@ export default function Post() {
   function handleClick(i: number) {
     const { formattedAddress, displayName, id, rating, url } = locations[i]
     setNewLocation({
-      ...newLocation,
+      ...emptyLocation,
       id,
       rating,
       url,
