@@ -69,6 +69,7 @@ export default function EditPopUp({ location, open }: Props) {
                 <br />
                 <input
                   name="name"
+                  id="name"
                   type="text"
                   onChange={(e) => {
                     setEditLocation({ ...editLocation, name: e.target.value })
@@ -95,6 +96,7 @@ export default function EditPopUp({ location, open }: Props) {
                     </button>
                   </div>
                   <textarea
+                    id="description"
                     name="description"
                     onChange={(e) => {
                       setEditLocation({
@@ -140,6 +142,7 @@ export default function EditPopUp({ location, open }: Props) {
               <br />
               <input
                 name="image-url"
+                id="image-url"
                 type="text"
                 onChange={(e) => {
                   setEditLocation({ ...editLocation, image: e.target.value })
