@@ -132,16 +132,6 @@ a:hover,
   z-index: -1;
 }
 
-.tag {
-  color: rgb(255, 245, 254);
-  background: linear-gradient(
-    160deg,
-    rgb(111, 131, 228) 0%,
-    rgb(215, 101, 196) 100%
-  );
-  /* gradient rounded-[20px] w-fit leading-[25px] text-[25px]*/
-}
-
 .gradient {
   background: linear-gradient(
     160deg,
