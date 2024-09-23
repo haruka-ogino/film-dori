@@ -6,7 +6,6 @@ export function useSearchGoogle() {
 
   return useMutation({
     mutationFn: searchGoogleLocation,
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['googleLocations'] }),
   })
 }
 
@@ -15,6 +14,5 @@ export function useAIDescription() {
 
   return useMutation({
     mutationFn: getAIDescription,
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['description'] }),
   })
 }
