@@ -18,13 +18,10 @@ export function useSaveLocation() {
 }
 
 export function useLocations(authId: string, tagId: number) {
-  const query = useQuery({
+  return useQuery({
     queryFn: async () => getLocations(authId, tagId),
     queryKey: ['locations', 'my-locations', authId, tagId],
   })
-  return {
-    ...query,
-  }
 }
 
 export function useDeleteLocation() {
