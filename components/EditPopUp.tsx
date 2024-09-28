@@ -33,8 +33,11 @@ export default function EditPopUp({ location, open }: Props) {
     if (location.image !== editLocation.image && !displayImg) {
       window.alert('Please load and check the image before saving your changes')
     } else {
-      updateLocation.mutate(editLocation)
-      open(false)
+      updateLocation.mutate(editLocation, {
+        onSuccess: () => {
+          open(false)
+        },
+      })
     }
   }
 
