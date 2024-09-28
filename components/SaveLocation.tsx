@@ -30,12 +30,16 @@ export default function SaveLocation({
   function saveNewLocation(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    saveLocation.mutate(newLocation, {
-      onSuccess: () => {
-        open(false)
-        router.push('/my-locations', { scroll: false })
-      },
-    })
+    if (!displayImg) {
+      window.alert('Please load and check the image before saving your changes')
+    } else {
+      saveLocation.mutate(newLocation, {
+        onSuccess: () => {
+          open(false)
+          router.push('/my-locations', { scroll: false })
+        },
+      })
+    }
   }
 
   if (!location || !tags) {
