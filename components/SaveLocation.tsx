@@ -1,7 +1,7 @@
 'use client'
 import { useSaveLocation } from '@/hooks/useLocations'
 import { useTags } from '@/hooks/useTags'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { LocationData } from '@/models/locations'
 import ErrorMessage from './ErrorMessage'
@@ -19,6 +19,8 @@ export default function SaveLocation({
   setNewLocation,
   getDescription,
 }: Props) {
+  const [displayImg, setDisplayImg] = useState(false)
+
   const router = useRouter()
 
   const saveLocation = useSaveLocation()
@@ -109,21 +111,45 @@ export default function SaveLocation({
               ))}
             </div>
           </section>
-          <label htmlFor="image-url">
-            Image Link <span className="relative top-[-5px]">*</span>
-          </label>
-          <br />
-          <input
-            name="image-url"
-            id="image-url"
-            type="text"
-            onChange={(e) => {
-              setNewLocation({ ...newLocation, image: e.target.value })
-            }}
-            placeholder="image url"
-            className="m-3 pl-2 w-[95%] rounded-md"
-            required
-          />
+
+          {!displayImg ? (
+            <>
+              <label htmlFor="image-url">
+                Image Link <span className="relative top-[-5px]">*</span>
+              </label>
+              <br />
+              <section>
+                <input
+                  name="image-url"
+                  id="image-url"
+                  type="text"
+                  onChange={(e) => {
+                    setNewLocation({ ...newLocation, image: e.target.value })
+                  }}
+                  placeholder="image url"
+                  className="m-3 pl-2 w-[95%] rounded-md"
+                  required
+                />
+                <button
+                  className="button-submit w-[150px] mx-4"
+                  onClick={() => setDisplayImg(true)}
+                >
+                  Load image
+                </button>
+              </section>
+            </>
+          ) : (
+            <section className="text-center relative pb-2">
+              <img src={newLocation.image} alt={newLocation.name} />
+              <button
+                className="button-submit w-[150px] mx-4 my-2 absolute top-0 right-0 flex justify-around items-center"
+                onClick={() => setDisplayImg(false)}
+              >
+                <span className="pt-1">↩️</span> Go back
+              </button>
+            </section>
+          )}
+
           <div className="flex flex-wrap justify-around items-center mr-[30px]">
             <button type="submit" className="button-submit w-[150px] mx-4">
               Save to my locations
