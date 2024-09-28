@@ -13,6 +13,7 @@ interface Props {
 export default function EditPopUp({ location, open }: Props) {
   const updateLocation = useUpdateLocation()
   const { data: tags } = useTags()
+  const [displayImg, setDisplayImg] = useState(false)
 
   const [editLocation, setEditLocation] = useState({
     image: location.image,
@@ -29,8 +30,12 @@ export default function EditPopUp({ location, open }: Props) {
   function sendUpdate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    updateLocation.mutate(editLocation)
-    open(false)
+    if (location.image !== editLocation.image && !displayImg) {
+      window.alert('Please load and check the image before saving your changes')
+    } else {
+      updateLocation.mutate(editLocation)
+      open(false)
+    }
   }
 
   const getDescription = useAIDescription()
@@ -139,22 +144,44 @@ export default function EditPopUp({ location, open }: Props) {
               ))}
             </div>
           </section>
-          <label htmlFor="image-url">
-            Image Link <span className="relative top-[-5px]">*</span>
-          </label>
-          <br />
-          <input
-            name="image-url"
-            id="image-url"
-            type="text"
-            onChange={(e) => {
-              setEditLocation({ ...editLocation, image: e.target.value })
-            }}
-            value={editLocation.image}
-            placeholder="image url"
-            className="m-3 pl-2 w-[95%] rounded-md"
-            required
-          />
+          {!displayImg ? (
+            <>
+              <label htmlFor="image-url">
+                Image Link <span className="relative top-[-5px]">*</span>
+              </label>
+              <br />
+              <section className="flex justify-between">
+                <input
+                  name="image-url"
+                  id="image-url"
+                  type="text"
+                  onChange={(e) => {
+                    setEditLocation({ ...editLocation, image: e.target.value })
+                  }}
+                  value={editLocation.image}
+                  placeholder="image url"
+                  className="m-3 pl-2 w-[95%] rounded-md"
+                  required
+                />
+                <button
+                  className="button-submit w-[150px] mx-4"
+                  onClick={() => setDisplayImg(true)}
+                >
+                  Load image
+                </button>
+              </section>
+            </>
+          ) : (
+            <section className="text-center relative pb-2">
+              <img src={editLocation.image} alt={editLocation.name} />
+              <button
+                className="button-submit w-[150px] mx-4 my-2 absolute top-0 right-0 flex justify-around items-center"
+                onClick={() => setDisplayImg(false)}
+              >
+                <span className="pt-1">↩️</span> Go back
+              </button>
+            </section>
+          )}
           <div className="flex flex-wrap justify-around items-center mr-[30px]">
             <button type="submit" className="button-submit w-[150px] mx-4">
               Save changes
